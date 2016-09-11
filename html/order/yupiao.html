@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>JSP Page</title>
+		<script type="text/javascript" >
+		
+			function showP(){
+				var a=document.getElementById("result");
+				a.removeAttribute("style");
+			}
+
+		</script>
+	</head>
+
+	<body>
+		<div id="header">
+			这里是头
+		</div>
+	<br />
+		
+		<div id="content">
+			<div id="search">
+				<form action="" method="post">
+					出发地<input type="text" class="input" id="fromplace" /> 目的地
+					<input type="text" class="input" id="toplace" /> 出发日
+					<input type="text" class="input" id="date" />
+					<input type="button" class="button" value="查询" onclick="showP()" />
+				</form>
+			</div>
+			<br />
+			<div id="title">
+				<table border="0" class="title">
+					<td width="90">车次</td>
+					<td width="80">出发站</td>
+					<td width="80">到达站</td>
+					<td width="80">出发时间</td>
+					<td width="50">历时</td>
+					<td width="80">一等座</td>
+					<td width="80">二等座</td>
+					<td width="50">其他</td>
+					<td width="90">备注</td>
+
+				</table>
+			</div>
+			<hr/>
+			<div id="result" style="display:none;">
+			<table border="0">
+					<tr>
+					<td width="90 ">G6160</td>
+					<td width="80 ">广州南</td>
+					<td width="80 ">广州北</td>
+					<td width="80 ">17:17</td>
+					<td width="50 ">00:17</td>
+					<td width="80 ">2</td>
+					<td width="80 ">无</td>
+					<td width="50 ">-</td>
+					<td width="90 "><a href="newOrder.html"><input type="button" value="预定 "/></a></td></tr>
+					<tr>
+					<td width="90 ">G638</td>
+					<td width="80 ">广州南</td>
+					<td width="80 ">广州北</td>
+					<td width="80 ">17:01</td>
+					<td width="50 ">00:17</td>
+					<td width="80 ">无</td>
+					<td width="80 ">无</td>
+					<td width="50 ">-</td>
+					<td width="90 "><input type="button" value="预定 " disabled/></td></tr>
+				</table>
+			</div>
+
+		</div>
+
+		<div id="footer ">
+			<br>这里是尾
+		</div>
+
+	</body>
+
+</html>
