@@ -1,0 +1,49 @@
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/management.css" type="text/css">
+	<style type="text/css">
+		#station{
+		padding-right:30px;}
+		#result table tr th,td{
+		padding:10px 20px 10px 20px;}
+	</style>
+	</head>
+	<body>
+		<div id="content">
+			<div id="top"><img src="../img/head.png"></div>
+			<div id="body">
+				<div id="left">
+					<ul>
+						<li class="function" id="function_first"><a href="../management/management.html">全部功能</a></li>
+						<li class="function"><a href="../station/stationManagement.html">车站管理</a></li>
+						<li class="function"><a href="../line/lineManagement.html">线路管理</a></li>
+						<li class="function"><a href="../diYuanDiJianLv/rateManagement.html">递远递减率管理</a></li>
+					</ul>
+				</div>
+				<div id="right">
+					<form action="addStation.html" method="get">
+						<div id="result" align="center">
+							<table>
+								<tr>
+									<th>递远递减率编号</th>
+									<th>里程区段From</th>
+									<th>里程区段To</th>
+									<th>递减率</th>
+									<th>票价率</th>
+								</tr>
+								<tr>
+									<td><a href="rate.html">1</a></td>
+									<td>500</td>
+									<td>1000</td>
+									<td>10%</td>
+									<td>10</td>
+								</tr>
+							</table>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/management.css" type="text/css">
+	<link rel="stylesheet" href="../css/add.css" type="text/css">
+	</head>
+	<body>
+		<div id="content">
+			<div id="top"><img src="../img/head.png"></div>
+			<div id="body">
+				<div id="left">
+					<ul>
+						<li class="function" id="function_first"><a href="../management/management.html">全部功能</a></li>
+						<li class="function"><a href="../station/stationManagement.html">车站管理</a></li>
+						<li class="function"><a href="../line/lineManagement.html">线路管理</a></li>
+						<li class="function"><a href="../diYuanDiJianLv/rateManagement.html">递远递减率管理</a></li>
+					</ul>
+				</div>
+				<div id="right">
+					<form method="post">
+					<div id="addPart" align="center">
+						<table id="add">
+							<tr>
+								<td>里程区段From</td>
+								<td><input /></td>
+							</tr>
+							<tr>
+								<td>里程区段To</td>
+								<td><input /></td>
+							</tr>
+							<tr>
+								<td>递减率</td>
+								<td><input /></td>
+							</tr>
+							<tr>
+								<td>票价率</td>
+								<td><input /></td>
+							</tr>
+							<tr>
+								<td>各区段全程票价</td>
+								<td><input /></td>
+							</tr>
+							<tr>
+								<td>区段累计票价</td>
+								<td><input /></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<table>
+										<tr>
+										<td><button type="submit">提交</button></td>
+										<td><button type="reset">重置</button></td>
+										<td><button type="button" onclick="cancel">取消</button></td>
+									</table>
+								</td>
+							</tr>
+						</table>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script>
+		function cancel(){
+		window.location.href="management.html";
+		}
+		</script>
+	</body>
+</html>
