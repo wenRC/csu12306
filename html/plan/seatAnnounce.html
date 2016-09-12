@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My12306-席位发布</title>
+</head>
+<body>
+    <div align="center">
+        <div>
+            <h1>席位信息</h1>
+        </div>
+        <div>
+            <form action="" method="post">
+                <table cellpadding="10">
+                    <tr>
+                        <td>车次：</td>
+                        <td><input type="text" name=""> </td>
+                        <td>车厢：</td>
+                        <td><input type="text" name=""> </td>
+                        <td><input type="submit" value="查询"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <br/>
+        <div>
+            <table  border="1" cellspacing="0" cellpadding="5">
+                <tr>
+                    <th>席位代码</th>
+                    <th>车次</th>
+                    <th>日期</th>
+                    <th>车厢号</th>
+                    <th>座位号</th>
+                    <th>乘车区间起始站</th>
+                    <th>乘车区间终到站</th>
+                    <th>售票状态</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                    <td>1234</td>
+                    <td>S1245</td>
+                    <td>2016-09-13</td>
+                    <td>9</td>
+                    <td>5</td>
+                    <td>长沙</td>
+                    <td>上海</td>
+                    <td>未售</td>
+                    <td><a href="seatModify.html">修改</a></td>
+                </tr>
+            </table>
+        </div>
+        <br/>
+        <div>
+            <form action="" method="post">
+                <table cellpadding="10">
+                    <tr>
+                        <td><input type="radio" name="seatNumber">已售席位</td>
+                        <td><input type="radio" name="seatNumber">未售席位</td>
+                        <td><input type="radio" name="seatNumber">总席位</td>
+                        <td><input type="submit" value="查询"></td>
+                        <td>数量：<input type="text" name=""></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

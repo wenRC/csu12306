@@ -1,0 +1,45 @@
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/management.css" type="text/css">
+	<link rel="stylesheet" href="../css/add.css" type="text/css">
+	</head>
+	<body>
+		<div id="content">
+			<div id="top"><img src="../img/head.png"></div>
+			<div id="body">
+				<div id="left">
+					<ul>
+						<li class="function" id="function_first"><a href="../management/management.html">全部功能</a></li>
+						<li class="function"><a href="../station/stationManagement.html">车站管理</a></li>
+						<li class="function"><a href="../line/lineManagement.html">线路管理</a></li>
+						<li class="function"><a href="../diYuanDiJianLv/rateManagement.html">递远递减率管理</a></li>
+					</ul>
+				</div>
+				<div id="right">
+					<form action="line.html" method="get">
+						<div id="addPart" align="center">
+						<table id="add">
+							<tr>
+								<td>请输入车次</td>
+								<td>
+									<input />
+								</td>
+							</tr>
+							<tr>
+								<td><button type="submit">查询</button></td>
+								<td><button type="button" onclick="cancel()">取消</button></td>
+							</tr>
+						</table>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script>
+		function cancel(){
+		window.location.href="../management/management.html";
+		}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/management.css" type="text/css">
+	<style type="text/css">
+		#station{
+		padding-right:30px;}
+		#result table tr th,td{
+		padding:10px 20px 10px 20px;}
+	</style>
+	</head>
+	<body>
+		<div id="content">
+			<div id="top"><img src="../img/head.png"></div>
+			<div id="body">
+				<div id="left">
+					<ul>
+						<li class="function" id="function_first"><a href="../management/management.html">全部功能</a></li>
+						<li class="function"><a href="../station/stationManagement.html">车站管理</a></li>
+						<li class="function"><a href="../line/lineManagement.html">线路管理</a></li>
+						<li class="function"><a href="../diYuanDiJianLv/rateManagement.html">递远递减率管理</a></li>
+					</ul>
+				</div>
+				<div id="right">
+					<form action="addStation.html" method="get">
+						<div id="station" align="right">
+							您输入的车站是:
+						</div>
+						<div id="result" align="center">
+							<table>
+								<tr>
+									<th>车次代码</th>
+									<th>车站名</th>
+									<th>发车时间</th>
+									<th>到站时间</th>
+									<th>停留时间</th>
+								</tr>
+								<tr>
+									<td><a href="line.html">123</a></td>
+									<td>长沙</td>
+									<td>12:00</td>
+									<td>11:55</td>
+									<td>5min</td>
+								</tr>
+							</table>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
