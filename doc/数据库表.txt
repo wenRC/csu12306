@@ -21,7 +21,7 @@ type
 Line 
 lineId
 trainId
-stationName
+stationId
 distance
 fromTime
 lastTime
