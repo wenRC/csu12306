@@ -1,4 +1,4 @@
-
+数据库内为全小写
 Station
 stationId
 stationName
@@ -81,7 +81,6 @@ Ticket
 ticketId
 seatId
 price
-passengerId
 saleMode
 ticketType
 
