@@ -48,7 +48,7 @@ CREATE TABLE `line` (
   PRIMARY KEY (`lineid`),
   KEY `lsid` (`stationid`),
   KEY `ltid` (`trainid`),
-  CONSTRAINT `lsid` FOREIGN KEY (`stationid`) REFERENCES `station` (`stationid`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CONSTRAINT `lsid` FOREIGN KEY (`stationname`) REFERENCES `station` (`stationname`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `ltid` FOREIGN KEY (`trainid`) REFERENCES `train` (`trainid`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
