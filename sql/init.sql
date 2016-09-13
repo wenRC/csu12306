@@ -41,14 +41,14 @@ DROP TABLE IF EXISTS `line`;
 CREATE TABLE `line` (
   `lineid` int(11) NOT NULL,
   `trainid` int(11) NOT NULL,
-  `stationid` int(11) NOT NULL,
+  `stationname` int(11) NOT NULL,
   `distance` smallint(6) NOT NULL,
   `fromtime` datetime NOT NULL,
   `lasttime` varchar(20) NOT NULL,
   PRIMARY KEY (`lineid`),
   KEY `lsid` (`stationid`),
   KEY `ltid` (`trainid`),
-  CONSTRAINT `lsid` FOREIGN KEY (`stationid`) REFERENCES `station` (`stationid`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  CONSTRAINT `lsid` FOREIGN KEY (`stationname`) REFERENCES `station` (`stationname`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `ltid` FOREIGN KEY (`trainid`) REFERENCES `train` (`trainid`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
