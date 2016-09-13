@@ -41,7 +41,7 @@ DROP TABLE IF EXISTS `line`;
 CREATE TABLE `line` (
   `lineid` int(11) NOT NULL,
   `trainid` int(11) NOT NULL,
-  `stationid` int(11) NOT NULL,
+  `stationname` int(11) NOT NULL,
   `distance` smallint(6) NOT NULL,
   `fromtime` datetime NOT NULL,
   `lasttime` varchar(20) NOT NULL,
@@ -110,7 +110,7 @@ CREATE TABLE `plan` (
   PRIMARY KEY (`planid`),
   KEY `ptid` (`trainid`),
   KEY `psid` (`stationid`),
-  CONSTRAINT `psid` FOREIGN KEY (`stationid`) REFERENCES `station` (`stationid`) ON DELETE CASCADE,
+  CONSTRAINT `psid` FOREIGN KEY (`stationname`) REFERENCES `station` (`stationname`) ON DELETE CASCADE,
   CONSTRAINT `ptid` FOREIGN KEY (`trainid`) REFERENCES `train` (`trainid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
