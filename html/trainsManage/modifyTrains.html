@@ -3,34 +3,16 @@
    <head>
         <meta charset="UTF-8">
 		<title>列车管理</title>
-		<link rel="stylesheet" href="../css/12306.css">
+		<!--<link rel="stylesheet" href="../12306.css">-->
     </head>
 	<body>
-		<link rel="stylesheet" type="text/css" href="../css/head.css">
-		<div id="header" style="background: darkslategrey;color: #BDBDBD;">
-			<a href="../station/stationManagement.html">车站管理</a>
-			|
-			<a href="../line/lineManagement.html">线路管理</a>
-			|
-			<a href="../trainsFormat/trainsFormat.html">列车编组</a>
-			|
-			<a href="../quDuan/quDuanQuery.html">票价旅程区段管理</a>|
-			<a href="../diYuanDiJianLv/rateManagement.html">递远递减率管理</a>|
-			<a href="../bussinessCount/index.html">财务统计</a>|
-			<a href="../plan/seatAnnounce.html">调度管理</a>|
-			<a href="../fareRateManage/fareRateManage.html">票价率</a>|
-			<a href="../plan/planManage.html">计划信息</a>|
-			<a href="../trainsManage/trainsManage.html">列车管理</a>
-		</div>
 	      <div id="content">
 		    <div id="body">
 			    <div id="left">
 				    <ul>
-			            <li class="function_first"><a href="">列车管理</a></li>
-			            <li class="function"><a href="searchTrains.html">查询</a></li>
-						<li class="function"><a href="modifyTrains.html">修改</a></li>
-						<li class="function"><a href="addTrains.html">添加</a></li>
-						<li class="function"><a href="deleteTrains.html">删除</a></li>
+			            <li class="function_first"><a href="">列车编组</a></li>
+			          <li class="function"><a href="searchTrains.html">查询</a></li>
+						    <li class="function"><a href="addTrains.html">添加</a></li>
 					</ul>
 			    </div>
 			<div id="right">
@@ -39,28 +21,47 @@
 					<table>
 						<tr>
 							<td>车次</td>
-							<td><input type="text"></td>
+							<td><input type="text" value="c123"></td>
 						</tr>
 						<tr>
 							<td>始发站</td>
-							<td><input type="text"></td>
+							<td><input type="text" value="北京"></td>
 						</tr>
 						<tr>
 							<td>终点站</td>
-							<td><input type="text"></td>
+							<td><input type="text" value="长沙"></td>
 						</tr>
 						<tr>
 							<td>发车时间</td>
-							<td><input type="text"></td>
+							<td><input type="text" value="9:0"></td>
 						</tr>
 						<tr>
 							<td>到达时间</td>
-							<td><input type="text"></td>
+							<td><input type="text" value="15:0"></td>
 						</tr>
 						<tr>
-							<td>备注</td>
-							<td><input type="text"></td>
+							<td>历时</td>
+							<td><input type="text" value="6小时"></td>
 						</tr>
+						<tr>
+							<td>里程</td>
+							<td><input type="text" value="650"></td>
+						</tr>
+						<tr>
+							<td>无座票数量</td>
+							<td><input type="text" value="20"></td>
+						</tr>
+						<tr>
+							<td>车辆车体分类</td>
+							<td><input type="text" value="空调车"></td>
+						</tr>
+						<tr>
+							<td>列车类型</td>
+							<td><input type="text" value="高铁"></td>
+						</tr>
+						<tr></tr>
+						<tr></tr>
+						<tr></tr><tr></tr>
 					<tr><td colspan="2" align="center"> <input type="button" value="确认修改"></td></tr>
 				</table>
 				</div>

@@ -3,64 +3,49 @@
    <head>
         <meta charset="UTF-8">
 		<title>列车编组</title>
-		<link rel="stylesheet" href="../css/12306.css">
+		<!--<link rel="stylesheet" href="../12306.css">-->
     </head>
 	<body>
-		<link rel="stylesheet" type="text/css" href="../css/head.css">
-		<div id="header" style="background: darkslategrey;color: #BDBDBD;">
-			<a href="../station/stationManagement.html">车站管理</a>
-			|
-			<a href="../line/lineManagement.html">线路管理</a>
-			|
-			<a href="../trainsFormat/trainsFormat.html">列车编组</a>
-			|
-			<a href="../quDuan/quDuanQuery.html">票价旅程区段管理</a>|
-			<a href="../diYuanDiJianLv/rateManagement.html">递远递减率管理</a>|
-			<a href="../bussinessCount/index.html">财务统计</a>|
-			<a href="../plan/seatAnnounce.html">调度管理</a>|
-			<a href="../fareRateManage/fareRateManage.html">票价率</a>|
-			<a href="../plan/planManage.html">计划信息</a>|
-			<a href="../trainsManage/trainsManage.html">列车管理</a>
-		</div>
 	      <div id="content">
 		    <div id="body">
 			    <div id="left">
 				    <ul>
 			            <li class="function_first"><a href="">列车编组</a></li>
-			            <li class="function"><a href="searchTFormat.html">查询</a></li>
-						<li class="function"><a href="modifyTFormat.html">修改</a></li>
-						<li class="function"><a href="addTFormat.html">添加</a></li>
-						<li class="function"><a href="deleteTFormat.html">删除</a></li>
+			          <li class="function"><a href="searchTrains.html">查询</a></li>
+						    <li class="function"><a href="addTrains.html">添加</a></li>
 					</ul>
 			    </div>
 			<div id="right">
 				<div id="modifyTFormat" align="center">
-					<h2>列车编组</h2>
+					<h2>列车编组修改</h2>
 					<table>
 						<tr>
 							<td>列车编组编号</td>
-							<td><input type="text"></td>
+							<td><input type="text" value="1"></td>
 						</tr>
 						<tr>
 							<td>车次代码</td>
-							<td><input type="text"></td>
+							<td><input type="text" value="c123"></td>
 						</tr>
 						<tr>
 							<td>车厢号</td>
-							<td><input type="text"></td>
+							<td><input type="text" value="1"></td>
 						</tr>
 						<tr>
 							<td>车厢座席类型</td>
-							<td><input type="text"></td>
+							<td><input type="text" value="硬座"></td>
 						</tr>
 						<tr>
 							<td>车厢座席数量</td>
-							<td><input type="text"></td>
+							<td><input type="text" value="20"></td>
 						</tr>
 						<tr>
 							<td>车厢类型</td>
-							<td><input type="text"></td>
+							<td><input type="text" value="硬座车"></td>
 						</tr>
+						<tr></tr>
+						<tr></tr>
+						<tr></tr><tr></tr>
 					<tr><td colspan="2" align="center"> <input type="button" value="确认修改"></td></tr>
 				</table>
 				</div>
