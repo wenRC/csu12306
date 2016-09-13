@@ -14,7 +14,46 @@ Date: 2016-09-12 16:19:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `station`
+-- ----------------------------
+DROP TABLE IF EXISTS `station`;
+CREATE TABLE `station` (
+  `stationid` int(11) NOT NULL,
+  `stationname` varchar(50) NOT NULL,
+  `pinyin` varchar(50) NOT NULL,
+  `location` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`stationid`),
+  UNIQUE( `stationname`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of station
+-- ----------------------------
+INSERT INTO `station` VALUES ('1', '广州北', 'GZB', '广州');
+INSERT INTO `station` VALUES ('2', '广州南', 'GZN', '广州');
+
+-- ----------------------------
+-- Table structure for `train`
+-- ----------------------------
+DROP TABLE IF EXISTS `train`;
+CREATE TABLE `train` (
+  `trainid` int(11) NOT NULL,
+  `from` varchar(50) NOT NULL,
+  `to` varchar(50) NOT NULL,
+  `fromtime` datetime NOT NULL,
+  `totime` datetime NOT NULL,
+  `last` varchar(50) DEFAULT NULL,
+  `distance` smallint(6) NOT NULL,
+  `noseatnumber` smallint(6) DEFAULT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`trainid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of train
+-- ----------------------------
+INSERT INTO `train` VALUES ('1', '广州南', '广州北', '2016-09-12 16:13:05', '2016-09-12 16:13:10', '15分钟', '500', '5', '磁悬浮');
 -- ----------------------------
 -- Table structure for `diyuandijian`
 -- ----------------------------
@@ -41,12 +80,12 @@ DROP TABLE IF EXISTS `line`;
 CREATE TABLE `line` (
   `lineid` int(11) NOT NULL,
   `trainid` int(11) NOT NULL,
-  `stationname` int(11) NOT NULL,
+  `stationname` varchar(50) NOT NULL,
   `distance` smallint(6) NOT NULL,
   `fromtime` datetime NOT NULL,
   `lasttime` varchar(20) NOT NULL,
   PRIMARY KEY (`lineid`),
-  KEY `lsid` (`stationid`),
+  KEY `lsid` (`stationname`),
   KEY `ltid` (`trainid`),
   CONSTRAINT `lsid` FOREIGN KEY (`stationname`) REFERENCES `station` (`stationname`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `ltid` FOREIGN KEY (`trainid`) REFERENCES `train` (`trainid`) ON DELETE NO ACTION ON UPDATE CASCADE
@@ -55,27 +94,7 @@ CREATE TABLE `line` (
 -- ----------------------------
 -- Records of line
 -- ----------------------------
-INSERT INTO `line` VALUES ('1', '1', '1', '1000', '2016-09-12 16:18:41', '5分钟');
-
--- ----------------------------
--- Table structure for `order`
--- ----------------------------
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE `order` (
-  `orderid` int(11) NOT NULL,
-  `passengerid` int(11) NOT NULL,
-  `orderstatus` varchar(50) NOT NULL,
-  `ordertime` datetime NOT NULL,
-  PRIMARY KEY (`orderid`),
-  KEY `opid` (`passengerid`),
-  CONSTRAINT `opid` FOREIGN KEY (`passengerid`) REFERENCES `passenger` (`passengerid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of order
--- ----------------------------
-INSERT INTO `order` VALUES ('1', '1', '未出行', '2016-09-12 16:17:56');
-
+INSERT INTO `line` VALUES ('1', '1', '广州北', '1000', '2016-09-12 16:18:41', '5分钟');
 -- ----------------------------
 -- Table structure for `passenger`
 -- ----------------------------
@@ -98,6 +117,26 @@ CREATE TABLE `passenger` (
 INSERT INTO `passenger` VALUES ('1', '527375636@qq.com', '123456', '男', '温睿诚', '4400000000', '13308470064');
 
 -- ----------------------------
+-- Table structure for `order`
+-- ----------------------------
+DROP TABLE IF EXISTS `order`;
+CREATE TABLE `order` (
+  `orderid` int(11) NOT NULL,
+  `passengerid` int(11) NOT NULL,
+  `orderstatus` varchar(50) NOT NULL,
+  `ordertime` datetime NOT NULL,
+  PRIMARY KEY (`orderid`),
+  KEY `opid` (`passengerid`),
+  CONSTRAINT `opid` FOREIGN KEY (`passengerid`) REFERENCES `passenger` (`passengerid`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of order
+-- ----------------------------
+INSERT INTO `order` VALUES ('1', '1', '未出行', '2016-09-12 16:17:56');
+
+
+-- ----------------------------
 -- Table structure for `plan`
 -- ----------------------------
 DROP TABLE IF EXISTS `plan`;
@@ -106,10 +145,10 @@ CREATE TABLE `plan` (
   `trainid` int(11) NOT NULL,
   `chexiang` tinyint(4) NOT NULL,
   `compare` varchar(5) NOT NULL,
-  `stationid` int(11) NOT NULL,
+  `stationname` varchar(50) NOT NULL,
   PRIMARY KEY (`planid`),
   KEY `ptid` (`trainid`),
-  KEY `psid` (`stationid`),
+  KEY `psid` (`stationname`),
   CONSTRAINT `psid` FOREIGN KEY (`stationname`) REFERENCES `station` (`stationname`) ON DELETE CASCADE,
   CONSTRAINT `ptid` FOREIGN KEY (`trainid`) REFERENCES `train` (`trainid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -176,23 +215,7 @@ CREATE TABLE `seat` (
 -- ----------------------------
 INSERT INTO `seat` VALUES ('1', '1', '2016-09-12 16:15:51', '6', '2a', '广州南', '广州北', '未出行');
 
--- ----------------------------
--- Table structure for `station`
--- ----------------------------
-DROP TABLE IF EXISTS `station`;
-CREATE TABLE `station` (
-  `stationid` int(11) NOT NULL,
-  `stationname` varchar(50) NOT NULL,
-  `pinyin` varchar(50) NOT NULL,
-  `location` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`stationid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of station
--- ----------------------------
-INSERT INTO `station` VALUES ('1', '广州北', 'GZB', '广州');
-INSERT INTO `station` VALUES ('2', '广州南', 'GZN', '广州');
 
 -- ----------------------------
 -- Table structure for `ticket`
@@ -214,27 +237,7 @@ CREATE TABLE `ticket` (
 -- ----------------------------
 INSERT INTO `ticket` VALUES ('1', '1', '15.00', '网络', '二等座');
 
--- ----------------------------
--- Table structure for `train`
--- ----------------------------
-DROP TABLE IF EXISTS `train`;
-CREATE TABLE `train` (
-  `trainid` int(11) NOT NULL,
-  `from` varchar(50) NOT NULL,
-  `to` varchar(50) NOT NULL,
-  `fromtime` datetime NOT NULL,
-  `totime` datetime NOT NULL,
-  `last` varchar(50) DEFAULT NULL,
-  `distance` smallint(6) NOT NULL,
-  `noseatnumber` smallint(6) DEFAULT NULL,
-  `type` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`trainid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of train
--- ----------------------------
-INSERT INTO `train` VALUES ('1', '广州南', '广州北', '2016-09-12 16:13:05', '2016-09-12 16:13:10', '15分钟', '500', '5', '磁悬浮');
 
 -- ----------------------------
 -- Table structure for `traingroup`
