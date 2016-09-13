@@ -148,13 +148,9 @@ CREATE TABLE `plan` (
   `stationname` varchar(50) NOT NULL,
   PRIMARY KEY (`planid`),
   KEY `ptid` (`trainid`),
-<<<<<<< HEAD
   KEY `psid` (`stationname`),
   CONSTRAINT `psid` FOREIGN KEY (`stationname`) REFERENCES `station` (`stationname`) ON DELETE CASCADE,
-=======
-  KEY `psid` (`stationid`),
-  CONSTRAINT `psid` FOREIGN KEY (`stationid`) REFERENCES `station` (`stationid`) ON DELETE CASCADE,
->>>>>>> dac4cb9af83b239400c59634b66eb2a6023f861b
+
   CONSTRAINT `ptid` FOREIGN KEY (`trainid`) REFERENCES `train` (`trainid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
