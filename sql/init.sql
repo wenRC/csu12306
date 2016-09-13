@@ -110,7 +110,7 @@ CREATE TABLE `plan` (
   PRIMARY KEY (`planid`),
   KEY `ptid` (`trainid`),
   KEY `psid` (`stationid`),
-  CONSTRAINT `psid` FOREIGN KEY (`stationname`) REFERENCES `station` (`stationname`) ON DELETE CASCADE,
+  CONSTRAINT `psid` FOREIGN KEY (`stationid`) REFERENCES `station` (`stationid`) ON DELETE CASCADE,
   CONSTRAINT `ptid` FOREIGN KEY (`trainid`) REFERENCES `train` (`trainid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
