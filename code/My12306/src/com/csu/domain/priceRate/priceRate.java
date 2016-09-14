@@ -3,10 +3,10 @@ package com.csu.domain.priceRate;
 /**
  * Created by war on 2016/9/14.
  */
-public class priceRate {
+public class PriceRate {
         private int priceRateId;
         private String ticketType;
-        private int priceRate;
+        private double priceRate;
 
         public int getPriceRateId() {
             return priceRateId;
@@ -24,11 +24,11 @@ public class priceRate {
             this.ticketType = ticketType;
         }
 
-        public int getPriceRate() {
+        public double getPriceRate() {
             return priceRate;
         }
 
-        public void setPriceRate(int priceRate) {
+        public void setPriceRate(double priceRate) {
             this.priceRate = priceRate;
         }
 }

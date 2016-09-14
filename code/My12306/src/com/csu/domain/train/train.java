@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by war on 2016/9/14.
  */
-public class train {
+public class Train {
         private int trainId;
         private String from;
         private String to;

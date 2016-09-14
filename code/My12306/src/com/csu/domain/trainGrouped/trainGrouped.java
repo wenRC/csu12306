@@ -3,7 +3,7 @@ package com.csu.domain.trainGrouped;
 /**
  * Created by war on 2016/9/14.
  */
-public class trainGrouped {
+public class TrainGrouped {
     private int trainGroupId;
     private int trainId;
     private int chexiang;

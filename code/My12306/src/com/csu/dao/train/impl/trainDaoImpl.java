@@ -1,29 +1,31 @@
 package com.csu.dao.train.impl;
 
 import com.csu.dao.train.TrainDao;
-import com.csu.domain.train.train;
+import com.csu.domain.train.Train;
 
 /**
  * Created by war on 2016/9/14.
  */
 public class TrainDaoImpl implements TrainDao {
     @Override
-    public train getTrainBytrainId(int trainId) {
+    public Train getTrainBytrainId(int trainId) {
         return null;
     }
 
     @Override
-    public void insertTrain(train train) {
-
+    public boolean insertTrain(Train train) {
+        return false;
     }
 
     @Override
-    public void deleteTrainBytrainId(int trainId) {
-
+    public boolean deleteTrainBytrainId(int trainId) {
+        return false;
     }
 
     @Override
-    public void updateTrain(train train) {
-
+    public boolean updateTrain(Train train) {
+        return false;
     }
+
+
 }
