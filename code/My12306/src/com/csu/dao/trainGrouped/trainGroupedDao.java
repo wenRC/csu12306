@@ -5,7 +5,7 @@ import com.csu.domain.trainGrouped.trainGrouped;
 /**
  * Created by war on 2016/9/14.
  */
-public interface trainGroupedDao {
+public interface TrainGroupedDao {
     trainGrouped getTrainGroupBytrainId(int trainId);
     void insertTrainGroup(trainGrouped trainGroup);
     void deleteTrainGroupBytrainId(int trainId);
