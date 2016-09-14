@@ -7,7 +7,7 @@
 					<input type="text" class="form-control" id="fromplace" placeholder="出发地" />
 					<input type="text" class="form-control" id="toplace" placeholder="目的地"/>
 					<input type="text" class="form-control" id="date" placeholder="出发日"/>
-					<input type="button" class="btn btn-primary" value="查询" onclick="showP()" />
+					<input type="button" class="btn btn-primary" value="查询"  />
 					</div>
 				</form>
 			</div>
@@ -37,7 +37,7 @@
 					<td >2</td>
 					<td >无</td>
 					<td >-</td>
-					<td ><a href="newOrder.html"><input type="button" value="预定 "/></a></td></tr>
+					<td ><a href="newOrder.html"><input type="button" value="预定" class="btn btn-default"/></a></td></tr>
 					<tr>
 					<td>G638</td>
 					<td>广州南</td>
@@ -47,7 +47,7 @@
 					<td>无</td>
 					<td>无</td>
 					<td>-</td>
-					<td><input type="button" value="预定 " disabled/></td></tr>
+					<td><input type="button" value="预定" class="btn btn-default" disabled/></td></tr>
 					</tbody>
 				</table>
 			</div>
