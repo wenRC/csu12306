@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script>
+		function submit(){
+			alert("车票将会在3个工作日内送到！");
+			window.location.href="../order/searchOrder.html"
+		}
+	</script>
+	<body>
+			<link rel="stylesheet" type="text/css" href="../css/head.css">
+		<div id="header" style="background: darkslategrey;color: #BDBDBD;">
+			<a href="../user/index.html">登录</a>
+			|
+			<a href="../order/yupiao.jsp">余票查询</a>
+			|
+			<a href="../order/searchOrder.html">我的订单</a>
+			|
+			<a href="../common/IncludeTopBack.html">后台</a>
+		</div>
+		<h2>成人票可凭身份证直接进展乘车，亦可到站打票或选择邮寄服务。</h2><br />
+		邮寄服务<br />邮寄地址:<input type="text"/>联系电话:<input type="text" /><input type="button" value="提交" onclick="submit()" />
+	</body>
+</html>

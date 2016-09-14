@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script>
+		function tui(){
+			if(confirm("确认退票吗？")){
+				alert("退票成功！");
+				window.location.href="yupiao.jsp";
+			}
+		}
+		function gai(){
+			window.location.href="../piaoWu/gaiqian.html"
+		}
+		function qu(){
+			window.location.href="../piaoWu/qupiao.html"
+		}
+		
+	</script>
+	<body>
+			<link rel="stylesheet" type="text/css" href="../css/head.css">
+		<div id="header" style="background: darkslategrey;color: #BDBDBD;">
+			<a href="../user/index.html">登录</a>
+			|
+			<a href="yupiao.jsp">余票查询</a>
+			|
+			<a href="../order/searchOrder.html">我的订单</a>
+			|
+				<a href="../common/IncludeTopBack.html">后台</a>
+		</div>
+		<div id="search">
+			<select><option>按订票日期</option><option>按出行日期</option></select>
+			<input type="text" >
+			<input type="button" value="查询" onclick="" />
+		</div>
+		<div id="title">
+				<table border="0" class="title">
+					<td width="100">订单号</td>
+					<td width="90">车次</td>
+					<td width="80">席位</td>
+					<td width="80">出发站</td>
+					<td width="80">到达站</td>
+					<td width="150">出发时间</td>
+					<td width="50">历时</td>
+					<td width="80">票种</td>
+					<td width="80">价格</td>
+					<td width="100">乘车人</td>
+					<td width="100">订票日期</td>
+					<td width="100">订单状态</td>
+					<td width="200">操作</td>
+
+				</table>
+			</div>
+			<hr/>
+			<div id="result">
+				<table>
+				<tr><td width="100">39011403</td>
+					<td width="90">G6023</td>
+					<td width="80">6车1A</td>
+					<td width="80">广州北</td>
+					<td width="80">长沙南</td>
+					<td width="150">2016-10-07 14:32</td>
+					<td width="50">00:17</td>
+					<td width="80">二等座</td>
+					<td width="80">15.0元</td>
+					<td width="100">xlf</td>
+					<td width="100">2016-10-01</td>
+					<td width="100">未出行</td>
+					<td width="200"><input type="button" value="退票" onclick="tui()" /><input type="button" value="取票" onclick="qu()"/><input type="button" value="改签" onclick="gai()"/> </td>
+				</tr>
+				<tr><td width="100">141109</td>
+					<td width="90">G1103</td>
+					<td width="80">6车2A</td>
+					<td width="80">广州北</td>
+					<td width="80">广州南</td>
+					<td width="150">2016-10-07 16:32</td>
+						<td width="50">02:30</td>
+					<td width="80">二等座</td>
+					<td width="80">294.0元</td>
+					<td width="100">wrc</td>
+					<td width="100">2016-10-01</td>
+					<td width="100">未出行</td>
+				
+					<td width="200"><input type="button" value="退票" onclick="tui()" /><input type="button" value="取票" onclick="qu()"/><input type="button" value="改签" onclick="gai()"/> </td>
+				</tr>
+				</table>
+			</div>
+	</body>
+</html>
