@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
         User user=userService.getUserByEmailAndPassword(email,password);
         if(user!=null){
 
-            System.out.println(user.getUsername());
+            request.getSession().setAttribute("user",user);
             request.getRequestDispatcher(succurl).forward(request,response);
         }else {
             request.getRequestDispatcher(errorurl).forward(request,response);

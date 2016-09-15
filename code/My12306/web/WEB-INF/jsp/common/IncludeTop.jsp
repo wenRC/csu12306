@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
@@ -28,7 +30,8 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li ><a href="ViewLogin">登陆</a></li>
+              <c:if test="${sessionScope.user==null}"><li><a href="ViewLogin">登陆</a></li></c:if>
+              <c:if test="${sessionScope.user!=null}"><li><a href="ViewChangeUserInfo">${sessionScope.user.username}</a></li></c:if>
               <li><a href="ViewYupiao">订票</a></li>
               <li><a href="ViewOrder">我的订单</a></li>
               <li><a href="">后台</a></li>
