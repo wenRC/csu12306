@@ -5,5 +5,5 @@ target/
 .idea/
 out/
 web.xml
-DBUtil.java
-index.jsp
+/code/My12306/src/com/csu/utils/DBUtil.java
+/code/My12306/web/index.jsp
