@@ -7,4 +7,4 @@ out/
 web.xml
 /code/My12306/src/com/csu/utils/DBUtil.java
 /code/My12306/web/index.jsp
-utils/
+utils/*
