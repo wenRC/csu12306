@@ -2,6 +2,11 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+    />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
@@ -19,16 +24,20 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">我的12306</a>
+            <a class="navbar-brand" href="index.jsp">我的12306</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">登陆</a></li>
-              <li><a href="#about">订票</a></li>
-              <li><a href="#contact">我的订单</a></li>
-              <li><a href="#contact">后台</a></li>
+              <li ><a href="ViewLogin">登陆</a></li>
+              <li><a href="ViewYupiao">订票</a></li>
+              <li><a href="ViewOrder">我的订单</a></li>
+              <li><a href="">后台</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </nav>
     </div>
+  <br>
+  <br>
+  <br>
+  <br>
