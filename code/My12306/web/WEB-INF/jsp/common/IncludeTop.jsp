@@ -28,10 +28,10 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li ><a href="#">登陆</a></li>
+              <li ><a href="ViewLogin">登陆</a></li>
               <li><a href="ViewYupiao">订票</a></li>
               <li><a href="ViewOrder">我的订单</a></li>
-              <li><a href="#contact">后台</a></li>
+              <li><a href="">后台</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

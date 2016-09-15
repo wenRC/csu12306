@@ -8,7 +8,7 @@
                 <option value="1">按订票日期</option>
                 <option value="2">按出行日期</option>
             </select>
-            <input type="text" class="form-control" id="date" placeholder="日期"/>
+            <input type="date" class="form-control" id="date" placeholder="日期"/>
             <input type="submit" class="btn btn-primary" value="查询"/>
         </div>
     </form>

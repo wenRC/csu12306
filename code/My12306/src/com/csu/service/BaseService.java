@@ -31,34 +31,34 @@ public class BaseService {
         trainDao = new TrainDaoImpl();
         trainGroupedDao = new TrainGroupedDaoImpl();
     }
-    double getPriceRateByticketType(String ticketType){
+    public double getPriceRateByticketType(String ticketType){
         return priceRateDao.getPriceRateByticketType(ticketType);
     }
-    boolean updatePriceRate(PriceRate priceRate){
+    public boolean updatePriceRate(PriceRate priceRate){
         return  priceRateDao.updatePriceRate(priceRate);
     }
-    Train getTrainBytrainId(int trainId){
+    public Train getTrainBytrainId(int trainId){
         return trainDao.getTrainBytrainId(trainId);
     }
-    boolean insertTrain(Train train){
+    public boolean insertTrain(Train train){
         return trainDao.insertTrain(train);
     }
-    boolean deleteTrainBytrainId(int trainId){
+    public boolean deleteTrainBytrainId(int trainId){
         return trainDao.deleteTrainBytrainId(trainId);
     }
-    boolean updateTrain(Train train){
+    public boolean updateTrain(Train train){
         return trainDao.updateTrain(train);
     }
-    TrainGrouped getTrainGroupBytrainIdAndCheXiang(int trainId, int chexiang){
+    public TrainGrouped getTrainGroupBytrainIdAndCheXiang(int trainId, int chexiang){
         return trainGroupedDao.getTrainGroupBytrainIdAndCheXiang(trainId,chexiang);
     }
-    boolean insertTrainGroup(TrainGrouped trainGroup){
+    public boolean insertTrainGroup(TrainGrouped trainGroup){
         return trainGroupedDao.insertTrainGroup(trainGroup);
     }
-    boolean deleteTrainGroupBytrainIdAndCheXiang(int trainId,int chexiang){
+    public boolean deleteTrainGroupBytrainIdAndCheXiang(int trainId,int chexiang){
         return trainGroupedDao.deleteTrainGroupBytrainIdAndCheXiang(trainId,chexiang);
     }
-    boolean updateTrainGroup(TrainGrouped trainGroup){
+    public boolean updateTrainGroup(TrainGrouped trainGroup){
         return trainGroupedDao.updateTrainGroup(trainGroup);
     }
 

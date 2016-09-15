@@ -10,19 +10,24 @@ import com.csu.domain.user.User;
  */
 public class UserService {
     private UserDao userDao;
-    public UserService(){
+
+    public UserService() {
         userDao = new UserDaoImpl();
     }
-    boolean insertUser(User user){
+
+    public boolean insertUser(User user) {
         return userDao.insertUser(user);
     }
-    User getUserByEmail(String email){
+
+    public User getUserByEmail(String email) {
         return userDao.getUserByEmail(email);
     }
-    User getUserByEmailAndPassword(String email,String password){
-        return userDao.getUserByEmailAndPassword(email,password);
+
+    public User getUserByEmailAndPassword(String email, String password) {
+        return userDao.getUserByEmailAndPassword(email, password);
     }
-    boolean updateUser(User user){
+
+    public boolean updateUser(User user) {
         return userDao.updateUser(user);
     }
 }
