@@ -46,14 +46,14 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 seat = new Seat();
-                seat.setSeatid(resultSet.getInt(1));
-                seat.setTrainid(resultSet.getInt(2));
-                seat.setDate(resultSet.getDate(3));
-                seat.setChexiang(resultSet.getInt(4));
-                seat.setSeatno(resultSet.getString(5));
-                seat.setFrom(resultSet.getString(6));
-                seat.setTo(resultSet.getString(7));
-                seat.setStatus(resultSet.getString(8));
+                seat.setSeatid(resultSet.getInt(1));//席位代码
+                seat.setTrainid(resultSet.getInt(2));//车次代码
+                seat.setDate(resultSet.getDate(3));//日期
+                seat.setChexiang(resultSet.getInt(4));//车厢号
+                seat.setSeatno(resultSet.getString(5));//座位号
+                seat.setFrom(resultSet.getString(6));//乘车区间起始站
+                seat.setTo(resultSet.getString(7));//乘车区间终到站
+                seat.setStatus(resultSet.getString(8));//售票状态
                 seatList.add(seat);
             }
         } catch (SQLException e) {
@@ -78,14 +78,14 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
         try {
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(UPDATESEAT);
-            preparedStatement.setInt(1, seat.getTrainid());
-            preparedStatement.setDate(2, (Date) seat.getDate());
-            preparedStatement.setInt(3, seat.getChexiang());
-            preparedStatement.setString(4, seat.getSeatno());
-            preparedStatement.setString(5, seat.getFrom());
-            preparedStatement.setString(6, seat.getTo());
-            preparedStatement.setString(7, seat.getStatus());
-            preparedStatement.setInt(8, seat.getSeatid());
+            preparedStatement.setInt(1, seat.getTrainid());//车次代码
+            preparedStatement.setDate(2, (Date) seat.getDate());//日期
+            preparedStatement.setInt(3, seat.getChexiang());//车厢号
+            preparedStatement.setString(4, seat.getSeatno());//座位号
+            preparedStatement.setString(5, seat.getFrom());//乘车区间起始站
+            preparedStatement.setString(6, seat.getTo());//乘车区间终到站
+            preparedStatement.setString(7, seat.getStatus());//售票状态
+            preparedStatement.setInt(8, seat.getSeatid());//席位代码
             if (1 == preparedStatement.executeUpdate()) {
                 DBUtil.closeStatement(preparedStatement);
                 return true;

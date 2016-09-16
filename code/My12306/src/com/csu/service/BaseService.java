@@ -29,7 +29,7 @@ public class BaseService {
     public BaseService(){
         priceRateDao = new PriceRateDaoImpl();
         trainDao = new TrainDaoImpl();
-        trainGroupedDao = new TrainGroupedDaoImpl();
+        trainGroupedDao = (TrainGroupedDao) new TrainGroupedDaoImpl();
     }
     public double getPriceRateByticketType(String ticketType){
         return priceRateDao.getPriceRateByticketType(ticketType);

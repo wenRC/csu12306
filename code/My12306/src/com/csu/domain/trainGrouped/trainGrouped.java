@@ -1,7 +1,7 @@
 package com.csu.domain.trainGrouped;
 
 /**
- * Created by war on 2016/9/14.
+ * Created by sx on 2016/9/15.
  */
 public class TrainGrouped {
     private int trainGroupId;

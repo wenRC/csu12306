@@ -24,6 +24,10 @@ public class QuDuanDaoImpl implements QuDuanDao {
             "qdnumber=? " +         //区段数
             "where quduanid=?";     //旅程区段编号
 
+    /**
+     * 查询所有的区段
+     * @return
+     */
     @Override
     public List<QuDuan> getAllQuDuans() {
         Connection connection = null;
@@ -37,11 +41,11 @@ public class QuDuanDaoImpl implements QuDuanDao {
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 quDuan = new QuDuan();
-                quDuan.setQuDuanId(resultSet.getInt(1));
-                quDuan.setFrom(resultSet.getString(2));
-                quDuan.setTo(resultSet.getString(3));
-                quDuan.setDistancePerQD(resultSet.getInt(4));
-                quDuan.setQdNumber(resultSet.getInt(5));
+                quDuan.setQuDuanId(resultSet.getInt(1));//旅程区段编号
+                quDuan.setFrom(resultSet.getString(2));//里程区段From
+                quDuan.setTo(resultSet.getString(3));//里程区段To
+                quDuan.setDistancePerQD(resultSet.getInt(4));//每区段里程
+                quDuan.setQdNumber(resultSet.getInt(5));//区段数
                 quDuanList.add(quDuan);
             }
         } catch (SQLException e) {
@@ -54,6 +58,11 @@ public class QuDuanDaoImpl implements QuDuanDao {
         return quDuanList;
     }
 
+    /**
+     * 根据旅程区段编号查询区段
+     * @param quDuanId
+     * @return
+     */
     @Override
     public QuDuan getQuDuanById(int quDuanId) {
         Connection connection = null;
@@ -67,11 +76,11 @@ public class QuDuanDaoImpl implements QuDuanDao {
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 quDuan = new QuDuan();
-                quDuan.setQuDuanId(resultSet.getInt(1));
-                quDuan.setFrom(resultSet.getString(2));
-                quDuan.setTo(resultSet.getString(3));
-                quDuan.setDistancePerQD(resultSet.getInt(4));
-                quDuan.setQdNumber(resultSet.getInt(5));
+                quDuan.setQuDuanId(resultSet.getInt(1));//旅程区段编号
+                quDuan.setFrom(resultSet.getString(2));//里程区段From
+                quDuan.setTo(resultSet.getString(3));//里程区段To
+                quDuan.setDistancePerQD(resultSet.getInt(4));//每区段里程
+                quDuan.setQdNumber(resultSet.getInt(5));//区段数
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -90,11 +99,11 @@ public class QuDuanDaoImpl implements QuDuanDao {
         try {
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(UPDATEQUDUAN);
-            preparedStatement.setString(1, quDuan.getFrom());
-            preparedStatement.setString(2, quDuan.getTo());
-            preparedStatement.setInt(3, quDuan.getDistancePerQD());
-            preparedStatement.setInt(4, quDuan.getQdNumber());
-            preparedStatement.setInt(5, quDuan.getQuDuanId());
+            preparedStatement.setString(1, quDuan.getFrom());//里程区段From
+            preparedStatement.setString(2, quDuan.getTo());//里程区段To
+            preparedStatement.setInt(3, quDuan.getDistancePerQD());//每区段里程
+            preparedStatement.setInt(4, quDuan.getQdNumber());//区段数
+            preparedStatement.setInt(5, quDuan.getQuDuanId());//旅程区段编号
             if (preparedStatement.executeUpdate() == 1) {
                 return true;
             }
