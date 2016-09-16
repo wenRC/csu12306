@@ -1,5 +1,7 @@
 package com.csu.domain.user;
 
+import java.sql.Timestamp;
+
 /**
  * Created by 温 睿诚 on 2016/9/14/0014.
  */
@@ -11,6 +13,8 @@ public class User {
     private String sex;
     private String id;
     private String phone;
+    private Timestamp lastLoginTime;
+    private String passengerStatus;
 
     public User(int userid, String password, String email, String username, String sex, String id, String phone) {
         this.userid = userid;
@@ -79,5 +83,21 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Timestamp getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(Timestamp lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
+    }
+
+    public String getPassengerStatus() {
+        return passengerStatus;
+    }
+
+    public void setPassengerStatus(String passengerStatus) {
+        this.passengerStatus = passengerStatus;
     }
 }
