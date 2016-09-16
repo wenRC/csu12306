@@ -4,7 +4,7 @@ import com.csu.dao.train.TrainDao;
 import com.csu.domain.train.Train;
 
 /**
- * Created by war on 2016/9/14.
+ * Created by sx on 2016/9/15.
  */
 public class TrainDaoImpl implements TrainDao {
     @Override
@@ -26,6 +26,4 @@ public class TrainDaoImpl implements TrainDao {
     public boolean updateTrain(Train train) {
         return false;
     }
-
-
 }

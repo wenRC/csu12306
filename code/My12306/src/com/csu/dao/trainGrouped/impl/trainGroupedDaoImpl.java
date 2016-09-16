@@ -1,33 +1,29 @@
 package com.csu.dao.trainGrouped.impl;
 
-import com.csu.dao.trainGrouped.TrainGroupedDao;
-import com.csu.domain.trainGrouped.TrainGrouped;
+import com.csu.dao.train.TrainDao;
+import com.csu.domain.train.Train;
 
 /**
- * Created by war on 2016/9/14.
+ * Created by sx on 2016/9/15.
  */
-public class TrainGroupedDaoImpl implements TrainGroupedDao {
-
-
+public class TrainGroupedDaoImpl implements TrainDao {
     @Override
-    public TrainGrouped getTrainGroupBytrainIdAndCheXiang(int trainId, int chexiang) {
+    public Train getTrainBytrainId(int trainId) {
         return null;
     }
 
     @Override
-    public boolean insertTrainGroup(TrainGrouped trainGroup) {
+    public boolean insertTrain(Train train) {
         return false;
     }
 
     @Override
-    public boolean deleteTrainGroupBytrainIdAndCheXiang(int trainId, int chexiang) {
+    public boolean deleteTrainBytrainId(int trainId) {
         return false;
     }
 
     @Override
-    public boolean updateTrainGroup(TrainGrouped trainGroup) {
+    public boolean updateTrain(Train train) {
         return false;
     }
-
-
 }

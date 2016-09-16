@@ -12,8 +12,7 @@ import java.util.List;
  * Created by sx on 2016/9/14.
  */
 public class DiaoDuDaoImpl implements DiaoDuDao {
-    private static final String GETSEATSBYTRAINID = "select * from seat where trainid = ?";
-    private static final String GETSEATSBYCHEXIANG = "select * from seat where chexiang = ?";
+    private static final String GETSEATSBYTRAINIDANDCHEXIANG = "select * from seat where trainid = ? and chexiang = ?";
     private static final String UPDATESEAT = "update seat set " +
             "trainid = ?," +    //车次
             "date = ?," +       //日期
@@ -23,11 +22,17 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
             "to=?," +           //乘车区间终到站
             "status=? " +       //售票状态
             "where seatid = ?"; //席位代码
-    private static final String GETSEATSCOUNTBYSTATUS = "select count(*) from seat where status = ?";
-    private static final String GETALLSEATSCOUNT = "select count(*) from seat";
+    private static final String GETSEATSCOUNTBYSTATUS = "select count(*) from seat where trainid = ? and status = ?";
+    private static final String GETALLSEATSCOUNT = "select count(*) from seat where trainid = ?";
 
+    /**
+     * 按照车次、车厢查询席位信息
+     * @param trainId   车次
+     * @param chexiang  车厢号
+     * @return  席位信息集合
+     */
     @Override
-    public List<Seat> getSeatsByTrainId(int trainId) {
+    public List<Seat> getSeatsByTrainIdAndCheXiang(int trainId, int chexiang) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -35,8 +40,9 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
         Seat seat = null;
         try {
             connection = DBUtil.getConnection();
-            preparedStatement = connection.prepareStatement(GETSEATSBYTRAINID);
-            preparedStatement.setInt(1, trainId);
+            preparedStatement = connection.prepareStatement(GETSEATSBYTRAINIDANDCHEXIANG);
+            preparedStatement.setInt(1,trainId);
+            preparedStatement.setInt(2, chexiang);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 seat = new Seat();
@@ -60,40 +66,11 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
         return seatList;
     }
 
-    @Override
-    public List<Seat> getSeatsByCheXiang(int chexiang) {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        List<Seat> seatList = new ArrayList<>();
-        Seat seat = null;
-        try {
-            connection = DBUtil.getConnection();
-            preparedStatement = connection.prepareStatement(GETSEATSBYCHEXIANG);
-            preparedStatement.setInt(1, chexiang);
-            resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                seat = new Seat();
-                seat.setSeatid(resultSet.getInt(1));
-                seat.setTrainid(resultSet.getInt(2));
-                seat.setDate(resultSet.getDate(3));
-                seat.setChexiang(resultSet.getInt(4));
-                seat.setSeatno(resultSet.getString(5));
-                seat.setFrom(resultSet.getString(6));
-                seat.setTo(resultSet.getString(7));
-                seat.setStatus(resultSet.getString(8));
-                seatList.add(seat);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            DBUtil.closeResultSet(resultSet);
-            DBUtil.closeStatement(preparedStatement);
-            DBUtil.closeConnection(connection);
-        }
-        return seatList;
-    }
-
+    /**
+     * 修改席位信息
+     * @param seat  待修改的席位
+     * @return  是否修改成功
+     */
     @Override
     public boolean updateSeat(Seat seat) {
         Connection connection = null;
@@ -121,8 +98,14 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
         return false;
     }
 
+    /**
+     * 根据车次代码和席位售出状态进行客运统计
+     * @param trainId   车次代码
+     * @param status    席位售出状态
+     * @return  对应售出状态席位的数量
+     */
     @Override
-    public int getSeatsCountByStatus(String status) {
+    public int getSeatsCountByStatus(int trainId,String status) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -130,7 +113,8 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
         try {
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(GETSEATSCOUNTBYSTATUS);
-            preparedStatement.setString(1,status);
+            preparedStatement.setInt(1,trainId);
+            preparedStatement.setString(2,status);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 count = resultSet.getInt(1);
@@ -145,8 +129,13 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
         return count;
     }
 
+    /**
+     * 根据车次代码按总席位进行客运统计
+     * @param trainId   车次代码
+     * @return  总席位的数量
+     */
     @Override
-    public int getAllSeatsCount() {
+    public int getAllSeatsCount(int trainId) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -154,6 +143,7 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
         try {
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(GETALLSEATSCOUNT);
+            preparedStatement.setInt(1,trainId);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 count = resultSet.getInt(1);
