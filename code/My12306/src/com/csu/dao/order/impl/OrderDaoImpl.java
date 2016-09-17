@@ -142,8 +142,5 @@ public class OrderDaoImpl implements OrderDao {
         return order;
     }
 
-    @Override
-    public Order getOrderByOrderId(int orderId) {
-        return null;
-    }
+
 }

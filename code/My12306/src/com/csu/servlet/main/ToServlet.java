@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by sx on 2016/9/17.
+ * Created by sx on 2016/9/18.
  */
-@WebServlet(name = "BaseDataMainServlet",urlPatterns = {"/baseDataMain"})
-public class BaseDataMainServlet extends HttpServlet {
+@WebServlet(name = "ToServlet",urlPatterns = {"/to"})
+public class ToServlet extends HttpServlet {
     private static final String toQuDuanAdminUrl = "WEB-INF/jsp/quDuan/quDuanQuery.jsp";
 
     @Override

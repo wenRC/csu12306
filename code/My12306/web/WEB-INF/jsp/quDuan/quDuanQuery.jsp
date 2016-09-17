@@ -26,7 +26,6 @@
                 <th>区段数</th>
                 <th>操作</th>
             </tr>
-            <%--<c:if test="${fn:length(sessionScope.quDuanList)!=0}">--%>
             <c:if test="${sessionScope.quDuanList[0]!=null}">
                 <c:forEach items="${sessionScope.quDuanList}" var="quDuan">
                     <tr>

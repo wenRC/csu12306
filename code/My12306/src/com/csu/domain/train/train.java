@@ -3,9 +3,9 @@ package com.csu.domain.train;
 import java.util.Date;
 
 /**
- * Created by sx on 2016/9/15.
+ * Created by sx on 2016/9/18.
  */
- public class Train {
+public class Train {
     private int trainId;
     private String from;
     private String to;
