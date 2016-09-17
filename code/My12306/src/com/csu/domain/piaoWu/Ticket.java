@@ -1,5 +1,7 @@
 package com.csu.domain.piaoWu;
 
+import java.sql.Timestamp;
+
 /**
  * Created by 温 睿诚 on 2016/9/16/0016.
  */
@@ -10,12 +12,30 @@ public class Ticket {
     private String saleMode;
     private String ticketType;
     private int userId;
-    private int userType;
+    private String userType;
+    private Timestamp salesTime;
+    private String ticketStatus;
+
+    public Timestamp getSalesTime() {
+        return salesTime;
+    }
+
+    public void setSalesTime(Timestamp salesTime) {
+        this.salesTime = salesTime;
+    }
+
+    public String getTicketStatus() {
+        return ticketStatus;
+    }
+
+    public void setTicketStatus(String ticketStatus) {
+        this.ticketStatus = ticketStatus;
+    }
 
     public Ticket() {
     }
 
-    public Ticket(int ticketId, int seatId, double price, String saleMode, String ticketType, int userId, int userType) {
+    public Ticket(int ticketId, int seatId, double price, String saleMode, String ticketType, int userId, String userType) {
         this.ticketId = ticketId;
         this.seatId = seatId;
         this.price = price;
@@ -73,11 +93,11 @@ public class Ticket {
         this.userId = userId;
     }
 
-    public int getUserType() {
+    public String getUserType() {
         return userType;
     }
 
-    public void setUserType(int userType) {
+    public void setUserType(String userType) {
         this.userType = userType;
     }
 }

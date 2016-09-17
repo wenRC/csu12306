@@ -23,10 +23,14 @@ public class PiaowuService {
     Ticket getTicketByTickId(int ticketId){
         return ticketDao.getTicketByTickId(ticketId);
     }
+    /*
+   price=?,tickettype=?,salestime=?,ticketstatus=?
+   update ticket只能改这几项
+    */
     boolean updateTicket(Ticket ticket){
         return ticketDao.updateTicket(ticket);
     }
-    boolean deleteTicket(Ticket ticket){
-        return ticketDao.deleteTicket(ticket);
+    boolean deleteTicket(int ticketId){
+        return ticketDao.deleteTicket(ticketId);
     }
 }

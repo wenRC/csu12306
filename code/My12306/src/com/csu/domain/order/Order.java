@@ -1,6 +1,5 @@
 package com.csu.domain.order;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
