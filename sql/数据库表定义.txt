@@ -1,0 +1,108 @@
+
+Station
+stationid
+stationname
+pinYin
+location 所属行政区域
+ju 所属铁路局
+level 车站等级
+phone 联系方式
+
+车次是有方向的 线路没有
+Train
+trainId
+from
+to
+fromTime
+toTime
+last  整趟车历时
+distance 线路总里程
+noseatnumber 无座票数量
+type	列车类型：直达、高铁等
+
+这样定义吧，车站序号1，车站名就是起始站。distance就是距离序号1车站的距离.fromTime是在这个站的发车时间，staytime是在这个站的停留时间.算两个站的里程就是求他们的distance差的绝对值
+Line 
+lineid
+trainid
+stationname
+distance 里程
+fromTime 发车时间
+staytime 停留时间
+stationindex 车站序号
+costtime 从当前站到下一个站的历时
+
+
+trainGroup
+trainGroupId
+trainId
+cheXiang
+seatType
+seatNumber
+cheXiangType
+
+priceRate
+priceRateId
+ticketType
+priceRate
+
+quDuan
+quDuanId
+from
+to
+distancePerQD
+qdNumber
+
+diYuanDiJian
+diYuanDiJianid
+from
+to
+rate	递远递减率
+pricerate	票价率
+totalprice	各区段全程票价
+leiji	区段累计票价 这个不懂的就去看同目录的word文档
+
+plan
+planId
+trainId
+cheXiang
+compare
+stationname
+
+Seat
+seatd
+traind
+date 发车时间
+cheXiang 车厢号
+seatNo	座位号
+from
+to
+status
+
+Order
+orderid
+passengerid
+orderstatus	订单状态：未支付、为出行、已出行、已取消
+ordertime 下单时间
+
+Ticket  
+ticketId
+seatId
+price
+saleMode 销售方式 ：网络、售票处、电话、车站
+ticketType	票种:二等座这些
+passengerid
+passengertype 乘客类型：儿童、成人
+salestime 销售时间
+ticketstatus 车票状态：取票、退票、改票等
+
+Passenger
+passengerId	
+email
+password
+sex
+name
+id	身份证号
+phone
+lastlogintime 最后一次登陆时间
+status	仅有五个值 当天禁止售票 退票1 退票2 退票3 空
+
