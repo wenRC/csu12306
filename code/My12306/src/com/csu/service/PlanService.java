@@ -15,25 +15,65 @@ public class PlanService {
         planDao=new PlanDaoImpl();
     }
 
+    /**
+     * 查询所有计划
+     * @return
+     */
     List<Plan> getAllPlans(){
         return planDao.getAllPlans();
-    }//查询所有计划
+    }
+
+    /**
+     * 根据计划代码查询计划
+     * @param planId
+     * @return
+     */
     Plan getPlanByPlanId(int planId){
         return planDao.getPlanByPlanId(planId);
-    }//根据计划代码查询计划
+    }
+
+    /**
+     * 根据车次代码查询该车次参与的所有计划
+     * @param trainId
+     * @return
+     */
     List<Plan> getPlansByTrainId(int trainId){
         return planDao.getPlansByTrainId(trainId);
-    } //根据车次代码查询该车次参与的所有计划
+    }
+
+    /**
+     * 增
+     * @param plan
+     * @return
+     */
     boolean insertPlan(Plan plan){
         return planDao.insertPlan(plan);
-    }//增
+    }
+
+    /**
+     * 删
+     * @param planId
+     * @return
+     */
     boolean deletePlan(int planId){
         return planDao.deletePlan(planId);
-    }//删
+    }
+
+    /**
+     * 改
+     * @param plan
+     * @return
+     */
     boolean updatePlan(Plan plan){
         return planDao.updatePlan(plan);
-    } //改
+    }
+
+    /**
+     * 执行计划，发布席位
+     * @param plan
+     * @return
+     */
     boolean announceSeat(Plan plan){
         return planDao.announceSeat(plan);
-    } //执行计划，发布席位
+    }
 }

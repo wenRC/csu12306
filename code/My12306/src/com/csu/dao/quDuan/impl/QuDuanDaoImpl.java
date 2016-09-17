@@ -18,11 +18,11 @@ public class QuDuanDaoImpl implements QuDuanDao {
     private static final String GETALLQUDUANS = "select * from quduan";
     private static final String GETQUDUANBYID = "select * from quduan where quduanid = ?";
     private static final String UPDATEQUDUAN = "update quduan set " +
-            "from=?," +     //里程区段From
-            "to=?," +       //里程区段To
-            "distanceperqd=?," +    //每区段里程
-            "qdnumber=? " +         //区段数
-            "where quduanid=?";     //旅程区段编号
+            "from = ?," +     //里程区段From
+            "to = ?," +       //里程区段To
+            "distanceperqd = ?," +    //每区段里程
+            "qdnumber = ? " +         //区段数
+            "where quduanid = ?";     //旅程区段编号
 
     /**
      * 查询所有的区段
@@ -104,9 +104,11 @@ public class QuDuanDaoImpl implements QuDuanDao {
             preparedStatement.setInt(3, quDuan.getDistancePerQD());//每区段里程
             preparedStatement.setInt(4, quDuan.getQdNumber());//区段数
             preparedStatement.setInt(5, quDuan.getQuDuanId());//旅程区段编号
-            if (preparedStatement.executeUpdate() == 1) {
-                return true;
-            }
+//            if (preparedStatement.executeUpdate() == 1) {
+//                return true;
+//            }
+            preparedStatement.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

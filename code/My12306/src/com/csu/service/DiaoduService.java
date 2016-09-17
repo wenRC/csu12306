@@ -14,16 +14,42 @@ public class DiaoduService {
     public DiaoduService(){
         diaoDuDao=new DiaoDuDaoImpl();
     }
+
+    /**
+     * 按照车次、车厢查询席位
+     * @param trainId
+     * @param chexiang
+     * @return
+     */
     List<Seat> getSeatsByTrainIdAndCheXiang(int trainId, int chexiang){
         return diaoDuDao.getSeatsByTrainIdAndCheXiang(trainId,chexiang);
-    } //按照车次、车厢查询席位
+    }
+
+    /**
+     * 修改席位信息
+     * @param seat
+     * @return
+     */
     boolean updateSeat(Seat seat){
         return diaoDuDao.updateSeat(seat);
-    }   //修改席位信息
+    }
+
+    /**
+     * 根据车次代码和席位售出状态进行客运统计
+     * @param trainId
+     * @param status
+     * @return
+     */
     int getSeatsCountByStatus(int trainId,String status){
         return diaoDuDao.getSeatsCountByStatus(trainId,status);
-    }   //根据车次代码和席位售出状态进行客运统计
+    }
+
+    /**
+     * 根据车次代码按总席位进行客运统计
+     * @param trainId
+     * @return
+     */
     int getAllSeatsCount(int trainId){
         return diaoDuDao.getAllSeatsCount(trainId);
-    }    //根据车次代码按总席位进行客运统计
+    }
 }

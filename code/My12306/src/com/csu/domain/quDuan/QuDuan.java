@@ -10,6 +10,17 @@ public class QuDuan {
     private int distancePerQD;//每区段里程
     private int qdNumber;   //区段数
 
+    public QuDuan() {
+    }
+
+    public QuDuan(int quDuanId, String from, String to, int distancePerQD, int qdNumber) {
+        this.quDuanId = quDuanId;
+        this.from = from;
+        this.to = to;
+        this.distancePerQD = distancePerQD;
+        this.qdNumber = qdNumber;
+    }
+
     public int getQuDuanId() {
         return quDuanId;
     }

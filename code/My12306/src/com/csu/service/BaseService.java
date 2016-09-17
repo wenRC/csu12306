@@ -36,12 +36,11 @@ public class BaseService {
         priceRateDao = new PriceRateDaoImpl();
         trainDao = new TrainDaoImpl();
         trainGroupedDao = new TrainGroupedDaoImpl();
-        quDuanDao=new QuDuanDaoImpl();
+        quDuanDao = new QuDuanDaoImpl();
     }
 
     /*
     票价率
-
      */
     public double getPriceRateByticketType(String ticketType) {
         return priceRateDao.getPriceRateByticketType(ticketType);
@@ -53,7 +52,6 @@ public class BaseService {
 
     /*
     列车管理
-
    */
     public Train getTrainBytrainId(int trainId) {
         return trainDao.getTrainBytrainId(trainId);
@@ -72,9 +70,8 @@ public class BaseService {
     }
 
     /*
-列车管理
-
-*/
+    列车管理
+    */
     public TrainGrouped getTrainGroupBytrainIdAndCheXiang(int trainId, int chexiang) {
         return trainGroupedDao.getTrainGroupBytrainIdAndCheXiang(trainId, chexiang);
     }
@@ -90,20 +87,22 @@ public class BaseService {
     public boolean updateTrainGroup(TrainGrouped trainGroup) {
         return trainGroupedDao.updateTrainGroup(trainGroup);
     }
+
     /*
     区段
-
-   */
-    List<QuDuan> getAllQuDuans(){
+    */
+    //查询所有的区段
+    public List<QuDuan> getAllQuDuans() {
         return quDuanDao.getAllQuDuans();
-    }//查询所有的区段
-    QuDuan getQuDuanById(int quDuanId){
+    }
+
+    //根据旅程区段编号查询区段
+    public QuDuan getQuDuanById(int quDuanId) {
         return quDuanDao.getQuDuanById(quDuanId);
+    }
 
-    }//根据旅程区段编号查询区段
-    boolean updateQuDuan(QuDuan quDuan){
+    //修改旅程区段
+    public boolean updateQuDuan(QuDuan quDuan) {
         return quDuanDao.updateQuDuan(quDuan);
-    }//修改旅程区段
-
-
+    }
 }

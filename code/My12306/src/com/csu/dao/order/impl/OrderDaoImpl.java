@@ -28,4 +28,9 @@ public class OrderDaoImpl implements OrderDao {
     public ArrayList<Order> getOrdersByUserId(int userId) {
         return null;
     }
+
+    @Override
+    public Order getOrderByOrderId(int orderId) {
+        return null;
+    }
 }

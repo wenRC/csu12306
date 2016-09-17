@@ -146,8 +146,8 @@ INSERT INTO `pricerate` VALUES ('1', '二等座', '900.00');
 DROP TABLE IF EXISTS `quduan`;
 CREATE TABLE `quduan` (
   `quduanid` int(11) NOT NULL,
-  `from` varchar(50) NOT NULL,
-  `to` varchar(50) NOT NULL,
+  `quDuanFrom` varchar(50) NOT NULL,
+  `quDuanTo` varchar(50) NOT NULL,
   `distanceperqd` int(11) NOT NULL,
   `qdnumber` int(11) NOT NULL,
   PRIMARY KEY (`quduanid`)
@@ -168,8 +168,8 @@ CREATE TABLE `seat` (
   `date` datetime NOT NULL,
   `chexiang` smallint(6) NOT NULL,
   `seatno` varchar(50) NOT NULL,
-  `from` varchar(50) NOT NULL,
-  `to` varchar(50) NOT NULL,
+  `seatFrom` varchar(50) NOT NULL,
+  `seatTo` varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL,
   PRIMARY KEY (`seatid`),
   KEY `stid` (`trainid`),
