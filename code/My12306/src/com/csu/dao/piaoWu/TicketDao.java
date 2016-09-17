@@ -11,6 +11,10 @@ public interface TicketDao {
     boolean insertTicket(Ticket ticket);
     ArrayList<Ticket> getTicketByUserId(int userId);
     Ticket getTicketByTickId(int ticketId);
+    /*
+    price=?,tickettype=?,salestime=?,ticketstatus=?
+    update ticket只能改这几项
+     */
     boolean updateTicket(Ticket ticket);
-    boolean deleteTicket(Ticket ticket);
+    boolean deleteTicket(int ticketId);
 }
