@@ -11,6 +11,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+
   </head>
   <body>
     <div id="header">
@@ -24,23 +25,25 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">我的12306</a>
+            <a class="navbar-brand" href="/indexB.jsp">我的12306</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">登陆</a></li>
-              <li><a href="#about">订票</a></li>
-              <li><a href="#contact">我的订单</a></li>
+              <li ><a href="#">登陆</a></li>
+              <li><a href="#about">未使用</a></li>
+
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">调度管理<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
+                  <li><a href="#">席位查询与修改</a></li>
+                  <li><a href="#">客运统计</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">计划管理<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">查询计划</a></li>
+                  <li><a href="#">新增计划</a></li>
                 </ul>
               </li>
             </ul>

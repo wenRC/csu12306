@@ -13,6 +13,8 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
   </head>
   <body>
     <div id="header">
@@ -26,7 +28,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.jsp">我的12306</a>
+            <a class="navbar-brand" href="/index.jsp">我的12306</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -34,7 +36,7 @@
               <c:if test="${sessionScope.user!=null}"><li><a href="ViewChangeUserInfo">${sessionScope.user.username}</a></li></c:if>
               <li><a href="ViewYupiao">订票</a></li>
               <li><a href="ViewOrder">我的订单</a></li>
-              <li><a href="">后台</a></li>
+              <li><a href="/indexB.jsp">后台</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
