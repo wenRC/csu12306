@@ -33,10 +33,19 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <c:if test="${sessionScope.user==null}"><li><a href="ViewLogin">登陆</a></li></c:if>
-              <c:if test="${sessionScope.user!=null}"><li><a href="ViewChangeUserInfo">${sessionScope.user.username}</a></li></c:if>
-              <li><a href="ViewYupiao">订票</a></li>
-              <li><a href="ViewOrder">我的订单</a></li>
+              <c:if test="${sessionScope.user!=null}"> <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">${sessionScope.user.username}<span
+                        class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="ViewChangeUserInfo">修改用户信息</a></li>
+                  <li><a href="ViewChangeUserPass">修改密码</a></li>
+                </ul>
+              </li></c:if>
+
+              <li><a href="/ViewYupiao">订票</a></li>
+              <li><a href="/ViewOrder">我的订单</a></li>
               <li><a href="/indexB.jsp">后台</a></li>
+              <li><a href="/ViewReg">注册</a> </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
