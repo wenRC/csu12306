@@ -36,7 +36,7 @@ public class StationDaoImpl implements StationDAO{
             while (resultSet.next()) {
                 station = new Station();
                 station.setStationId(resultSet.getInt(1));
-                station.setLocation(resultSet.getString(2));
+                station.setStationName(resultSet.getString(2));
                 station.setPinYin(resultSet.getString(3));
                 station.setLocation(resultSet.getString(4));
                 stationList.add(station);

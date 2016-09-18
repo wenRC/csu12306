@@ -41,15 +41,15 @@
                     <td>比较</td>
                     <td>
                         <select id="compare" name="compare">
-                            <option value="1" name="" <c:if test="${sessionScope.plan.compare.equals('=')}">
+                            <option value="=" name="" <c:if test="${sessionScope.plan.compare.equals('=')}">
                                 <c:out value="selected"/>
                             </c:if>>=
                             </option>
-                            <option value="2" name="" <c:if test="${sessionScope.plan.compare.equals('>=')}">
+                            <option value=">=" name="" <c:if test="${sessionScope.plan.compare.equals('>=')}">
                                 <c:out value="selected"/>
                             </c:if>>&gt;=
                             </option>
-                            <option value="3" name="" <c:if test="${sessionScope.plan.compare.equals('<=')}">
+                            <option value="<=" name="" <c:if test="${sessionScope.plan.compare.equals('<=')}">
                                 <c:out value="selected"/>
                             </c:if>>&lt;=
                             </option>
@@ -62,7 +62,7 @@
                         <select id="stationName" name="stationName">
                             <c:forEach items="${sessionScope.stationList}" var="station">
                                 <option value="${station.stationName}" name="${station.stationName}"
-                                        <c:if test="${sessionScope.plan.stationname==station.stationName}"><c:out
+                                        <c:if test="${sessionScope.plan.stationname.equals(station.stationName)}"><c:out
                                                 value="selected"/></c:if>>
                                         ${station.stationName}
                                 </option>

@@ -17,14 +17,16 @@
             <table cellpadding="5">
                 <tr>
                     <td>计划代码</td>
-                    <td><input type="text" name="planid" value=""></td>
+                    <td><input type="text" name="planid"></td>
                 </tr>
                 <tr>
                     <td>车次代码</td>
                     <td>
                         <select id="trainid" name="trainid">
                             <c:forEach items="${sessionScope.trainList}" var="train">
-                                <option value="${train.trainid}">${train.trainid}</option>
+                                <option value="${train.trainId}" name="${train.trainId}">
+                                        ${train.trainId}
+                                </option>
                             </c:forEach>
                         </select>
                     </td>
@@ -37,9 +39,9 @@
                     <td>比较</td>
                     <td>
                         <select id="compare" name="compare">
-                            <option value="1" name="">=</option>
-                            <option value="2" name="">&gt;=</option>
-                            <option value="3" name="">&lt;=</option>
+                            <option value="=">=</option>
+                            <option value=">=">&gt;=</option>
+                            <option value="<=">&lt;=</option>
                         </select>
                     </td>
                 </tr>
@@ -47,8 +49,10 @@
                     <td>车站</td>
                     <td>
                         <select id="stationName" name="stationName">
-                            <c:forEach items="${sessionScope.stationnameList}" var="station">
-                                <option value="${station.stationName}">${station.stationName}</option>
+                            <c:forEach items="${sessionScope.stationList}" var="station">
+                                <option value="${station.stationName}" name="${station.stationName}">
+                                        ${station.stationName}
+                                </option>
                             </c:forEach>
                         </select>
                     </td>

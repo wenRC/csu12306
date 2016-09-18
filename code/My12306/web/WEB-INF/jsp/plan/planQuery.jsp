@@ -14,13 +14,21 @@
     </div>
     <div>
         <form action="plan?function=query" method="post">
-            按&nbsp&nbsp&nbsp<input type="radio" name="id" value="plan">计划代码
-            <input type="radio" name="id" value="train" checked>车次代码&nbsp&nbsp&nbsp进行查询：
+            按&nbsp&nbsp&nbsp
+            <select name="queryMethod">
+                <option value="plan">计划代码</option>
+                <option value="train">车次代码</option>
+            </select>
+            <%--<input type="radio" name="id" value="plan" checked>计划代码--%>
+            <%--<input type="radio" name="id" value="train">车次代码--%>
+            &nbsp&nbsp&nbsp进行查询：
             <input type="text" name="queryId">
             <input type="submit" name="planQuery" value="查询"/>
         </form>
     </div>
     <br/>
+    <a href="plan?function=queryAll">显示所有计划</a>
+    <br/><br/>
     <div>
         <table border="1" cellspacing="0" cellpadding="5">
             <tr>
@@ -31,6 +39,7 @@
                 <th>车站</th>
                 <th colspan="3">操作</th>
             </tr>
+            <c:if test="${sessionScope.planList[0]!=null}">
                 <c:forEach items="${sessionScope.planList}" var="plan">
                     <tr>
                         <td>${plan.planid}</td>
@@ -43,6 +52,7 @@
                         <td><a href="to?function=diaodu&planid=${plan.planid}">执行</a></td>
                     </tr>
                 </c:forEach>
+            </c:if>
         </table>
     </div>
 </div>

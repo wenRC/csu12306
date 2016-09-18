@@ -16,13 +16,39 @@ public class DiaoduService {
     }
 
     /**
+     * 按照席位代码进行查询
+     * @param seatid
+     * @return
+     */
+    public Seat getSeatBySeatId(int seatid){
+        return diaoDuDao.getSeatBySeatId(seatid);
+    }
+
+    /**
      * 按照车次、车厢查询席位
      * @param trainId
      * @param chexiang
      * @return
      */
-    List<Seat> getSeatsByTrainIdAndCheXiang(int trainId, int chexiang){
+    public List<Seat> getSeatsByTrainIdAndCheXiang(int trainId, int chexiang){
         return diaoDuDao.getSeatsByTrainIdAndCheXiang(trainId,chexiang);
+    }
+
+    /**
+     * 按照车次查询席位
+     * @param trainId
+     * @return
+     */
+    public List<Seat> getSeatsByTrainId(int trainId){
+        return diaoDuDao.getSeatsByTrainId(trainId);
+    }
+
+    /**
+     * 查询出所有的席位
+     * @return
+     */
+    public List<Seat> getAllSeats(){
+        return diaoDuDao.getAllSeats();
     }
 
     /**

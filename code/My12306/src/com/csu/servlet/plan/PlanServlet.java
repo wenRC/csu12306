@@ -43,7 +43,7 @@ public class PlanServlet extends HttpServlet {
         if ("query".equals(function)) {
             //查询
             int queryId = Integer.parseInt(req.getParameter("queryId"));
-            String select = req.getParameter("id");
+            String select = req.getParameter("queryMethod");
             if ("plan".equals(select)) {
                 //根据计划代码查询
                 plan = planService.getPlanByPlanId(queryId);
@@ -54,9 +54,19 @@ public class PlanServlet extends HttpServlet {
             }
             session.setAttribute("planList", planList);
             req.getRequestDispatcher(planQueryUrl).forward(req, resp);
-        } else if ("add".equals(function)) {
+        } else if ("queryAll".equals(function)) {
+            //显示所有计划
+            planList = planService.getAllPlans();
+            session.setAttribute("planList",planList);
+            req.getRequestDispatcher(planQueryUrl).forward(req, resp);
+        }
+        else if ("add".equals(function)) {
             //跳到增加计划的页面
             //先自动生成计划代码（未写）
+            List<Train> trainList = baseService.getAllTrains();
+            List<Station> stationList = baseService.getAllStations();
+            session.setAttribute("trainList",trainList);
+            session.setAttribute("stationList",stationList);
             req.getRequestDispatcher(planAddUrl).forward(req, resp);
         } else if ("submitAdd".equals(function)) {
             //提交增加
@@ -67,7 +77,7 @@ public class PlanServlet extends HttpServlet {
             String stationName = req.getParameter("stationName");
             plan = new Plan(planid, trainid, chexiang, compare, stationName);
             planService.insertPlan(plan);
-            planList.add(plan);
+            planList = planService.getAllPlans();
             session.setAttribute("planList", planList);
             req.getRequestDispatcher(planQueryUrl).forward(req, resp);
         } else if ("modify".equals(function)) {
@@ -86,18 +96,19 @@ public class PlanServlet extends HttpServlet {
             int trainid = Integer.parseInt(req.getParameter("trainid"));
             int chexiang = Integer.parseInt(req.getParameter("chexiang"));
             String compare = req.getParameter("compare");
-            String stationname = req.getParameter("stationname");
+            String stationname = req.getParameter("stationName");
             plan = new Plan(planid,trainid,chexiang,compare,stationname);
             planService.updatePlan(plan);
             planList.add(plan);
+            session.setAttribute("planList",planList);
             req.getRequestDispatcher(planQueryUrl).forward(req, resp);
         } else if ("delete".equals(function)) {
             //删除计划
             int planid = Integer.parseInt(req.getParameter("planid"));
             planService.deletePlan(planid);
-            session.setAttribute("planList", null);
+            planList = planService.getAllPlans();
+            session.setAttribute("planList",planList);
             req.getRequestDispatcher(planQueryUrl).forward(req, resp);
         }
-
     }
 }

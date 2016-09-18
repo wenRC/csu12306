@@ -7,7 +7,6 @@ import com.csu.dao.trainGrouped.TrainGroupedDao;
 import com.csu.dao.trainGrouped.impl.TrainGroupedDaoImpl;
 import com.csu.domain.plan.Plan;
 import com.csu.domain.train.Train;
-import com.csu.domain.trainGrouped.TrainGrouped;
 import com.csu.utils.DBUtil;
 
 import java.sql.*;
@@ -25,15 +24,14 @@ public class PlanDaoImpl implements PlanDao {
     private static final String DELETEPLAN = "delete from plan where planid = ?";
     private static final String UPDATEPLAN = "update plan set " +
             "trainid = ?," +     //车次代码
-            "chaxiang = ?," +   //车厢号
+            "chexiang = ?," +   //车厢号
             "compare = ?, " + //比较
-            "stationname = ?, " +   //车站
+            "stationname = ? " +   //车站
             "where planid = ?";  //计划代码
     private static final String ANNOUNCESEAT = "insert into seat values(?,?,?,?,?,?,?,?)";
 
     /**
      * 查询所有计划
-     *
      * @return
      */
     @Override
@@ -68,7 +66,6 @@ public class PlanDaoImpl implements PlanDao {
 
     /**
      * 根据计划代码查询计划
-     *
      * @param planId
      * @return
      */
@@ -103,7 +100,6 @@ public class PlanDaoImpl implements PlanDao {
 
     /**
      * 根据车次代码查询该车次参与的所有计划
-     *
      * @param trainId 车次代码
      * @return
      */
@@ -140,7 +136,6 @@ public class PlanDaoImpl implements PlanDao {
 
     /**
      * 插入计划
-     *
      * @param plan
      * @return
      */
@@ -170,7 +165,6 @@ public class PlanDaoImpl implements PlanDao {
 
     /**
      * 删除计划
-     *
      * @param planId 计划代码
      * @return
      */
@@ -196,7 +190,6 @@ public class PlanDaoImpl implements PlanDao {
 
     /**
      * 修改计划
-     *
      * @param plan
      * @return
      */
@@ -239,12 +232,10 @@ public class PlanDaoImpl implements PlanDao {
         TrainDao trainDao = new TrainDaoImpl();
         TrainGroupedDao trainGroupedDao = new TrainGroupedDaoImpl();
         Train train = null;
-        TrainGrouped trainGrouped = null;
         try {
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(ANNOUNCESEAT);
-            trainGrouped = trainGroupedDao.getTrainGroupBytrainIdAndCheXiang(plan.getTrainid(), plan.getChexiang());//获取列车编组对象
-            for (int i = 1; i <= trainGrouped.getSeatNumber(); i++) {
+            for (int i = 1; i <= 50; i++) {
                 //在默认车次代码、车厢号、座位号都是两位数或者一位数的情况下，席位代码由五位数或六位数组成，顺序是“车次代码-车厢号-座位号”
                 preparedStatement.setInt(1, plan.getTrainid() * 10000 + plan.getChexiang() * 100 + i);//席位代码
                 preparedStatement.setInt(2, plan.getTrainid());  //车次
