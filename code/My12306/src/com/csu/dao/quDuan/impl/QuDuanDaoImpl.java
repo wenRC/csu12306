@@ -18,8 +18,8 @@ public class QuDuanDaoImpl implements QuDuanDao {
     private static final String GETALLQUDUANS = "select * from quduan";
     private static final String GETQUDUANBYID = "select * from quduan where quduanid = ?";
     private static final String UPDATEQUDUAN = "update quduan set " +
-            "from = ?," +     //里程区段From
-            "to = ?," +       //里程区段To
+            "`from` = ?," +     //里程区段From
+            "`to` = ?," +       //里程区段To
             "distanceperqd = ?," +    //每区段里程
             "qdnumber = ? " +         //区段数
             "where quduanid = ?";     //旅程区段编号

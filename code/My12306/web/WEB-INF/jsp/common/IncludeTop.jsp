@@ -36,10 +36,7 @@
               <c:if test="${sessionScope.user!=null}"><li><a href="ViewChangeUserInfo">${sessionScope.user.username}</a></li></c:if>
               <li><a href="ViewYupiao">订票</a></li>
               <li><a href="ViewOrder">我的订单</a></li>
-<<<<<<< HEAD
-=======
               <li><a href="/indexB.jsp">后台</a></li>
->>>>>>> 0a13dcfab7cac69e56ba169773843cd544ed308f
             </ul>
           </div><!--/.nav-collapse -->
         </div>
