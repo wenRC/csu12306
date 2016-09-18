@@ -13,6 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "ToServlet",urlPatterns = {"/to"})
 public class ToServlet extends HttpServlet {
     private static final String toQuDuanAdminUrl = "WEB-INF/jsp/quDuan/quDuanQuery.jsp";
+    private static final String toPlanAdminUrl = "WEB-INF/jsp/plan/planQuery.jsp";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,6 +38,9 @@ public class ToServlet extends HttpServlet {
             req.getRequestDispatcher(toQuDuanAdminUrl).forward(req,resp);
         } else if ("diYuanDiJianLv".equals(function)) {
             //跳转到递远递减率管理模块
+        } else if ("plan".equals(function)) {
+            //跳转到计划管理模块
+            req.getRequestDispatcher(toPlanAdminUrl).forward(req,resp);
         }
     }
 }

@@ -19,7 +19,7 @@ public class PlanService {
      * 查询所有计划
      * @return
      */
-    List<Plan> getAllPlans(){
+    public List<Plan> getAllPlans(){
         return planDao.getAllPlans();
     }
 
@@ -28,7 +28,7 @@ public class PlanService {
      * @param planId
      * @return
      */
-    Plan getPlanByPlanId(int planId){
+    public Plan getPlanByPlanId(int planId){
         return planDao.getPlanByPlanId(planId);
     }
 
@@ -37,7 +37,7 @@ public class PlanService {
      * @param trainId
      * @return
      */
-    List<Plan> getPlansByTrainId(int trainId){
+    public List<Plan> getPlansByTrainId(int trainId){
         return planDao.getPlansByTrainId(trainId);
     }
 
@@ -46,7 +46,7 @@ public class PlanService {
      * @param plan
      * @return
      */
-    boolean insertPlan(Plan plan){
+    public boolean insertPlan(Plan plan){
         return planDao.insertPlan(plan);
     }
 
@@ -55,7 +55,7 @@ public class PlanService {
      * @param planId
      * @return
      */
-    boolean deletePlan(int planId){
+    public boolean deletePlan(int planId){
         return planDao.deletePlan(planId);
     }
 
@@ -64,7 +64,7 @@ public class PlanService {
      * @param plan
      * @return
      */
-    boolean updatePlan(Plan plan){
+    public boolean updatePlan(Plan plan){
         return planDao.updatePlan(plan);
     }
 
@@ -73,7 +73,7 @@ public class PlanService {
      * @param plan
      * @return
      */
-    boolean announceSeat(Plan plan){
+    public boolean announceSeat(Plan plan){
         return planDao.announceSeat(plan);
     }
 }

@@ -30,6 +30,7 @@ public class QuDuanServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");//不加修改数据库时会乱码
         String function = req.getParameter("function");
         HttpSession session = req.getSession();
         List<QuDuan> quDuanList = new ArrayList<>();
@@ -61,16 +62,8 @@ public class QuDuanServlet extends HttpServlet {
             int qdNumber = Integer.parseInt(req.getParameter("qdNumber"));
             quDuan = new QuDuan(quDuanId,from,to,distancePerQD,qdNumber);
             boolean flag = baseService.updateQuDuan(quDuan);
-            resp.setContentType("text/html;charset=utf-8");
-            PrintWriter out = resp.getWriter(); //通过response对象获得一个输出流
-            if (flag) {
-                quDuanList.add(quDuan);
-                session.setAttribute("quDuanList", quDuanList);
-                out.print("<script>alert('修改成功')</script>");//输出
-            } else {
-                out.print("<script>alert('修改失败')</script>");//输出
-            }
-            out.close();//关闭流
+            quDuanList.add(quDuan);
+            session.setAttribute("quDuanList", quDuanList);
             req.getRequestDispatcher(quDuanQueryUrl).forward(req, resp);
         }
     }
