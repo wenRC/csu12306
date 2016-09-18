@@ -8,12 +8,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Asus_ on 2016/9/18.
  */
 public class StationDaoImpl implements StationDAO{
+    private static final String GETALLSTATIONS = "select * from station";
     private final static String ADD_STATION = "INSERT INTO STATION(STATIONID,STATIONNAME,PINYIN,LOCATION) VALUES(?,?,?,?)";
     private final static String GET_STATION_BY_STATIONNAME = "SELECT STATIONID,STATIONNAME,PINYIN,LOCATION FROM STATION WHERE STATIONNAME = ?";
     private final static String GET_STATION_BY_PINYIN = "SELECT STATIONID,STATIONNAME,PINYIN,LOCATION FROM STATION WHERE PINYIN = ?";
@@ -22,7 +24,31 @@ public class StationDaoImpl implements StationDAO{
 
     @Override
     public List<Station> getAllStations() {
-        return null;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        List<Station> stationList = new ArrayList<>();
+        Station station = null;
+        try {
+            connection = DBUtil.getConnection();
+            preparedStatement = connection.prepareStatement(GETALLSTATIONS);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                station = new Station();
+                station.setStationId(resultSet.getInt(1));
+                station.setLocation(resultSet.getString(2));
+                station.setPinYin(resultSet.getString(3));
+                station.setLocation(resultSet.getString(4));
+                stationList.add(station);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closeResultSet(resultSet);
+            DBUtil.closeStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+        }
+        return stationList;
     }
 
     @Override
@@ -112,8 +138,6 @@ public class StationDaoImpl implements StationDAO{
         }
         return i;
     }
-
-
 
     @Override
     public int delStation(int stationId) {

@@ -9,6 +9,9 @@ public class Station {
     private String stationName;//车站名
     private String pinYin;//拼音码
     private String location;//所在地
+    private String ju;
+    private int level;
+    private String phone;
 
     public Station() {
     }
@@ -18,6 +21,16 @@ public class Station {
         this.stationName = stationName;
         this.pinYin = pinYin;
         this.location = location;
+    }
+
+    public Station(int stationId, String stationName, String pinYin, String location, String ju, int level, String phone) {
+        this.stationId = stationId;
+        this.stationName = stationName;
+        this.pinYin = pinYin;
+        this.location = location;
+        this.ju = ju;
+        this.level = level;
+        this.phone = phone;
     }
 
     public int getStationId() {
@@ -50,5 +63,29 @@ public class Station {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getJu() {
+        return ju;
+    }
+
+    public void setJu(String ju) {
+        this.ju = ju;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
