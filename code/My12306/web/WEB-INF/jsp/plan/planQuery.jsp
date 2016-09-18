@@ -31,7 +31,6 @@
                 <th>车站</th>
                 <th colspan="3">操作</th>
             </tr>
-            <%--<c:if test="${sessionScope.planList[0]!=null}">--%>
                 <c:forEach items="${sessionScope.planList}" var="plan">
                     <tr>
                         <td>${plan.planid}</td>
@@ -44,7 +43,6 @@
                         <td><a href="to?function=diaodu&planid=${plan.planid}">执行</a></td>
                     </tr>
                 </c:forEach>
-            <%--</c:if>--%>
         </table>
     </div>
 </div>

@@ -10,6 +10,17 @@ public class Plan {
     private String compare; //比较
     private String stationname; //车站
 
+    public Plan() {
+    }
+
+    public Plan(int planid, int trainid, int chexiang, String compare, String stationname) {
+        this.planid = planid;
+        this.trainid = trainid;
+        this.chexiang = chexiang;
+        this.compare = compare;
+        this.stationname = stationname;
+    }
+
     public int getPlanid() {
         return planid;
     }

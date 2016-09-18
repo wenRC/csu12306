@@ -8,9 +8,9 @@ import java.util.ArrayList;
  * Created by Asus_ on 2016/9/13.
  */
 public interface DiYuanDiJianLvDAO {
-    public DiYuanDiJianLv getDYDJLvByDYDJLID(String DYDJLID);
+    public DiYuanDiJianLv getDYDJLvByDYDJLID(int DYDJLID);
     public int addDYDJLv(DiYuanDiJianLv diYuanDiJianLv);
     public ArrayList<DiYuanDiJianLv> getDYDJLvs();
     public int updateDYDJLv(DiYuanDiJianLv diYuanDiJianLv);
-    public int delDYDJLvById(String DYDJLID);
+    public int delDYDJLvById(int DYDJLID);
 }

@@ -10,6 +10,7 @@ import com.csu.dao.trainGrouped.TrainGroupedDao;
 import com.csu.dao.trainGrouped.impl.TrainGroupedDaoImpl;
 import com.csu.domain.priceRate.PriceRate;
 import com.csu.domain.quDuan.QuDuan;
+import com.csu.domain.station.Station;
 import com.csu.domain.train.Train;
 import com.csu.domain.trainGrouped.TrainGrouped;
 
@@ -40,6 +41,33 @@ public class BaseService {
     }
 
     /*
+    车站管理
+     */
+    public List<Station> getAllStations() { //查询出所有的车站
+        return null;
+    }
+
+    public int addStation(Station station) {
+        return 0;
+    }
+
+    public Station getStationByStationName(String stationName) {
+        return null;
+    }
+
+    public Station getStationByPinYin(String pinYin) {
+        return null;
+    }
+
+    public int updateStation(Station station) {
+        return 0;
+    }
+
+    public int delStation(int stationId) {
+        return 0;
+    }
+
+    /*
     票价率
      */
     public double getPriceRateByticketType(String ticketType) {
@@ -53,6 +81,10 @@ public class BaseService {
     /*
     列车管理
    */
+    public List<Train> getAllTrains() {
+        return trainDao.getAllTrains();
+    }
+
     public Train getTrainBytrainId(int trainId) {
         return trainDao.getTrainBytrainId(trainId);
     }

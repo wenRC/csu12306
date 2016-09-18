@@ -1,20 +1,33 @@
 package com.csu.domain.train;
 
-import java.util.Date;
+import java.sql.Timestamp;
+
 
 /**
- * Created by sx on 2016/9/18.
+ * Created by sx on 2016/9/15.
  */
 public class Train {
     private int trainId;
     private String from;
     private String to;
-    private Date fromTime;
-    private Date toTime;
+    private Timestamp fromTime;
+    private Timestamp toTime;
     private String last;
     private int distance;
     private int noseatnumber;
     private String type;
+    public Train(){}
+    public Train(int trainId, String from, String to, Timestamp fromTime, Timestamp toTime, String last, int distance, int noseatnumber, String type) {
+        this.trainId = trainId;
+        this.from = from;
+        this.to = to;
+        this.fromTime = fromTime;
+        this.toTime = toTime;
+        this.last = last;
+        this.distance = distance;
+        this.noseatnumber = noseatnumber;
+        this.type = type;
+    }
 
     public int getTrainId() {
         return trainId;
@@ -40,19 +53,19 @@ public class Train {
         this.to = to;
     }
 
-    public Date getFromTime() {
+    public Timestamp getFromTime() {
         return fromTime;
     }
 
-    public void setFromTime(Date fromTime) {
+    public void setFromTime(Timestamp fromTime) {
         this.fromTime = fromTime;
     }
 
-    public Date getToTime() {
+    public Timestamp getToTime() {
         return toTime;
     }
 
-    public void setToTime(Date toTime) {
+    public void setToTime(Timestamp toTime) {
         this.toTime = toTime;
     }
 

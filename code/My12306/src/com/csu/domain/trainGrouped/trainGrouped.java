@@ -11,6 +11,16 @@ public class TrainGrouped {
     private int seatNumber;
     private String chexiangType;
 
+    public TrainGrouped(){}
+    public TrainGrouped(int trainGroupId, int trainId, int chexiang, String seatType, int seatNumber, String chexiangType) {
+        this.trainGroupId = trainGroupId;
+        this.trainId = trainId;
+        this.chexiang = chexiang;
+        this.seatType = seatType;
+        this.seatNumber = seatNumber;
+        this.chexiangType = chexiangType;
+    }
+
     public int getTrainGroupId() {
         return trainGroupId;
     }

@@ -10,9 +10,9 @@ import java.util.ArrayList;
  */
 public interface LineDAO {
     public int addLine(Line line);
-    public int delLineByLineId(String lineId);
-    public ArrayList<Line> searchLineByTrainId(String trainId);
+    public int delLineByLineId(int lineId);
+    public ArrayList<Line> searchLineByTrainId(int trainId);
     public ArrayList<Line> searchLineByStationName(String stationName);
-    public Line getLineByLineId(String LineId);
+    public Line getLineByLineId(int lineId);
     public int updateLine(Line line);
 }

@@ -8,6 +8,13 @@ public class PriceRate {
     private String ticketType;
     private double priceRate;
 
+    public PriceRate(){}
+    public PriceRate(int priceRateId, String ticketType, double priceRate) {
+        this.priceRateId = priceRateId;
+        this.ticketType = ticketType;
+        this.priceRate = priceRate;
+    }
+
     public int getPriceRateId() {
         return priceRateId;
     }
