@@ -40,7 +40,7 @@ public class PlanDaoImpl implements PlanDao {
         Connection connection= null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        List<Plan> planList = new ArrayList<>();
+        List<Plan> planList = new ArrayList<Plan>();
         Plan plan = null;
         try {
             connection = DBUtil.getConnection();
@@ -109,7 +109,7 @@ public class PlanDaoImpl implements PlanDao {
         Connection connection= null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        List<Plan> planList = new ArrayList<>();
+        List<Plan> planList = new ArrayList<Plan>();
         Plan plan = null;
         try {
             connection = DBUtil.getConnection();
@@ -240,7 +240,7 @@ public class PlanDaoImpl implements PlanDao {
                 preparedStatement.setInt(1,plan.getTrainid() * 10000 + plan.getChexiang() * 100 + i);//席位代码
                 preparedStatement.setInt(2,plan.getTrainid());  //车次
                 train = trainDao.getTrainBytrainId(plan.getTrainid()); //根据车次代码获取列车对象
-                preparedStatement.setDate(3, (Date) train.getFromTime()); //始发日期
+                preparedStatement.setTimestamp(3, train.getFromTime()); //始发日期
                 preparedStatement.setInt(4,plan.getChexiang());//车厢号
                 preparedStatement.setString(5,"" + i);//座位号
                 preparedStatement.setString(6,train.getFrom());//乘车区间起始站

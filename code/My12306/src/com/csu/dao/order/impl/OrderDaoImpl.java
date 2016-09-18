@@ -87,7 +87,7 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public ArrayList<Order> getOrdersByUserId(int userId) {
-        ArrayList<Order> orders=new ArrayList<>();
+        ArrayList<Order> orders=new ArrayList<Order>();
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         ResultSet resultSet=null;

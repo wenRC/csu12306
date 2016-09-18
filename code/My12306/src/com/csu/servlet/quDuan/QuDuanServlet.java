@@ -33,7 +33,7 @@ public class QuDuanServlet extends HttpServlet {
         req.setCharacterEncoding("utf-8");//不加修改数据库时会乱码
         String function = req.getParameter("function");
         HttpSession session = req.getSession();
-        List<QuDuan> quDuanList = new ArrayList<>();
+        List<QuDuan> quDuanList = new ArrayList<QuDuan>();
         QuDuan quDuan = null;
         if ("queryById".equals(function)) {
             //根据id查询
