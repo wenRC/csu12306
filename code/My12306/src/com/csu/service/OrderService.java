@@ -14,19 +14,19 @@ public class OrderService {
     public OrderService() {
         orderDao=new OrderDaoImpl();
     }
-    boolean insertOrder(Order order){
+    public boolean insertOrder(Order order){
         return orderDao.insertOrder(order);
     }
-    boolean deleteOrder(int orderId){
+    public boolean deleteOrder(int orderId){
         return orderDao.deleteOrder(orderId);
     }
-    boolean updateOrder(Order order){
+    public boolean updateOrder(Order order){
         return updateOrder(order);
     }
-    ArrayList<Order> getOrdersByUserId(int userId){
+    public ArrayList<Order> getOrdersByUserId(int userId){
         return orderDao.getOrdersByUserId(userId);
     }
-    Order getOrderByOrderId(int orderId){
+    public Order getOrderByOrderId(int orderId){
         return orderDao.getOrderByOrderId(orderId);
     }
 }

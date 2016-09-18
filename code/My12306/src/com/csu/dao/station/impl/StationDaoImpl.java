@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by Asus_ on 2016/9/18.
  */
-public class StationDAOImpl implements StationDAO{
+public class StationDaoImpl implements StationDAO{
     private final static String ADD_STATION = "INSERT INTO STATION(STATIONID,STATIONNAME,PINYIN,LOCATION) VALUES(?,?,?,?)";
     private final static String GET_STATION_BY_STATIONNAME = "SELECT STATIONID,STATIONNAME,PINYIN,LOCATION FROM STATION WHERE STATIONNAME = ?";
     private final static String GET_STATION_BY_PINYIN = "SELECT STATIONID,STATIONNAME,PINYIN,LOCATION FROM STATION WHERE PINYIN = ?";
