@@ -9,7 +9,7 @@ public class GetPiaoWuAndYuPIaoService {
     OrderService orderService;
     BaseService baseService;
     PiaowuService piaowuService;
-
+    DiaoduService diaoduService;
 
     public GetPiaoWuAndYuPIaoService(){
 
