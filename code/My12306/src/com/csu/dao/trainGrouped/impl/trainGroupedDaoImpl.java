@@ -3,13 +3,14 @@ package com.csu.dao.trainGrouped.impl;
 import com.csu.dao.trainGrouped.TrainGroupedDao;
 import com.csu.domain.trainGrouped.TrainGrouped;
 import com.csu.utils.DBUtil;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
- * Created by sx on 2016/9/15.
+ * Created by sx on 2016/9/18.
  */
 public class TrainGroupedDaoImpl implements TrainGroupedDao {
     private static String GET_TRAINGROUP_BY_TRAINID = "select * from traingroup where trainid = ?";

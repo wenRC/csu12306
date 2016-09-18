@@ -1,3 +1,4 @@
+
 package com.csu.dao.priceRate.impl;
 
 import com.csu.dao.priceRate.PriceRateDao;
@@ -37,7 +38,7 @@ public class PriceRateDaoImpl implements PriceRateDao {
             DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         }
-            return priceRate;
+        return priceRate;
     }
 
     @Override

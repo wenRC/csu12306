@@ -1,5 +1,6 @@
 package com.csu.domain.diaoDu;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Date;
 public class Seat {
     private int seatid;     //席位代码
     private int trainid;    //车次
-    private Date date;      //日期
+    private Timestamp date;      //日期
     private int chexiang;   //车厢号
     private String seatno;  //座位号
     private String from;    //乘车区间起始站
@@ -31,11 +32,11 @@ public class Seat {
         this.trainid = trainid;
     }
 
-    public Date getDate() {
+    public Timestamp getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Timestamp date) {
         this.date = date;
     }
 

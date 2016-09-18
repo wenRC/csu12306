@@ -5,7 +5,7 @@ import com.csu.domain.trainGrouped.TrainGrouped;
 import java.util.ArrayList;
 
 /**
- * Created by sx on 2016/9/15.
+ * Created by sx on 2016/9/18.
  */
 public interface TrainGroupedDao {
     ArrayList<TrainGrouped> getTrainGroupBytrainId(int trainId);

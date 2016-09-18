@@ -48,7 +48,7 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
                 seat = new Seat();
                 seat.setSeatid(resultSet.getInt(1));//席位代码
                 seat.setTrainid(resultSet.getInt(2));//车次代码
-                seat.setDate(resultSet.getDate(3));//日期
+                seat.setDate(resultSet.getTimestamp(3));//日期
                 seat.setChexiang(resultSet.getInt(4));//车厢号
                 seat.setSeatno(resultSet.getString(5));//座位号
                 seat.setFrom(resultSet.getString(6));//乘车区间起始站
@@ -79,7 +79,7 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(UPDATESEAT);
             preparedStatement.setInt(1, seat.getTrainid());//车次代码
-            preparedStatement.setDate(2, (Date) seat.getDate());//日期
+            preparedStatement.setTimestamp(2, seat.getDate());//日期
             preparedStatement.setInt(3, seat.getChexiang());//车厢号
             preparedStatement.setString(4, seat.getSeatno());//座位号
             preparedStatement.setString(5, seat.getFrom());//乘车区间起始站
