@@ -50,7 +50,7 @@ public class TicketDaoImpl implements TicketDao {
 
     @Override
     public ArrayList<Ticket> getTicketByUserId(int userId) {
-        ArrayList<Ticket> tickets=new ArrayList<>();
+        ArrayList<Ticket> tickets=new ArrayList<Ticket>();
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         ResultSet resultSet=null;
