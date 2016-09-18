@@ -53,6 +53,9 @@ public class PlanServlet extends HttpServlet {
             //先自动生成计划代码（未写）
             req.getRequestDispatcher(planAddUrl).forward(req,resp);
         } else if ("submitAdd".equals(function)) {
+            //提交修改
+            int planid = Integer.parseInt(req.getParameter("planid"));
+            int trainid = Integer.parseInt(req.getParameter("trainid"));
 
         }
 
