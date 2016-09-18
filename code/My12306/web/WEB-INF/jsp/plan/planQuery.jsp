@@ -15,7 +15,7 @@
     <div>
         <form action="plan?function=query" method="post">
             按&nbsp&nbsp&nbsp<input type="radio" name="id" value="plan">计划代码
-            <input type="radio" name="id" value="train">车次代码&nbsp&nbsp&nbsp进行查询：
+            <input type="radio" name="id" value="train" checked>车次代码&nbsp&nbsp&nbsp进行查询：
             <input type="text" name="queryId">
             <input type="submit" name="planQuery" value="查询"/>
         </form>
