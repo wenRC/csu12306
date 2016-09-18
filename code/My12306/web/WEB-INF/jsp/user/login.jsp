@@ -27,5 +27,7 @@
         </div>
     </div>
 </form>
-
+<div class="alert alert-success" role="alert" style="margin: 50px">
+    <strong>${sessionScope.logmsg}</strong>
+</div>
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp"%>

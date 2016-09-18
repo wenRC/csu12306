@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2016-09-17 10:49:49
+Date: 2016-09-18 11:22:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -69,6 +69,7 @@ CREATE TABLE `order` (
   `passengerid` int(11) NOT NULL,
   `orderstatus` varchar(50) NOT NULL,
   `ordertime` datetime NOT NULL,
+  `ticketid` int(11) NOT NULL,
   PRIMARY KEY (`orderid`),
   KEY `opid` (`passengerid`),
   CONSTRAINT `opid` FOREIGN KEY (`passengerid`) REFERENCES `passenger` (`passengerid`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -77,7 +78,7 @@ CREATE TABLE `order` (
 -- ----------------------------
 -- Records of order
 -- ----------------------------
-INSERT INTO `order` VALUES ('1', '1', '未出行', '2016-09-12 16:17:56');
+INSERT INTO `order` VALUES ('1', '1', '未支付', '2016-09-17 18:50:34', '1');
 
 -- ----------------------------
 -- Table structure for `passenger`
@@ -100,7 +101,9 @@ CREATE TABLE `passenger` (
 -- ----------------------------
 -- Records of passenger
 -- ----------------------------
+INSERT INTO `passenger` VALUES ('2', '0@0', '1', '男', '我的姓名', '11123', '123234234', null, null);
 INSERT INTO `passenger` VALUES ('1', '527375636@qq.com', '123456', '男', '温睿诚', '4400000000', '13308470064', null, null);
+INSERT INTO `passenger` VALUES ('8052', 't@t', '1', '男', '阿里路亚', 't2而发', 'sdfaf ASdf 浮点数啊', null, null);
 
 -- ----------------------------
 -- Table structure for `plan`
@@ -156,7 +159,7 @@ CREATE TABLE `quduan` (
 -- ----------------------------
 -- Records of quduan
 -- ----------------------------
-INSERT INTO `quduan` VALUES ('1', '广州北', '广州南', '10', '10');
+INSERT INTO `quduan` VALUES ('1', 'å¹¿å·å', 'å¹¿å·å', '101', '10');
 
 -- ----------------------------
 -- Table structure for `seat`
@@ -225,7 +228,7 @@ CREATE TABLE `ticket` (
 -- ----------------------------
 -- Records of ticket
 -- ----------------------------
-INSERT INTO `ticket` VALUES ('1', '1', '15.00', '网络', '二等座', '0', '', null, null);
+INSERT INTO `ticket` VALUES ('1', '1', '15.00', '网络', '二等座', '0', '', '2016-09-17 19:30:33', null);
 
 -- ----------------------------
 -- Table structure for `train`

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 
@@ -34,6 +35,8 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("user",user);
             request.getRequestDispatcher(succurl).forward(request,response);
         }else {
+            HttpSession session = request.getSession();
+            session.setAttribute("logmsg", "邮箱或密码错误");
             request.getRequestDispatcher(errorurl).forward(request,response);
         }
 

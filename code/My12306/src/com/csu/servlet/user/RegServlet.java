@@ -2,7 +2,7 @@ package com.csu.servlet.user;
 
 import com.csu.domain.user.User;
 import com.csu.service.UserService;
-import com.csu.servlet.MakeId;
+import com.csu.servlet.main.MakeId;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

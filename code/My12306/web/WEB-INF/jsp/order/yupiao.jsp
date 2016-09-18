@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/jsp/common/IncludeTop.jsp"%>
 <div id="content">
 			<div id="search">
-				<form action="" method="post" role="form" class="form-inline">
+				<form action="/searchOrder" method="post" role="form" class="form-inline">
 					<div class="form-group">
 					<input type="text" class="form-control" id="fromplace" placeholder="出发地" />
 					<input type="text" class="form-control" id="toplace" placeholder="目的地"/>

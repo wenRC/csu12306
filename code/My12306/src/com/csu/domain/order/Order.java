@@ -10,6 +10,15 @@ public class Order {
     private int passengerId;
     private String orderStatus;
     private Timestamp orderTime;
+    private int ticketId;
+
+    public int getTicketId() {
+        return ticketId;
+    }
+
+    public void setTicketId(int ticketId) {
+        this.ticketId = ticketId;
+    }
 
     public Order() {
     }
