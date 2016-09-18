@@ -35,19 +35,22 @@ public class PlanServlet extends HttpServlet {
         List<Plan> planList = new ArrayList<>();
         Plan plan = null;
         if ("query".equals(function)) {
-            //
+            //查询
             int queryId = Integer.parseInt(req.getParameter("queryId"));
             String select = req.getParameter("id");
             if ("plan".equals(select)) {
+                //根据计划代码查询
                 plan = planService.getPlanByPlanId(queryId);
                 planList.add(plan);
             } else {
+                //根据车次代码查询
                 planList = planService.getPlansByTrainId(queryId);
             }
             session.setAttribute("planList",planList);
             req.getRequestDispatcher(planQueryUrl).forward(req,resp);
         } else if ("add".equals(function)) {
-
+            //跳到增加计划的页面
+            //先自动生成计划代码（未写）
             req.getRequestDispatcher(planAddUrl).forward(req,resp);
         } else if ("submitAdd".equals(function)) {
 

@@ -53,6 +53,10 @@ public class BaseService {
     /*
     列车管理
    */
+    public List<Train> getAllTrains() {
+        return trainDao.getAllTrains();
+    }
+
     public Train getTrainBytrainId(int trainId) {
         return trainDao.getTrainBytrainId(trainId);
     }

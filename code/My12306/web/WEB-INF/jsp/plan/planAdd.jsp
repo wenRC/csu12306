@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sx
@@ -20,7 +21,19 @@
                 </tr>
                 <tr>
                     <td>车次代码</td>
-                    <td><input type="text" name="trainid"></td>
+                    <td>
+                        <select id="trainid" name="trainid">
+                            <c:forEach items="${users}" var="u">
+                                <option value="${u.id }"
+                                        <c:if test="${user.user_id==u.id}">
+                                            <c:out value="selected"/>
+                                        </c:if>>
+                                        ${u.name}
+                                </option>
+                            </c:forEach>
+                        </select>
+                        <input type="text" name="trainid">
+                    </td>
                 </tr>
                 <tr>
                     <td>车厢号</td>
