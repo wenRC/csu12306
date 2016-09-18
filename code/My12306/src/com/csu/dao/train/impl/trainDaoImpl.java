@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import java.util.List;
+
 /**
  * Created by sx on 2016/9/15.
  */
@@ -18,6 +20,11 @@ public class TrainDaoImpl implements TrainDao {
     private static final String INSERT_TRAIN = "insert into train VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String DELETE_TRAIN = "delete from train where trainid = ?";
     private static final String UPDATE_TRAIN = "update train set `from` = ?,`to` = ?,fromtime = ?,totime = ?,last = ?,distance = ?,noseatnumber = ?,type = ? where trainid = ?";
+    @Override
+    public List<Train> getAllTrains() {
+        return null;
+    }
+
     @Override
     public Train getTrainBytrainId(int trainId) {
         Train train = null;

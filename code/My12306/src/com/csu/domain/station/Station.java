@@ -4,7 +4,12 @@ package com.csu.domain.station;
  * Created by Asus_ on 2016/9/13.
  */
 public class Station {
+<<<<<<< HEAD
+
+    private String stationId;//车站编号
+=======
     private int stationId;//车站编号
+>>>>>>> 15e3784dbf2dc504eb2070f2911c4992f09bd602
     private String stationName;//车站名
     private String pinYin;//拼音码
     private String location;//所在地

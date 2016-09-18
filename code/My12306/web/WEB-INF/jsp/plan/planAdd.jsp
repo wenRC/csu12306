@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sx
@@ -20,7 +21,13 @@
                 </tr>
                 <tr>
                     <td>车次代码</td>
-                    <td><input type="text" name="trainid"></td>
+                    <td>
+                        <select id="trainid" name="trainid">
+                            <c:forEach items="${sessionScope.trainList}" var="train">
+                                <option value="${train.trainid}">${train.trainid}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>车厢号</td>
@@ -28,11 +35,23 @@
                 </tr>
                 <tr>
                     <td>比较</td>
-                    <td><input type="text" name="compare"></td>
+                    <td>
+                        <select id="compare" name="compare">
+                            <option value="1" name="">=</option>
+                            <option value="2" name="">&gt;=</option>
+                            <option value="3" name="">&lt;=</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>车站</td>
-                    <td><input type="text" name="stationname"></td>
+                    <td>
+                        <select id="stationName" name="stationName">
+                            <c:forEach items="${sessionScope.stationnameList}" var="station">
+                                <option value="${station.stationName}">${station.stationName}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
