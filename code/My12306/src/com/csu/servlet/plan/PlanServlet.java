@@ -1,6 +1,9 @@
 package com.csu.servlet.plan;
 
 import com.csu.domain.plan.Plan;
+import com.csu.domain.station.Station;
+import com.csu.domain.train.Train;
+import com.csu.service.BaseService;
 import com.csu.service.PlanService;
 
 import javax.servlet.ServletException;
@@ -20,8 +23,10 @@ import java.util.List;
 public class PlanServlet extends HttpServlet {
     private static final String planQueryUrl = "WEB-INF/jsp/plan/planQuery.jsp";
     private static final String planAddUrl = "WEB-INF/jsp/plan/planAdd.jsp";
+    private static final String planModifyUrl = "WEB-INF/jsp/plan/planModify.jsp";
 
     PlanService planService = new PlanService();
+    BaseService baseService = new BaseService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -69,11 +74,23 @@ public class PlanServlet extends HttpServlet {
             //修改计划
             int planid = Integer.parseInt(req.getParameter("planid"));
             plan = planService.getPlanByPlanId(planid);
-
-
+            List<Train> trainList = baseService.getAllTrains();
+            List<Station> stationList = baseService.getAllStations();
+            session.setAttribute("trainList",trainList);
+            session.setAttribute("stationList",stationList);
+            session.setAttribute("plan",plan);
+            req.getRequestDispatcher(planModifyUrl).forward(req,resp);
         } else if ("submitModify".equals(function)) {
             //提交修改
-
+            int planid = Integer.parseInt(req.getParameter("planid"));
+            int trainid = Integer.parseInt(req.getParameter("trainid"));
+            int chexiang = Integer.parseInt(req.getParameter("chexiang"));
+            String compare = req.getParameter("compare");
+            String stationname = req.getParameter("stationname");
+            plan = new Plan(planid,trainid,chexiang,compare,stationname);
+            planService.updatePlan(plan);
+            planList.add(plan);
+            req.getRequestDispatcher(planQueryUrl).forward(req, resp);
         } else if ("delete".equals(function)) {
             //删除计划
             int planid = Integer.parseInt(req.getParameter("planid"));

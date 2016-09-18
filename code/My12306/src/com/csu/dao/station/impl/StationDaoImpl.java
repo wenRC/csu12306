@@ -2,12 +2,13 @@ package com.csu.dao.station.impl;
 
 import com.csu.dao.station.StationDAO;
 import com.csu.domain.station.Station;
-import com.csu.util.DBUtil;
+import com.csu.utils.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Created by Asus_ on 2016/9/18.
@@ -18,6 +19,12 @@ public class StationDAOImpl implements StationDAO{
     private final static String GET_STATION_BY_PINYIN = "SELECT STATIONID,STATIONNAME,PINYIN,LOCATION FROM STATION WHERE PINYIN = ?";
     private final static String UPDATE_STATION = "UPDATE STATION SET STATIONNAME=?,PINYIN=?,LOCATION=? WHERE STATIONID = ?";
     private final static String DEL_STATION = "DELETE FROM STATION WHERE STATIONID = ?";
+
+    @Override
+    public List<Station> getAllStations() {
+        return null;
+    }
+
     @Override
     public int addStation(Station station) {
         int i = 0;
@@ -29,7 +36,7 @@ public class StationDAOImpl implements StationDAO{
             preparedStatement.setString(3,station.getPinYin());
             preparedStatement.setString(4,station.getLocation());
             preparedStatement.executeUpdate();
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
             i = 1;
         } catch (SQLException e) {
@@ -54,7 +61,7 @@ public class StationDAOImpl implements StationDAO{
                 station.setLocation(resultSet.getString(4));
             }
             DBUtil.closeResultSet(resultSet);
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -78,7 +85,7 @@ public class StationDAOImpl implements StationDAO{
                 station.setLocation(resultSet.getString(4));
             }
             DBUtil.closeResultSet(resultSet);
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -97,7 +104,7 @@ public class StationDAOImpl implements StationDAO{
             preparedStatement.setString(3,station.getLocation());
             preparedStatement.setInt(4,station.getStationId());
             preparedStatement.executeUpdate();
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
             i = 1;
         } catch (SQLException e) {
@@ -105,6 +112,8 @@ public class StationDAOImpl implements StationDAO{
         }
         return i;
     }
+
+
 
     @Override
     public int delStation(int stationId) {
@@ -114,7 +123,7 @@ public class StationDAOImpl implements StationDAO{
             PreparedStatement preparedStatement = connection.prepareStatement(DEL_STATION);
             preparedStatement.setInt(1,stationId);
             preparedStatement.executeUpdate();
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
             i = 1;
         } catch (SQLException e) {

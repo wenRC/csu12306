@@ -10,6 +10,7 @@ import com.csu.dao.trainGrouped.TrainGroupedDao;
 import com.csu.dao.trainGrouped.impl.TrainGroupedDaoImpl;
 import com.csu.domain.priceRate.PriceRate;
 import com.csu.domain.quDuan.QuDuan;
+import com.csu.domain.station.Station;
 import com.csu.domain.train.Train;
 import com.csu.domain.trainGrouped.TrainGrouped;
 
@@ -37,6 +38,33 @@ public class BaseService {
         trainDao = new TrainDaoImpl();
         trainGroupedDao = new TrainGroupedDaoImpl();
         quDuanDao = new QuDuanDaoImpl();
+    }
+
+    /*
+    车站管理
+     */
+    public List<Station> getAllStations() { //查询出所有的车站
+        return null;
+    }
+
+    public int addStation(Station station) {
+        return 0;
+    }
+
+    public Station getStationByStationName(String stationName) {
+        return null;
+    }
+
+    public Station getStationByPinYin(String pinYin) {
+        return null;
+    }
+
+    public int updateStation(Station station) {
+        return 0;
+    }
+
+    public int delStation(int stationId) {
+        return 0;
     }
 
     /*

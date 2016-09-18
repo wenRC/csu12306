@@ -2,7 +2,7 @@ package com.csu.dao.line.impl;
 
 import com.csu.dao.line.LineDAO;
 import com.csu.domain.line.Line;
-import com.csu.util.DBUtil;
+import com.csu.utils.DBUtil;
 import com.sun.java.swing.plaf.windows.WindowsBorders;
 
 import java.sql.Connection;
@@ -34,7 +34,7 @@ public class LineDAOImpl implements LineDAO{
             preparedStatement.setDate(5,line.getFromTime());
             preparedStatement.setString(6,line.getLastTime());
             preparedStatement.executeUpdate();
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
             i = 1;
         } catch (SQLException e) {
@@ -51,7 +51,7 @@ public class LineDAOImpl implements LineDAO{
             PreparedStatement preparedStatement = connection.prepareStatement(DEL_LINE_BY_LINEID);
             preparedStatement.setInt(1,lineId);
             preparedStatement.executeUpdate();
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
             i = 1;
         } catch (SQLException e) {
@@ -79,7 +79,7 @@ public class LineDAOImpl implements LineDAO{
                 lines.add(line);
             }
             DBUtil.closeResultSet(resultSet);
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -106,7 +106,7 @@ public class LineDAOImpl implements LineDAO{
                 lines.add(line);
             }
             DBUtil.closeResultSet(resultSet);
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -132,7 +132,7 @@ public class LineDAOImpl implements LineDAO{
                 line.setLastTime(resultSet.getString(6));
             }
             DBUtil.closeResultSet(resultSet);
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -153,7 +153,7 @@ public class LineDAOImpl implements LineDAO{
             preparedStatement.setString(5, line.getLastTime());
             preparedStatement.setInt(6, line.getLineId());
             preparedStatement.executeUpdate();
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
             i = 1;
         } catch (SQLException e) {

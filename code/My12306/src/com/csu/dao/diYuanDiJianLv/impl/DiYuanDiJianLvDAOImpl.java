@@ -2,7 +2,7 @@ package com.csu.dao.diYuanDiJianLv.impl;
 
 import com.csu.dao.diYuanDiJianLv.DiYuanDiJianLvDAO;
 import com.csu.domain.diYuanDiJianLv.DiYuanDiJianLv;
-import com.csu.util.DBUtil;
+import com.csu.utils.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,7 +36,7 @@ public class DiYuanDiJianLvDAOImpl implements DiYuanDiJianLvDAO{
                 diYuanDiJianLv.setPriceRate(resultSet.getDouble(5));
             }
             DBUtil.closeResultSet(resultSet);
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -56,7 +56,7 @@ public class DiYuanDiJianLvDAOImpl implements DiYuanDiJianLvDAO{
             preparedStatement.setDouble(4,diYuanDiJianLv.getdYDJRate());
             preparedStatement.setDouble(5,diYuanDiJianLv.getPriceRate());
             preparedStatement.executeUpdate();
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
             i = 1;
         } catch (SQLException e) {
@@ -82,7 +82,7 @@ public class DiYuanDiJianLvDAOImpl implements DiYuanDiJianLvDAO{
                 diYuanDiJianLvs.add(diYuanDiJianLv);
             }
             DBUtil.closeResultSet(resultSet);
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -103,7 +103,7 @@ public class DiYuanDiJianLvDAOImpl implements DiYuanDiJianLvDAO{
             preparedStatement.setDouble(5,diYuanDiJianLv.getPriceRate());
             preparedStatement.setInt(6,diYuanDiJianLv.getdYDJId());
             preparedStatement.executeUpdate();
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
             i = 1;
         } catch (SQLException e) {
@@ -120,7 +120,7 @@ public class DiYuanDiJianLvDAOImpl implements DiYuanDiJianLvDAO{
             PreparedStatement preparedStatement = connection.prepareStatement(DEL_DYDJL);
             preparedStatement.setInt(1,DYDJLID);
             preparedStatement.executeUpdate();
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
             i = 1;
         } catch (SQLException e) {

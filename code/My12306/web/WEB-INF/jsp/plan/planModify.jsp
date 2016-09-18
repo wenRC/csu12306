@@ -13,7 +13,7 @@
         <h1>计划修改</h1>
     </div>
     <div>
-        <form action="submitModify?planid=${sessionScope.plan.planid}" method="post">
+        <form action="plan?function=submitModify&planid=${sessionScope.plan.planid}" method="post">
             <table cellpadding="5">
                 <tr>
                     <td>计划代码</td>
@@ -24,10 +24,10 @@
                     <td>
                         <select id="trainid" name="trainid">
                             <c:forEach items="${sessionScope.trainList}" var="train">
-                                <option value="${train.trainid}" name="${train.trainid}"
-                                        <c:if test="${sessionScope.plan.trainid==train.trainid}"><c:out
+                                <option value="${train.trainId}" name="${train.trainId}"
+                                        <c:if test="${sessionScope.plan.trainid==train.trainId}"><c:out
                                                 value="selected"/></c:if>>
-                                        ${train.trainid}
+                                        ${train.trainId}
                                 </option>
                             </c:forEach>
                         </select>
@@ -40,9 +40,6 @@
                 <tr>
                     <td>比较</td>
                     <td>
-                        <c:if test="${sessionScope.plan.compare.equals('=')}">
-                            <c:out value="selected"/>
-                        </c:if>
                         <select id="compare" name="compare">
                             <option value="1" name="" <c:if test="${sessionScope.plan.compare.equals('=')}">
                                 <c:out value="selected"/>
@@ -63,9 +60,9 @@
                     <td>车站</td>
                     <td>
                         <select id="stationName" name="stationName">
-                            <c:forEach items="${sessionScope.stationnameList}" var="station">
+                            <c:forEach items="${sessionScope.stationList}" var="station">
                                 <option value="${station.stationName}" name="${station.stationName}"
-                                        <c:if test="${sessionScope.plan.stationName==station.stationName}"><c:out
+                                        <c:if test="${sessionScope.plan.stationname==station.stationName}"><c:out
                                                 value="selected"/></c:if>>
                                         ${station.stationName}
                                 </option>
