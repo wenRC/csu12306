@@ -133,7 +133,9 @@ public class BaseService {
     public boolean updateTrainGroup(TrainGrouped trainGroup) {
         return trainGroupedDao.updateTrainGroup(trainGroup);
     }
-
+    public ArrayList<TrainGrouped> getTrainGroupBytrainId(int trainId){
+        return trainGroupedDao.getTrainGroupBytrainId(trainId);
+    }
     /*
     区段
     */

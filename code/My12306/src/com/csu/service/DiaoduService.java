@@ -56,7 +56,7 @@ public class DiaoduService {
      * @param seat
      * @return
      */
-    boolean updateSeat(Seat seat){
+    public boolean updateSeat(Seat seat){
         return diaoDuDao.updateSeat(seat);
     }
 
@@ -66,7 +66,7 @@ public class DiaoduService {
      * @param status
      * @return
      */
-    int getSeatsCountByStatus(int trainId,String status){
+    public int getSeatsCountByStatus(int trainId,String status){
         return diaoDuDao.getSeatsCountByStatus(trainId,status);
     }
 
@@ -75,7 +75,11 @@ public class DiaoduService {
      * @param trainId
      * @return
      */
-    int getAllSeatsCount(int trainId){
+    public int getAllSeatsCount(int trainId){
         return diaoDuDao.getAllSeatsCount(trainId);
     }
+    public Seat getSeatBySeatId(int seatId){
+        return diaoDuDao.getSeatBySeatId(seatId);
+    }
+
 }

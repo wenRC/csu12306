@@ -27,7 +27,7 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
             "where seatid = ?"; //席位代码
     private static final String GETSEATSCOUNTBYSTATUS = "select count(*) from seat where trainid = ? and status = ?";
     private static final String GETALLSEATSCOUNT = "select count(*) from seat where trainid = ?";
-
+    private static final String GET_SEAT_BY_SEATID="select trainid,`date`,chexiang,seatno,`from`,`to`,status from seat where seatid=?";
     /**
      * 按照席位代码进行查询
      *
@@ -277,5 +277,37 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
             DBUtil.closeConnection(connection);
         }
         return count;
+    }
+
+    @Override
+    public Seat getSeatBySeatId(int seatId) {
+        Seat seat=null;
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        ResultSet resultSet=null;
+        try {
+            connection=DBUtil.getConnection();
+            preparedStatement=connection.prepareStatement(GET_SEAT_BY_SEATID);
+            preparedStatement.setInt(1,seatId);
+            resultSet=preparedStatement.executeQuery();
+            if(resultSet.next()){
+                seat=new Seat();
+                seat.setSeatid(seatId);
+                seat.setTrainid(resultSet.getInt(1));
+                seat.setDate(resultSet.getTimestamp(2));
+                seat.setChexiang(resultSet.getInt(3));
+                seat.setSeatno(resultSet.getString(4));
+                seat.setFrom(resultSet.getString(5));
+                seat.setTo(resultSet.getString(6));
+                seat.setStatus(resultSet.getString(7));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            DBUtil.closeResultSet(resultSet);
+            DBUtil.closeStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+        }
+        return seat;
     }
 }
