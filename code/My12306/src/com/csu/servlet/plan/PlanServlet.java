@@ -47,7 +47,7 @@ public class PlanServlet extends HttpServlet {
         } else if ("add".equals(function)) {
             req.getRequestDispatcher(planAddUrl).forward(req,resp);
         } else if ("submitAdd".equals(function)) {
-            
+
         }
 
     }

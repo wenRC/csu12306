@@ -1,28 +1,30 @@
-package com.csu.servlet.user;
+package com.csu.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
- * Created by 温 睿诚 on 2016/9/15/0015.
+ * Created by 温 睿诚 on 2016/9/18/0018.
  */
-@WebServlet(name = "ViewChangeUserInfoServlet",urlPatterns = {"/ViewChangeUserInfo"})
-public class ViewChangeUserInfoServlet extends HttpServlet {
-    private static final String url="/WEB-INF/jsp/user/changeUserInfo.jsp";
+@WebServlet(name = "SearchOrder",urlPatterns = {"/searchOrder"})
+public class SearchOrder extends HttpServlet {
+    private static final String url="/WEB-INF/jsp/order/searchOrder.jsp";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session=req.getSession();
-        session.setAttribute("cumsg","修改用户信息");
-        req.getRequestDispatcher(url).forward(req,resp);
+        doPost(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req,resp);
+
+        String date=req.getParameter("date");
+
+        System.out.println(date);
     }
 }

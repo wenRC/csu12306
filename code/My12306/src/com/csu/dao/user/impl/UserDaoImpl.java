@@ -94,6 +94,7 @@ public class UserDaoImpl implements UserDao {
                 user.setPhone(resultSet.getString(5));
                 user.setLastLoginTime(resultSet.getTimestamp(6));
                 user.setPassengerStatus(resultSet.getString(7));
+                user.setPassword(password);
 
             }
 

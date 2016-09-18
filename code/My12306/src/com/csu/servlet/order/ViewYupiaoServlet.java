@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by 温 睿诚 on 2016/9/14/0014.
  */
@@ -24,6 +26,8 @@ public class ViewYupiaoServlet extends HttpServlet {
         if(user!=null) {
             request.getRequestDispatcher(url).forward(request, response);
         }else{
+            HttpSession session = request.getSession();
+            session.setAttribute("logmsg", "请先登录");
             request.getRequestDispatcher(loginurl).forward(request, response);
         }
     }

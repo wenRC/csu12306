@@ -9,15 +9,15 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by 温 睿诚 on 2016/9/15/0015.
+ * Created by 温 睿诚 on 2016/9/18/0018.
  */
-@WebServlet(name = "ViewChangeUserInfoServlet",urlPatterns = {"/ViewChangeUserInfo"})
-public class ViewChangeUserInfoServlet extends HttpServlet {
-    private static final String url="/WEB-INF/jsp/user/changeUserInfo.jsp";
+@WebServlet(name = "ViewChangeUserPass",urlPatterns = {"/ViewChangeUserPass"})
+public class ViewChangeUserPassServlet extends HttpServlet{
+    private static final String url="/WEB-INF/jsp/user/changePass.jsp";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();
-        session.setAttribute("cumsg","修改用户信息");
+        session.setAttribute("cupmsg","修改用户密码");
         req.getRequestDispatcher(url).forward(req,resp);
     }
 

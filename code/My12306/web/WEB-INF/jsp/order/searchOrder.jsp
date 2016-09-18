@@ -1,14 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/jsp/common/IncludeTop.jsp" %>
 <div id="content">
-    <form role="form" class="form-inline">
+    <form role="form" class="form-inline" action="/searchOrder" method="post">
         <div class="form-group">
 
             <select class="form-control" id="select">
                 <option value="1">按订票日期</option>
                 <option value="2">按出行日期</option>
             </select>
-            <input type="date" class="form-control" id="date" placeholder="日期"/>
+            <input type="date" class="form-control" name="date" id="date" placeholder="日期"/>
             <input type="submit" class="btn btn-primary" value="查询"/>
         </div>
     </form>
