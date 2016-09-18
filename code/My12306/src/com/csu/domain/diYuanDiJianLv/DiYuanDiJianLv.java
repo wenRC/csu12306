@@ -4,7 +4,7 @@ package com.csu.domain.diYuanDiJianLv;
  * Created by Asus_ on 2016/9/13.
  */
 public class DiYuanDiJianLv {
-    private String dYDJId;//地缘递减率编号
+    private int dYDJId;//地缘递减率编号
     private String dYDJFrom;//区段FROM
     private String dYDJTo;//区段TO
     private double dYDJRate;//地缘递减率
@@ -13,7 +13,7 @@ public class DiYuanDiJianLv {
     public DiYuanDiJianLv() {
     }
 
-    public DiYuanDiJianLv(String dYDJId, String dYDJFrom, String dYDJTo, double dYDJRate, double priceRate) {
+    public DiYuanDiJianLv(int dYDJId, String dYDJFrom, String dYDJTo, double dYDJRate, double priceRate) {
         this.dYDJId = dYDJId;
         this.dYDJFrom = dYDJFrom;
         this.dYDJTo = dYDJTo;
@@ -21,11 +21,11 @@ public class DiYuanDiJianLv {
         this.priceRate = priceRate;
     }
 
-    public String getdYDJId() {
+    public int getdYDJId() {
         return dYDJId;
     }
 
-    public void setdYDJId(String dYDJId) {
+    public void setdYDJId(int dYDJId) {
         this.dYDJId = dYDJId;
     }
 
