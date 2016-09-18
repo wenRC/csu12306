@@ -2,21 +2,23 @@ package com.csu.domain.line;
 
 import sun.util.calendar.BaseCalendar;
 
+import java.sql.Date;
+
 /**
  * Created by Asus_ on 2016/9/13.
  */
 public class Line {
-    private String lineId;//线路编号
-    private String trainId;//车次
+    private int lineId;//线路编号
+    private int trainId;//车次
     private String stationName;//车站名
     private int distance;//里程
-    private BaseCalendar.Date fromTime;//到站时间
+    private Date fromTime;//到站时间
     private String lastTime;//停留时间
 
     public Line() {
     }
 
-    public Line(String lineId, String trainId, String stationName, int distance, BaseCalendar.Date fromTime, String lastTime) {
+    public Line(int lineId, int trainId, String stationName, int distance,Date fromTime, String lastTime) {
         this.lineId = lineId;
         this.trainId = trainId;
         this.stationName = stationName;
@@ -25,19 +27,19 @@ public class Line {
         this.lastTime = lastTime;
     }
 
-    public String getLineId() {
+    public int getLineId() {
         return lineId;
     }
 
-    public void setLineId(String lineId) {
+    public void setLineId(int lineId) {
         this.lineId = lineId;
     }
 
-    public String getTrainId() {
+    public int getTrainId() {
         return trainId;
     }
 
-    public void setTrainId(String trainId) {
+    public void setTrainId(int trainId) {
         this.trainId = trainId;
     }
 
@@ -57,11 +59,11 @@ public class Line {
         this.distance = distance;
     }
 
-    public BaseCalendar.Date getFromTime() {
+    public Date getFromTime() {
         return fromTime;
     }
 
-    public void setFromTime(BaseCalendar.Date fromTime) {
+    public void setFromTime(Date fromTime) {
         this.fromTime = fromTime;
     }
 

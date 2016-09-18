@@ -10,5 +10,5 @@ public interface StationDAO {
     public Station getStationByStationName(String stationName);
     public Station getStationByPinYin(String pinYin);
     public int updateStation(Station station);
-    public int delStation(String stationId);
+    public int delStation(int stationId);
 }
