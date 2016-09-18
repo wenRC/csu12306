@@ -29,11 +29,13 @@ public class PlanServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
         String function = req.getParameter("function");
         HttpSession session = req.getSession();
         List<Plan> planList = new ArrayList<>();
         Plan plan = null;
         if ("query".equals(function)) {
+            //
             int queryId = Integer.parseInt(req.getParameter("queryId"));
             String select = req.getParameter("id");
             if ("plan".equals(select)) {
@@ -45,6 +47,7 @@ public class PlanServlet extends HttpServlet {
             session.setAttribute("planList",planList);
             req.getRequestDispatcher(planQueryUrl).forward(req,resp);
         } else if ("add".equals(function)) {
+
             req.getRequestDispatcher(planAddUrl).forward(req,resp);
         } else if ("submitAdd".equals(function)) {
 

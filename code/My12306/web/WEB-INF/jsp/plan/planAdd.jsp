@@ -16,7 +16,7 @@
             <table cellpadding="5">
                 <tr>
                     <td>计划代码</td>
-                    <td><input type="text" name="planid"></td>
+                    <td><input type="text" name="planid" value=""></td>
                 </tr>
                 <tr>
                     <td>车次代码</td>
