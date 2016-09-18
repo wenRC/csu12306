@@ -14,23 +14,23 @@ public class PiaowuService {
     public PiaowuService(){
         ticketDao=new TicketDaoImpl();
     }
-    boolean insertTicket(Ticket ticket){
+    public boolean insertTicket(Ticket ticket){
         return ticketDao.insertTicket(ticket);
     }
-    ArrayList<Ticket> getTicketByUserId(int userId){
+    public ArrayList<Ticket> getTicketByUserId(int userId){
         return ticketDao.getTicketByUserId(userId);
     }
-    Ticket getTicketByTickId(int ticketId){
+    public Ticket getTicketByTickId(int ticketId){
         return ticketDao.getTicketByTickId(ticketId);
     }
     /*
    price=?,tickettype=?,salestime=?,ticketstatus=?
    update ticket只能改这几项
     */
-    boolean updateTicket(Ticket ticket){
+    public boolean updateTicket(Ticket ticket){
         return ticketDao.updateTicket(ticket);
     }
-    boolean deleteTicket(int ticketId){
+    public boolean deleteTicket(int ticketId){
         return ticketDao.deleteTicket(ticketId);
     }
 }

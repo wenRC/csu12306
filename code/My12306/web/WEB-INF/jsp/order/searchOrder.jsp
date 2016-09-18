@@ -41,23 +41,26 @@
             </thead>
 
             <tbody>
-            <tr>
-                <td >39011403</td>
-                <td >G6023</td>
-                <td >6车1A</td>
-                <td >广州北</td>
-                <td >长沙南</td>
-                <td >2016-10-07 14:32</td>
-                <td >00:17</td>
-                <td >二等座</td>
-                <td >15.0元</td>
-                <td >xlf</td>
-                <td >2016-10-01</td>
-                <td >未出行</td>
-                <td ><input type="button" value="退票" class="btn btn-default"/><input type="button" value="取票"
-                                                                                       class="btn btn-default"/><input
-                        type="button" value="改签" class="btn btn-default"/></td>
-            </tr>
+            <c:forEach items="${sessionScope.orders}" var="order">
+                <tr>
+                    <td >${order.orderId}</td>
+                    <td >G6023</td>
+                    <td >6车1A</td>
+                    <td >广州北</td>
+                    <td >长沙南</td>
+                    <td >2016-10-07 14:32</td>
+                    <td >00:17</td>
+                    <td >二等座</td>
+                    <td >15.0元</td>
+                    <td >xlf</td>
+                    <td >${order.orderTime}</td>
+                    <td >${order.orderStatus}</td>
+                    <td ><input type="button" value="退票" class="btn btn-default"/><input type="button" value="取票"
+                                                                                         class="btn btn-default"/><input
+                            type="button" value="改签" class="btn btn-default"/></td>
+                </tr>
+            </c:forEach>
+
             <tr>
                 <td >141109</td>
                 <td >G1103</td>
