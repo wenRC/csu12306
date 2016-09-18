@@ -26,12 +26,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/indexB.jsp">我的12306</a>
+                <a class="navbar-brand" href="/index.jsp">我的12306</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">登陆</a></li>
-                    <li><a href="#about">未使用</a></li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">调度管理<span class="caret"></span></a>
@@ -53,6 +51,48 @@
                             <li><a href="to?function=quDuan">查询旅程区段</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">递远递减率管理<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/to?function=">新增递远递减率</a></li>
+                            <li><a href="/to?function=">查询修改递远递减率</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">线路管理<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="">新建线路</a></li>
+                            <li><a href="">查询线路</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">票价率管理<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="">查询票价率</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">列车编组<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="">查询列车编组</a></li>
+                            <li><a href="">添加列车编组</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">列车管理<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="">查询列车</a></li>
+                            <li><a href="">新建列车</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">车站管理<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="">新建车站</a></li>
+                            <li><a href="">查询车站</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">财务统计</a> </li>
             </div><!--/.nav-collapse -->
         </div>
     </nav>

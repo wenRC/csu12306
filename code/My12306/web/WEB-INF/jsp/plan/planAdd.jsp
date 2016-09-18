@@ -41,13 +41,14 @@
                             <option value="2" name="">&gt;=</option>
                             <option value="3" name="">&lt;=</option>
                         </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>车站</td>
                     <td>
-                        <select id="stationname" name="stationname">
+                        <select id="stationName" name="stationName">
                             <c:forEach items="${sessionScope.stationnameList}" var="station">
-                                <option value="${station.stationname}">${station.stationname}</option>
+                                <option value="${station.stationName}">${station.stationName}</option>
                             </c:forEach>
                         </select>
                     </td>
