@@ -1,12 +1,14 @@
 package com.csu.dao.train.impl;
 
 import com.csu.dao.train.TrainDao;
+import com.csu.domain.station.Station;
 import com.csu.domain.train.Train;
 import com.csu.utils.DBUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.LinkedList;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +18,7 @@ public class TrainDaoImpl implements TrainDao {
     Connection connection = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
-    private static final String GET_ALLTRAINS = "select * from train";
+    private static final String GETALLTRAINS = "select * from train";
     private static final String GET_TRAIN = "select * from train where trainid = ?";
     private static final String INSERT_TRAIN = "insert into train VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String DELETE_TRAIN = "delete from train where trainid = ?";
@@ -24,14 +26,13 @@ public class TrainDaoImpl implements TrainDao {
 
     @Override
     public List<Train> getAllTrains() {
+        List<Train> trainList = new ArrayList<>();
         Train train = null;
-        List<Train> trains = null;
-        trains = new LinkedList<>();
-        try{
+        try {
             connection = DBUtil.getConnection();
-            preparedStatement = connection.prepareStatement(GET_ALLTRAINS);
+            preparedStatement = connection.prepareStatement(GETALLTRAINS);
             resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 train = new Train();
                 train.setTrainId(resultSet.getInt(1));
                 train.setFrom(resultSet.getString(2));
@@ -42,19 +43,16 @@ public class TrainDaoImpl implements TrainDao {
                 train.setDistance(resultSet.getInt(7));
                 train.setNoseatnumber(resultSet.getInt(8));
                 train.setType(resultSet.getString(9));
-                trains.add(train);
+                trainList.add(train);
             }
-        }
-        catch (Exception e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally{
+        } finally {
             DBUtil.closeResultSet(resultSet);
             DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         }
-        return trains;
-
+        return trainList;
     }
 
     @Override
