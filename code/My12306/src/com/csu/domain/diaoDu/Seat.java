@@ -16,6 +16,20 @@ public class Seat {
     private String to;      //乘车区间终到站
     private String status;  //售票状态
 
+    public Seat() {
+    }
+
+    public Seat(int seatid, int trainid, Timestamp date, int chexiang, String seatno, String from, String to, String status) {
+        this.seatid = seatid;
+        this.trainid = trainid;
+        this.date = date;
+        this.chexiang = chexiang;
+        this.seatno = seatno;
+        this.from = from;
+        this.to = to;
+        this.status = status;
+    }
+
     public int getSeatid() {
         return seatid;
     }

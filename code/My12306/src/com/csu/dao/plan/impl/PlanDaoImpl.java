@@ -235,7 +235,7 @@ public class PlanDaoImpl implements PlanDao {
         try {
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(ANNOUNCESEAT);
-            for (int i = 1; i <= 50; i++) {
+            for (int i = 1; i <= 20; i++) {
                 //在默认车次代码、车厢号、座位号都是两位数或者一位数的情况下，席位代码由五位数或六位数组成，顺序是“车次代码-车厢号-座位号”
                 preparedStatement.setInt(1, plan.getTrainid() * 10000 + plan.getChexiang() * 100 + i);//席位代码
                 preparedStatement.setInt(2, plan.getTrainid());  //车次

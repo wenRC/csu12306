@@ -9,15 +9,25 @@
         <h1>旅程区段查询</h1>
     </div>
     <div>
-        <form action="quDuan?function=queryById" method="post">
-            旅程区段编号：<input type="text" name="quDuanId"/>
-            <input type="submit" name="quDuanQuery" value="查询"/>
+        <form action="quDuan?function=queryById" method="post" role="form" class="form-horizontal">
+            <div class="form-group" style="width: 400px;margin: 10px auto;">
+                <label for="quDuanId" class="col-sm-3 control-label">区段编号</label>
+                <div class="col-sm-9">
+                    <input id="quDuanId" type="text" class="form-control" name="quDuanId" placeholder="请输入区段编号">
+                </div>
+            </div>
+            <div class="form-group" style="width: 400px;margin: 10px;">
+                <div class="col-sm-offset-1 col-sm-10">
+                    <button type="submit" class="btn btn-default">查询</button>
+                </div>
+            </div>
         </form>
         <a href="quDuan?function=queryAll">显示所有区段</a>
     </div>
     <br/>
     <div>
-        <table border="1" cellspacing="0" cellpadding="5">
+        <table class="table table-hover" style="width: 90%;margin: auto">
+            <thead>
             <tr>
                 <th>旅程区段编号</th>
                 <th>里程区段From</th>
@@ -26,6 +36,8 @@
                 <th>区段数</th>
                 <th>操作</th>
             </tr>
+            </thead>
+            <tbody>
             <c:if test="${sessionScope.quDuanList[0]!=null}">
                 <c:forEach items="${sessionScope.quDuanList}" var="quDuan">
                     <tr>
@@ -38,6 +50,7 @@
                     </tr>
                 </c:forEach>
             </c:if>
+            </tbody>
         </table>
     </div>
 </div>

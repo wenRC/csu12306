@@ -52,13 +52,16 @@ public class ToServlet extends HttpServlet {
         } else if ("plan".equals(function)) {
             //跳转到计划管理模块
             req.getRequestDispatcher(toPlanAdminUrl).forward(req,resp);
-        } else if ("diaodu".equals(function)) {
-            //跳转到调度模块
+        } else if ("announceSeat".equals(function)) {
+            //跳转到调度模块，执行计划，发布席位
             int planid = Integer.parseInt(req.getParameter("planid"));
             Plan plan = planService.getPlanByPlanId(planid);
             planService.announceSeat(plan);
             List<Seat> seatList = diaoduService.getAllSeats();
             session.setAttribute("seatList",seatList);
+            req.getRequestDispatcher(toDiaoDuAdminUrl).forward(req,resp);
+        } else if ("diaodu".equals(function)) {
+            //跳转到调度模块
             req.getRequestDispatcher(toDiaoDuAdminUrl).forward(req,resp);
         }
 

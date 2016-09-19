@@ -34,8 +34,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">调度管理<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">席位查询与修改</a></li>
-                            <li><a href="#">客运统计</a></li>
+                            <li><a href="to?function=diaodu">席位查询与修改</a></li>
+                            <li><a href="to?function=diaodu">客运统计</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

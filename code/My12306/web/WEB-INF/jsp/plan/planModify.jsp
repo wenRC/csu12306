@@ -13,69 +13,79 @@
         <h1>计划修改</h1>
     </div>
     <div>
-        <form action="plan?function=submitModify&planid=${sessionScope.plan.planid}" method="post">
-            <table cellpadding="5">
-                <tr>
-                    <td>计划代码</td>
-                    <td><input type="text" name="planid" value="${sessionScope.plan.planid}" readonly></td>
-                </tr>
-                <tr>
-                    <td>车次代码</td>
-                    <td>
-                        <select id="trainid" name="trainid">
-                            <c:forEach items="${sessionScope.trainList}" var="train">
-                                <option value="${train.trainId}" name="${train.trainId}"
-                                        <c:if test="${sessionScope.plan.trainid==train.trainId}"><c:out
-                                                value="selected"/></c:if>>
-                                        ${train.trainId}
-                                </option>
-                            </c:forEach>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>车厢号</td>
-                    <td><input type="text" name="chexiang" value="${sessionScope.plan.chexiang}"></td>
-                </tr>
-                <tr>
-                    <td>比较</td>
-                    <td>
-                        <select id="compare" name="compare">
-                            <option value="=" name="" <c:if test="${sessionScope.plan.compare.equals('=')}">
-                                <c:out value="selected"/>
-                            </c:if>>=
+        <form action="plan?function=submitModify&planid=${sessionScope.plan.planid}" method="post" role="form"
+              class="form-horizontal">
+            <div class="form-group" style="width: 400px;margin: 10px auto;">
+                <label for="planid" class="col-sm-3 control-label">计划代码</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="planid" name="planid"
+                           value="${sessionScope.plan.planid}" readonly>
+                </div>
+            </div>
+
+            <div class="form-group" style="width: 400px;margin: 10px auto;">
+                <label for="trainid" class="col-sm-3 control-label">车次代码</label>
+                <div class="col-sm-9">
+                    <select id="trainid" name="trainid" class="form-control">
+                        <c:forEach items="${sessionScope.trainList}" var="train">
+                            <option value="${train.trainId}" name="${train.trainId}"
+                                    <c:if test="${sessionScope.plan.trainid==train.trainId}"><c:out
+                                            value="selected"/></c:if>>
+                                    ${train.trainId}
                             </option>
-                            <option value=">=" name="" <c:if test="${sessionScope.plan.compare.equals('>=')}">
-                                <c:out value="selected"/>
-                            </c:if>>&gt;=
+                        </c:forEach>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" style="width: 400px;margin: 10px auto;">
+                <label for="chexiang" class="col-sm-3 control-label">车厢号</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="chexiang" name="chexiang"
+                           value="${sessionScope.plan.chexiang}">
+                </div>
+            </div>
+
+            <div class="form-group" style="width: 400px;margin: 10px auto;">
+                <label for="compare" class="col-sm-3 control-label">售票状态</label>
+                <div class="col-sm-9">
+                    <select id="compare" name="compare" class="form-control">
+                        <option value="=" name="" <c:if test="${sessionScope.plan.compare.equals('=')}">
+                            <c:out value="selected"/>
+                        </c:if>>=
+                        </option>
+                        <option value=">=" name="" <c:if test="${sessionScope.plan.compare.equals('>=')}">
+                            <c:out value="selected"/>
+                        </c:if>>&gt;=
+                        </option>
+                        <option value="<=" name="" <c:if test="${sessionScope.plan.compare.equals('<=')}">
+                            <c:out value="selected"/>
+                        </c:if>>&lt;=
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" style="width: 400px;margin: 10px auto;">
+                <label for="stationName" class="col-sm-3 control-label">售票状态</label>
+                <div class="col-sm-9">
+                    <select id="stationName" name="stationName" class="form-control">
+                        <c:forEach items="${sessionScope.stationList}" var="station">
+                            <option value="${station.stationName}" name="${station.stationName}"
+                                    <c:if test="${sessionScope.plan.stationname.equals(station.stationName)}"><c:out
+                                            value="selected"/></c:if>>
+                                    ${station.stationName}
                             </option>
-                            <option value="<=" name="" <c:if test="${sessionScope.plan.compare.equals('<=')}">
-                                <c:out value="selected"/>
-                            </c:if>>&lt;=
-                            </option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>车站</td>
-                    <td>
-                        <select id="stationName" name="stationName">
-                            <c:forEach items="${sessionScope.stationList}" var="station">
-                                <option value="${station.stationName}" name="${station.stationName}"
-                                        <c:if test="${sessionScope.plan.stationname.equals(station.stationName)}"><c:out
-                                                value="selected"/></c:if>>
-                                        ${station.stationName}
-                                </option>
-                            </c:forEach>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="submit" name="planModifySubmit" value="提交">
-                    </td>
-                </tr>
-            </table>
+                        </c:forEach>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" style="width: 400px;margin: 10px;">
+                <div class="col-sm-offset-1 col-sm-10">
+                    <button type="submit" class="btn btn-default">提交</button>
+                </div>
+            </div>
         </form>
     </div>
 </div>
