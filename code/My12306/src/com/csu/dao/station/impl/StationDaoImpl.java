@@ -21,7 +21,7 @@ public class StationDaoImpl implements StationDAO{
     private final static String GET_STATION_BY_PINYIN = "SELECT STATIONID,STATIONNAME,PINYIN,LOCATION FROM STATION WHERE PINYIN = ?";
     private final static String UPDATE_STATION = "UPDATE STATION SET STATIONNAME=?,PINYIN=?,LOCATION=? WHERE STATIONID = ?";
     private final static String DEL_STATION = "DELETE FROM STATION WHERE STATIONID = ?";
-
+    private final static String GET_MAX_STATIONID = "SELECT MAX(STATIONID) FROM STATION";
     @Override
     public List<Station> getAllStations() {
         Connection connection = null;
@@ -150,6 +150,24 @@ public class StationDaoImpl implements StationDAO{
             DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
             i = 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    @Override
+    public int getMaxStationId() {
+        int i = 0;
+        Connection connection = DBUtil.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(GET_MAX_STATIONID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            i = resultSet.getInt(1);
+            DBUtil.closeResultSet(resultSet);
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }

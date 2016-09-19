@@ -19,6 +19,7 @@ public class DiYuanDiJianLvDAOImpl implements DiYuanDiJianLvDAO{
     private final static String GET_DYDJLVS = "SELECT DIYUANDIJIANID,`FROM`,`TO`,RATE,PRICERATE FROM DIYUANDIJIAN";
     private final static String UPDATE_DYDJLV = "UPDATE DIYUANDIJIAN SET DIYUANDIJIANID=?,`FROM`=?,`TO`=?,RATE=?,PRICERATE=? WHERE DIYUANDIJIANID = ?";
     private final static String DEL_DYDJL = "DELETE FROM DIYUANDIJIAN WHERE DIYUANDIJIANID = ?";
+    private final static String GET_MAX_DYDJID = "SELECT MAX(DIYUANDIJIANID) FROM DIYUANDIJIAN";
     @Override
     public DiYuanDiJianLv getDYDJLvByDYDJLID(int DYDJLID) {
         DiYuanDiJianLv diYuanDiJianLv = null;
@@ -129,8 +130,26 @@ public class DiYuanDiJianLvDAOImpl implements DiYuanDiJianLvDAO{
         return i;
     }
 
-//    public static void main(String[] args){
-//        DiYuanDiJianLvDAO diYuanDiJianLvDAO = new DiYuanDiJianLvDAOImpl();
-//        System.out.println(diYuanDiJianLvDAO.getDYDJLvByDYDJLID(2).getdYDJFrom());
-//    }
+    @Override
+    public int getMaxDYDJLId() {
+        int i = 0;
+        Connection connection = DBUtil.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(GET_MAX_DYDJID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            i = resultSet.getInt(1);
+            DBUtil.closeResultSet(resultSet);
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    public static void main(String[] args){
+        DiYuanDiJianLvDAO diYuanDiJianLvDAO = new DiYuanDiJianLvDAOImpl();
+        System.out.println(diYuanDiJianLvDAO.getDYDJLvByDYDJLID(2).getdYDJFrom());
+    }
 }

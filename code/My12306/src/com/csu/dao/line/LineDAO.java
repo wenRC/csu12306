@@ -15,4 +15,5 @@ public interface LineDAO {
     public ArrayList<Line> searchLineByStationName(String stationName);
     public Line getLineByLineId(int lineId);
     public int updateLine(Line line);
+    public int getMaxLineId();
 }

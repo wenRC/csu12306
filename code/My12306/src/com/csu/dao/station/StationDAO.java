@@ -14,5 +14,5 @@ public interface StationDAO {
     Station getStationByPinYin(String pinYin);
     int updateStation(Station station);
     int delStation(int stationId);
-
+    public int getMaxStationId();
 }
