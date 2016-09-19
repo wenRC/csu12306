@@ -41,7 +41,7 @@
             </thead>
 
             <tbody>
-            <c:forEach items="${sessionScope.piaowus}" var="pw">
+            <c:forEach items="${sessionScope.piaowus}" var="pw" varStatus="status">
                 <tr>
                     <td >${pw.orderId}</td>
                     <td >${pw.trainId}</td>
@@ -55,15 +55,18 @@
                     <td >${user.username}</td>
                     <td >${pw.orderTime}</td>
                     <td >${pw.orderStatus}</td>
-                    <td ><input type="button" value="退票" class="btn btn-default"/><input type="button" value="取票"
-                                                                                         class="btn btn-default"/><input
-                            type="button" value="改签" class="btn btn-default"/></td>
+                    <td ><a href="/tuipiao?index=${status.index}"> <input type="button" value="退票" class="btn btn-default"<c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/></a><input type="button" value="取票"
+                                                                                         class="btn btn-default" <c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/><input
+                            type="button" value="改签" class="btn btn-default"<c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/></td>
                 </tr>
             </c:forEach>
 
 
             </tbody>
         </table>
+        <div class="alert alert-success" role="alert" style="margin: 50px">
+            <strong>${sessionScope.infomsg}</strong>
+        </div>
     </div>
 </div>
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp" %>

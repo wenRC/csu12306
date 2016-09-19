@@ -18,11 +18,11 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
     private static final String GETALLSEATS = "select * from seat";
     private static final String UPDATESEAT = "update seat set " +
             "trainid = ?," +    //车次
-            "date = ?," +       //日期
+            "`date` = ?," +       //日期
             "chexiang = ?," +   //车厢号
             "seatno = ?," +     //座位号
-            "from = ?," +       //乘车区间起始站
-            "to=?," +           //乘车区间终到站
+            "`from` = ?," +       //乘车区间起始站
+            "`to`=?," +           //乘车区间终到站
             "status=? " +       //售票状态
             "where seatid = ?"; //席位代码
     private static final String GETSEATSCOUNTBYSTATUS = "select count(*) from seat where trainid = ? and status = ?";

@@ -21,6 +21,15 @@ public class PiaoWu {
     Timestamp date;
     String last;
     String name;//直接根据当前帐号获取就好了
+    int ticketId;
+
+    public int getTicketId() {
+        return ticketId;
+    }
+
+    public void setTicketId(int ticketId) {
+        this.ticketId = ticketId;
+    }
 
     public PiaoWu() {
     }

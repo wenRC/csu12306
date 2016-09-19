@@ -21,7 +21,7 @@ public class OrderService {
         return orderDao.deleteOrder(orderId);
     }
     public boolean updateOrder(Order order){
-        return updateOrder(order);
+        return orderDao.updateOrder(order);
     }
     public ArrayList<Order> getOrdersByUserId(int userId){
         return orderDao.getOrdersByUserId(userId);

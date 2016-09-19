@@ -49,6 +49,7 @@ public class GetPiaoWuAndYuPIaoService {
             Seat seat=seats.get(i);
             Train train=trains.get(i);
             piaowu.setOrderId(order.getOrderId());
+            piaowu.setTicketId(order.getTicketId());
             piaowu.setOrderTime(order.getOrderTime());
             piaowu.setOrderStatus(order.getOrderStatus());
             piaowu.setTicketType(ticket.getTicketType());

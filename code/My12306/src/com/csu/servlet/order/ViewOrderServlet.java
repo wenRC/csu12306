@@ -34,6 +34,7 @@ public class ViewOrderServlet extends HttpServlet {
             ArrayList<PiaoWu> piaoWus= getPiaoWuAndYuPIaoService.getPiaoWuByUserId(user.getUserid());
             HttpSession session=request.getSession();
             session.setAttribute("piaowus",piaoWus);
+            session.setAttribute("infomsg","提示信息");
             request.getRequestDispatcher(url).forward(request, response);
         } else {
             HttpSession session = request.getSession();
