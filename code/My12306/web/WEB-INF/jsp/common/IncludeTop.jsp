@@ -44,7 +44,7 @@
 
               <li><a href="/ViewYupiao">订票</a></li>
               <li><a href="/ViewOrder">我的订单</a></li>
-              <li><a href="/indexB.jsp">后台</a></li>
+              <li><a href="to?function=toHouTai">后台</a></li>
               <li><a href="/ViewReg">注册</a> </li>
             </ul>
           </div><!--/.nav-collapse -->

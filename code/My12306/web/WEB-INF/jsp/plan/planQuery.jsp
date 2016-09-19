@@ -26,7 +26,8 @@
             <div class="form-group" style="width: 400px;margin: 10px auto;">
                 <label for="queryId" class="col-sm-3 control-label">代码</label>
                 <div class="col-sm-9">
-                    <input id="queryId" type="text" class="form-control" name="queryId" placeholder="请输入代码">
+                    <input id="queryId" type="number" class="form-control" name="queryId" min="1" max="100"
+                           placeholder="请输入代码" required>
                 </div>
             </div>
             <div class="form-group" style="width: 400px;margin: 10px;">
@@ -37,9 +38,23 @@
         </form>
     </div>
 
-    <br/>
-    <a href="plan?function=queryAll">显示所有计划</a>
-    <br/><br/>
+    <div>
+        <a href="plan?function=queryAll">显示所有计划</a>
+    </div>
+
+    <div>
+        <c:if test="${requestScope.success!=null}">
+            <div class="alert alert-success" role="alert" style="margin: 50px">
+                <strong>${requestScope.success}</strong>
+            </div>
+        </c:if>
+        <c:if test="${requestScope.fail!=null}">
+            <div class="alert alert-warning" role="alert" style="margin: 50px">
+                <strong>${requestScope.fail}</strong>
+            </div>
+        </c:if>
+    </div>
+
     <div>
         <table class="table table-hover" style="width: 90%;margin: auto">
             <thead>

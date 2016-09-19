@@ -1,6 +1,7 @@
 package com.csu.servlet.quDuan;
 
 import com.csu.domain.quDuan.QuDuan;
+import com.csu.domain.station.Station;
 import com.csu.service.BaseService;
 
 import javax.servlet.ServletException;
@@ -35,6 +36,8 @@ public class QuDuanServlet extends HttpServlet {
         HttpSession session = req.getSession();
         List<QuDuan> quDuanList = new ArrayList<QuDuan>();
         QuDuan quDuan = null;
+        String success = null;
+        String fail = null;
         if ("queryById".equals(function)) {
             //根据id查询
             int quDuanId = Integer.parseInt(req.getParameter("quDuanId"));
@@ -51,7 +54,9 @@ public class QuDuanServlet extends HttpServlet {
             //修改
             int quDuanId = Integer.parseInt(req.getParameter("id"));
             quDuan = baseService.getQuDuanById(quDuanId);
+            List<Station> stationList = baseService.getAllStations();
             session.setAttribute("quDuan", quDuan);
+            session.setAttribute("stationList",stationList);
             req.getRequestDispatcher(quDuanModifyUrl).forward(req, resp);
         } else if ("submitModify".equals(function)) {
             //提交修改
@@ -62,6 +67,13 @@ public class QuDuanServlet extends HttpServlet {
             int qdNumber = Integer.parseInt(req.getParameter("qdNumber"));
             quDuan = new QuDuan(quDuanId,from,to,distancePerQD,qdNumber);
             boolean flag = baseService.updateQuDuan(quDuan);
+            if (flag) {
+                success = "修改成功";
+                req.setAttribute("success",success);
+            } else {
+                fail = "修改失败";
+                req.setAttribute("fail",fail);
+            }
             quDuanList.add(quDuan);
             session.setAttribute("quDuanList", quDuanList);
             req.getRequestDispatcher(quDuanQueryUrl).forward(req, resp);

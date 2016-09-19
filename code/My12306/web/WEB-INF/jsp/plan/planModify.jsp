@@ -41,8 +41,8 @@
             <div class="form-group" style="width: 400px;margin: 10px auto;">
                 <label for="chexiang" class="col-sm-3 control-label">车厢号</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="chexiang" name="chexiang"
-                           value="${sessionScope.plan.chexiang}">
+                    <input type="number" class="form-control" id="chexiang" name="chexiang" min="1" max="100"
+                           value="${sessionScope.plan.chexiang}" placeholder="请输入车厢号" required>
                 </div>
             </div>
 
@@ -67,7 +67,7 @@
             </div>
 
             <div class="form-group" style="width: 400px;margin: 10px auto;">
-                <label for="stationName" class="col-sm-3 control-label">售票状态</label>
+                <label for="stationName" class="col-sm-3 control-label">车站</label>
                 <div class="col-sm-9">
                     <select id="stationName" name="stationName" class="form-control">
                         <c:forEach items="${sessionScope.stationList}" var="station">

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sx
@@ -26,32 +27,48 @@
             <div class="form-group" style="width: 400px;margin: 10px auto;">
                 <label for="from" class="col-sm-3 control-label">区段From</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="from" name="from"
-                           value="${sessionScope.quDuan.from}">
+                    <select id="from" name="from" class="form-control">
+                        <c:forEach items="${sessionScope.stationList}" var="station">
+                            <option value="${station.stationName}" name="${station.stationName}"
+                                    <c:if test="${sessionScope.quDuan.from.equals(station.stationName)}"><c:out
+                                            value="selected"/></c:if>>
+                                    ${station.stationName}
+                            </option>
+                        </c:forEach>
+                    </select>
                 </div>
             </div>
 
             <div class="form-group" style="width: 400px;margin: 10px auto;">
                 <label for="to" class="col-sm-3 control-label">区段To</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="to" name="to"
-                           value="${sessionScope.quDuan.to}">
+                    <select id="to" name="to" class="form-control">
+                        <c:forEach items="${sessionScope.stationList}" var="station">
+                            <option value="${station.stationName}" name="${station.stationName}"
+                                    <c:if test="${sessionScope.quDuan.to.equals(station.stationName)}"><c:out
+                                            value="selected"/></c:if>>
+                                    ${station.stationName}
+                            </option>
+                        </c:forEach>
+                    </select>
                 </div>
             </div>
 
             <div class="form-group" style="width: 400px;margin: 10px auto;">
                 <label for="distancePerQD" class="col-sm-3 control-label">每区段里程</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="distancePerQD" name="distancePerQD"
-                           value="${sessionScope.quDuan.distancePerQD}">
+                    <input type="number" class="form-control" id="distancePerQD" name="distancePerQD"
+                           value="${sessionScope.quDuan.distancePerQD}" min="1" max="10000"
+                           placeholder="请输入每区段里程" required>
                 </div>
             </div>
 
             <div class="form-group" style="width: 400px;margin: 10px auto;">
                 <label for="qdNumber" class="col-sm-3 control-label">区段数</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="qdNumber" name="qdNumber"
-                           value="${sessionScope.quDuan.qdNumber}">
+                    <input type="number" class="form-control" id="qdNumber" name="qdNumber"
+                           value="${sessionScope.quDuan.qdNumber}" min="0" max="10000"
+                           placeholder="请输入区段数" required>
                 </div>
             </div>
 

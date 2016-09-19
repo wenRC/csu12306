@@ -13,7 +13,8 @@
             <div class="form-group" style="width: 400px;margin: 10px auto;">
                 <label for="quDuanId" class="col-sm-3 control-label">区段编号</label>
                 <div class="col-sm-9">
-                    <input id="quDuanId" type="text" class="form-control" name="quDuanId" placeholder="请输入区段编号">
+                    <input id="quDuanId" type="number" class="form-control" name="quDuanId"
+                           min="1" max="100000" placeholder="请输入区段编号" required>
                 </div>
             </div>
             <div class="form-group" style="width: 400px;margin: 10px;">
@@ -25,6 +26,18 @@
         <a href="quDuan?function=queryAll">显示所有区段</a>
     </div>
     <br/>
+    <div>
+        <c:if test="${requestScope.success!=null}">
+            <div class="alert alert-success" role="alert" style="margin: 50px">
+                <strong>${requestScope.success}</strong>
+            </div>
+        </c:if>
+        <c:if test="${requestScope.fail!=null}">
+            <div class="alert alert-warning" role="alert" style="margin: 50px">
+                <strong>${requestScope.fail}</strong>
+            </div>
+        </c:if>
+    </div>
     <div>
         <table class="table table-hover" style="width: 90%;margin: auto">
             <thead>

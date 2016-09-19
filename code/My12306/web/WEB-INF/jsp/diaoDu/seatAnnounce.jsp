@@ -17,13 +17,15 @@
             <div class="form-group" style="width: 400px;margin: 10px auto;">
                 <label for="checi" class="col-sm-3 control-label">车次</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="checi" name="trainid" placeholder="请输入车次">
+                    <input type="number" class="form-control" id="checi" name="trainid" min="1" max="100"
+                           placeholder="请输入车次" required>
                 </div>
             </div>
             <div class="form-group" style="width: 400px;margin: 10px auto;">
                 <label for="chexiang" class="col-sm-3 control-label">车厢</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="chexiang" name="chexiang" placeholder="请输入车厢">
+                    <input type="number" class="form-control" id="chexiang" name="chexiang" min="1" max="100"
+                           placeholder="请输入车厢" required>
                 </div>
             </div>
             <div class="form-group" style="width: 400px;margin: 10px;">
@@ -60,7 +62,20 @@
             </div>
         </form>
     </div>
-    <br/><br/>
+    <br/>
+    <div>
+        <c:if test="${requestScope.success!=null}">
+            <div class="alert alert-success" role="alert" style="margin: 50px">
+                <strong>${requestScope.success}</strong>
+            </div>
+        </c:if>
+        <c:if test="${requestScope.fail!=null}">
+            <div class="alert alert-warning" role="alert" style="margin: 50px">
+                <strong>${requestScope.fail}</strong>
+            </div>
+        </c:if>
+    </div>
+    <br/>
     <div>
         <table class="table table-hover" style="width: 90%;margin: auto">
             <thead>

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +41,8 @@ public class PlanServlet extends HttpServlet {
         HttpSession session = req.getSession();
         List<Plan> planList = new ArrayList<>();
         Plan plan = null;
+        String success = null;
+        String fail = null;
         if ("query".equals(function)) {
             //查询
             int queryId = Integer.parseInt(req.getParameter("queryId"));
@@ -62,7 +65,6 @@ public class PlanServlet extends HttpServlet {
         }
         else if ("add".equals(function)) {
             //跳到增加计划的页面
-            //先自动生成计划代码（未写）
             List<Train> trainList = baseService.getAllTrains();
             List<Station> stationList = baseService.getAllStations();
             session.setAttribute("trainList",trainList);
@@ -76,9 +78,17 @@ public class PlanServlet extends HttpServlet {
             String compare = req.getParameter("compare");
             String stationName = req.getParameter("stationName");
             plan = new Plan(planid, trainid, chexiang, compare, stationName);
-            planService.insertPlan(plan);
+            boolean flag = planService.insertPlan(plan);
+            if (flag) {
+                success = "添加成功";
+                req.setAttribute("success",success);
+            } else {
+                fail = "添加失败";
+                req.setAttribute("fail",fail);
+            }
             planList = planService.getAllPlans();
             session.setAttribute("planList", planList);
+
             req.getRequestDispatcher(planQueryUrl).forward(req, resp);
         } else if ("modify".equals(function)) {
             //修改计划
@@ -98,14 +108,28 @@ public class PlanServlet extends HttpServlet {
             String compare = req.getParameter("compare");
             String stationname = req.getParameter("stationName");
             plan = new Plan(planid,trainid,chexiang,compare,stationname);
-            planService.updatePlan(plan);
+            boolean flag = planService.updatePlan(plan);
+            if (flag) {
+                success = "修改成功";
+                req.setAttribute("success",success);
+            } else {
+                fail = "修改失败";
+                req.setAttribute("fail",fail);
+            }
             planList.add(plan);
             session.setAttribute("planList",planList);
             req.getRequestDispatcher(planQueryUrl).forward(req, resp);
         } else if ("delete".equals(function)) {
             //删除计划
             int planid = Integer.parseInt(req.getParameter("planid"));
-            planService.deletePlan(planid);
+            boolean flag = planService.deletePlan(planid);
+            if (flag) {
+                success = "删除成功";
+                req.setAttribute("success",success);
+            } else {
+                fail = "删除失败";
+                req.setAttribute("fail",fail);
+            }
             planList = planService.getAllPlans();
             session.setAttribute("planList",planList);
             req.getRequestDispatcher(planQueryUrl).forward(req, resp);

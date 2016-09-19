@@ -8,6 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/jsp/common/IncludeTop.jsp"%>
     <div class="container">
-        11111
+        这里是前台
     </div>
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp"%>

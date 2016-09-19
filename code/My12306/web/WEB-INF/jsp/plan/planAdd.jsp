@@ -17,7 +17,8 @@
             <div class="form-group" style="width: 400px;margin: 10px auto;">
                 <label for="planid" class="col-sm-3 control-label">计划代码</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="planid" name="planid" placeholder="请输入计划代码">
+                    <input type="number" class="form-control" id="planid" name="planid" min="1" max="100"
+                           placeholder="请输入计划代码" required>
                 </div>
             </div>
 
@@ -37,7 +38,8 @@
             <div class="form-group" style="width: 400px;margin: 10px auto;">
                 <label for="chexiang" class="col-sm-3 control-label">车厢号</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="chexiang" name="chexiang" placeholder="请输入车厢号">
+                    <input type="number" class="form-control" id="chexiang" name="chexiang" min="1" max="100"
+                           placeholder="请输入车厢号" required>
                 </div>
             </div>
 

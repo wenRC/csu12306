@@ -36,6 +36,8 @@ public class DiaoDuServlet extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         String function = req.getParameter("function");
         HttpSession session = req.getSession();
+        String success = null;
+        String fail = null;
         if ("query".equals(function)) {
             //按车次、车厢进行席位查询
             int trainid = Integer.parseInt(req.getParameter("trainid"));
@@ -85,7 +87,14 @@ public class DiaoDuServlet extends HttpServlet {
             String to = req.getParameter("to");
             String status = req.getParameter("status");
             Seat seat = new Seat(seatid,trainid,date,chexiang,seatno,from,to,status);
-            diaoduService.updateSeat(seat);
+            boolean flag = diaoduService.updateSeat(seat);
+            if (flag) {
+                success = "修改成功";
+                req.setAttribute("success",success);
+            } else {
+                fail = "修改失败";
+                req.setAttribute("fail",fail);
+            }
             List<Seat> seatList = new ArrayList<>();
             seatList.add(seat);
             session.setAttribute("seatList",seatList);

@@ -33,7 +33,8 @@
             <div class="form-group" style="width: 400px;margin: 10px auto;">
                 <label for="date" class="col-sm-3 control-label">日期</label>
                 <div class="col-sm-9">
-                    <input type="datetime" class="form-control" id="date" name="date" value="${sessionScope.seat.date}">
+                    <input type="date" class="form-control" id="date" name="date" placeholder="请输入时间"
+                           value="${sessionScope.seat.date}" readonly>
                 </div>
             </div>
 
