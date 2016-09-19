@@ -43,6 +43,7 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
         try {
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(GETSEATBYSEATID);
+            preparedStatement.setInt(1,seatid);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 seat = new Seat();
@@ -123,6 +124,7 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
         try {
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(GETSEATSBYTRAINID);
+            preparedStatement.setInt(1,trainId);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 seat = new Seat();

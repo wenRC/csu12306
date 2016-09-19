@@ -1,7 +1,9 @@
 package com.csu.servlet.order;
 
 import com.csu.domain.order.Order;
+import com.csu.domain.piaoWu.PiaoWu;
 import com.csu.domain.user.User;
+import com.csu.service.GetPiaoWuAndYuPIaoService;
 import com.csu.service.OrderService;
 
 import javax.servlet.ServletException;
@@ -28,10 +30,10 @@ public class ViewOrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         if (user != null) {
-            OrderService orderService=new OrderService();
-            ArrayList<Order> orders=orderService.getOrdersByUserId(user.getUserid());
+            GetPiaoWuAndYuPIaoService getPiaoWuAndYuPIaoService=new GetPiaoWuAndYuPIaoService();
+            ArrayList<PiaoWu> piaoWus= getPiaoWuAndYuPIaoService.getPiaoWuByUserId(user.getUserid());
             HttpSession session=request.getSession();
-            session.setAttribute("orders",orders);
+            session.setAttribute("piaowus",piaoWus);
             request.getRequestDispatcher(url).forward(request, response);
         } else {
             HttpSession session = request.getSession();

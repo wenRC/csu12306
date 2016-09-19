@@ -15,11 +15,11 @@ import java.util.ArrayList;
  * Created by 温 睿诚 on 2016/9/16/0016.
  */
 public class OrderDaoImpl implements OrderDao {
-    private static final  String INSERT_ORDER="insert into `order` values(?,?,?,?)";
+    private static final  String INSERT_ORDER="insert into `order` values(?,?,?,?,?)";
     private static final  String DELETE_ORDER="DELETE FROM `ORDER` WHERE orderid=?";
-    private static final  String UPDATE_ORDER="update `order` set passengerid=?,orderstatus=?,ordertime=? where orderid=?";
-    private static final  String GET_ORDERS_BY_USERID="select orderid,orderstatus,ordertime from `order` where passengerid=?";
-    private static final  String GET_ORDER_BY_ORDERID="SELECT passengerid,orderstatus,ordertime from `order` where orderid=?";
+    private static final  String UPDATE_ORDER="update `order` set passengerid=?,orderstatus=?,ordertime=?,ticketid=? where orderid=?";
+    private static final  String GET_ORDERS_BY_USERID="select orderid,orderstatus,ordertime,ticketid from `order` where passengerid=?";
+    private static final  String GET_ORDER_BY_ORDERID="SELECT passengerid,orderstatus,ordertime,ticketid from `order` where orderid=?";
 
     @Override
     public boolean insertOrder(Order order) {
@@ -33,6 +33,7 @@ public class OrderDaoImpl implements OrderDao {
             preparedStatement.setInt(2,order.getPassengerId());
             preparedStatement.setString(3,order.getOrderStatus());
             preparedStatement.setTimestamp(4,order.getOrderTime());
+            preparedStatement.setInt(5,order.getTicketId());
             result=preparedStatement.executeUpdate()==1?true:false;
         }catch (SQLException e){
             e.printStackTrace();
@@ -74,7 +75,8 @@ public class OrderDaoImpl implements OrderDao {
             preparedStatement.setInt(1,order.getPassengerId());
             preparedStatement.setString(2,order.getOrderStatus());
             preparedStatement.setTimestamp(3,order.getOrderTime());
-            preparedStatement.setInt(4,order.getOrderId());
+            preparedStatement.setInt(4,order.getTicketId());
+            preparedStatement.setInt(5,order.getOrderId());
             result=preparedStatement.executeUpdate()==1?true:false;
         }catch (SQLException e){
             e.printStackTrace();
@@ -102,6 +104,7 @@ public class OrderDaoImpl implements OrderDao {
                 order.setPassengerId(userId);
                 order.setOrderStatus(resultSet.getString(2));
                 order.setOrderTime(resultSet.getTimestamp(3));
+                order.setTicketId(resultSet.getInt(4));
                 orders.add(order);
             }
         }catch (SQLException e){
@@ -131,6 +134,7 @@ public class OrderDaoImpl implements OrderDao {
                 order.setPassengerId(resultSet.getInt(1));
                 order.setOrderStatus(resultSet.getString(2));
                 order.setOrderTime(resultSet.getTimestamp(3));
+                order.setTicketId(resultSet.getInt(4));
             }
         }catch (SQLException e){
             e.printStackTrace();

@@ -41,44 +41,27 @@
             </thead>
 
             <tbody>
-            <c:forEach items="${sessionScope.orders}" var="order">
+            <c:forEach items="${sessionScope.piaowus}" var="pw">
                 <tr>
-                    <td >${order.orderId}</td>
-                    <td >G6023</td>
-                    <td >6车1A</td>
-                    <td >广州北</td>
-                    <td >长沙南</td>
-                    <td >2016-10-07 14:32</td>
-                    <td >00:17</td>
-                    <td >二等座</td>
-                    <td >15.0元</td>
-                    <td >xlf</td>
-                    <td >${order.orderTime}</td>
-                    <td >${order.orderStatus}</td>
+                    <td >${pw.orderId}</td>
+                    <td >${pw.trainId}</td>
+                    <td >${pw.cheXiang}车${pw.seatNo}</td>
+                    <td >${pw.from}</td>
+                    <td >${pw.to}</td>
+                    <td >${pw.date}</td>
+                    <td >${pw.last}</td>
+                    <td >${pw.ticketType}</td>
+                    <td >${pw.price}元</td>
+                    <td >${user.username}</td>
+                    <td >${pw.orderTime}</td>
+                    <td >${pw.orderStatus}</td>
                     <td ><input type="button" value="退票" class="btn btn-default"/><input type="button" value="取票"
                                                                                          class="btn btn-default"/><input
                             type="button" value="改签" class="btn btn-default"/></td>
                 </tr>
             </c:forEach>
 
-            <tr>
-                <td >141109</td>
-                <td >G1103</td>
-                <td >6车2A</td>
-                <td >广州北</td>
-                <td >广州南</td>
-                <td >2016-10-07 16:32</td>
-                <td >02:30</td>
-                <td >二等座</td>
-                <td >294.0元</td>
-                <td >wrc</td>
-                <td >2016-10-01</td>
-                <td >未出行</td>
 
-                <td width="200"><input type="button" value="退票" class="btn btn-default"/><input type="button" value="取票"
-                                                                                        class="btn btn-default"/><input
-                        type="button" value="改签" class="btn btn-default"/></td>
-            </tr>
             </tbody>
         </table>
     </div>
