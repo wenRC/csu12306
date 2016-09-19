@@ -42,6 +42,27 @@ public class GetPiaoWuAndYuPIaoService {
             Train train=baseService.getTrainBytrainId(seat.getTrainid());
             trains.add(train);
         }
+        for(int i =0;i<orders.size();i++){
+            PiaoWu piaowu=new PiaoWu();
+            Order order=orders.get(i);
+            Ticket ticket=tickets.get(i);
+            Seat seat=seats.get(i);
+            Train train=trains.get(i);
+            piaowu.setOrderId(order.getOrderId());
+            piaowu.setOrderTime(order.getOrderTime());
+            piaowu.setOrderStatus(order.getOrderStatus());
+            piaowu.setTicketType(ticket.getTicketType());
+            piaowu.setPrice(ticket.getPrice());
+            piaowu.setTrainId(seat.getTrainid());
+            piaowu.setCheXiang(seat.getChexiang());
+            piaowu.setSeatNo(seat.getSeatno());
+            piaowu.setFrom(seat.getFrom());
+            piaowu.setTo(seat.getTo());
+            piaowu.setDate(seat.getDate());
+            piaowu.setLast(train.getLast());
+            piaowu.setSeatId(seat.getSeatid());
+            piaoWus.add(piaowu);
+        }
         return piaoWus;
     }
     public ArrayList<YuPiao> getYuPiaoByStationName(String from,String to){

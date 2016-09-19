@@ -78,8 +78,8 @@ public class DiaoduService {
     public int getAllSeatsCount(int trainId){
         return diaoDuDao.getAllSeatsCount(trainId);
     }
-    public Seat getSeatBySeatId(int seatId){
-        return diaoDuDao.getSeatBySeatId(seatId);
-    }
+//    public Seat getSeatBySeatId(int seatId){
+//        return diaoDuDao.getSeatBySeatId(seatId);
+//    }
 
 }
