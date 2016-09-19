@@ -140,7 +140,7 @@ public class DiYuanDiJianLvDAOImpl implements DiYuanDiJianLvDAO{
             resultSet.next();
             i = resultSet.getInt(1);
             DBUtil.closeResultSet(resultSet);
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         } catch (SQLException e) {
             e.printStackTrace();

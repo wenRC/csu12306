@@ -166,7 +166,7 @@ public class StationDaoImpl implements StationDAO{
             resultSet.next();
             i = resultSet.getInt(1);
             DBUtil.closeResultSet(resultSet);
-            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         } catch (SQLException e) {
             e.printStackTrace();
