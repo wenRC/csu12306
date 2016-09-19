@@ -13,4 +13,5 @@ public interface DiYuanDiJianLvDAO {
     public ArrayList<DiYuanDiJianLv> getDYDJLvs();
     public int updateDYDJLv(DiYuanDiJianLv diYuanDiJianLv);
     public int delDYDJLvById(int DYDJLID);
+    public int getMaxDYDJLId();
 }

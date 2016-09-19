@@ -62,6 +62,7 @@ public class BaseService {
     }
 
     public int addStation(Station station) {
+        station.setStationId(stationDAO.getMaxStationId() + 1);
         return stationDAO.addStation(station);
     }
 
@@ -158,6 +159,7 @@ public class BaseService {
     线路管理
      */
     public int addLine(Line line){
+        line.setLineId(lineDAO.getMaxLineId() + 1);
         return lineDAO.addLine(line);
     }
     public int delLineByLineId(int lineId){
@@ -183,6 +185,7 @@ public class BaseService {
         return diYuanDiJianLvDAO.getDYDJLvByDYDJLID(DYDJLID);
     }
     public int addDYDJLv(DiYuanDiJianLv diYuanDiJianLv){
+        diYuanDiJianLv.setdYDJId(diYuanDiJianLvDAO.getMaxDYDJLId() + 1);
         return diYuanDiJianLvDAO.addDYDJLv(diYuanDiJianLv);
     }
     public ArrayList<DiYuanDiJianLv> getDYDJLvs(){
@@ -194,4 +197,5 @@ public class BaseService {
     public int delDYDJLvById(int DYDJLID){
         return diYuanDiJianLvDAO.delDYDJLvById(DYDJLID);
     }
+
 }

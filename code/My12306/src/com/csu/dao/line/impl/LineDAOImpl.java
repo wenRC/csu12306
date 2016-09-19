@@ -21,6 +21,7 @@ public class LineDAOImpl implements LineDAO{
     private final static String SEARCH_LINE_BY_STATIONNAME = "SELECT LINEID,TRAINID,STATIONNAME,DISTANCE,FROMTIME,STAYTIME FROM LINE WHERE STATIONNAME=?";
     private final static String GET_LINE_BY_LINEID = "SELECT LINEID,TRAINID,STATIONNAME,DISTANCE,FROMTIME,STAYTIME FROM LINE WHERE LINEID=?";
     private final static String UPDATE_LINE = "UPDATE LINE SET TRAINID=?,STATIONNAME=?,DISTANCE=?,FROMTIME=?,STAYTIME=? WHERE LINEID=?";
+    private final static String GET_MAX_LINEID = "SELECT MAX(LINEID) FROM LINE";
     @Override
     public int addLine(Line line) {
         int i = 0;
@@ -156,6 +157,24 @@ public class LineDAOImpl implements LineDAO{
             DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
             i = 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    @Override
+    public int getMaxLineId() {
+        int i = 0;
+        Connection connection = DBUtil.getConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(GET_MAX_LINEID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            i = resultSet.getInt(1);
+            DBUtil.closeResultSet(resultSet);
+            DBUtil.closePreparedStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
         } catch (SQLException e) {
             e.printStackTrace();
         }
