@@ -18,6 +18,15 @@ public class YuPiao {
     Map<Integer,String> cheXiang2SeatType;
     int seatNo;
     double price;
+    int seatId;//获取未售席位
+
+    public int getSeatId() {
+        return seatId;
+    }
+
+    public void setSeatId(int seatId) {
+        this.seatId = seatId;
+    }
 
     public int getSeatNo() {
         return seatNo;

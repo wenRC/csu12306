@@ -132,6 +132,7 @@ public class GetPiaoWuAndYuPIaoService {
                int seatNo=0;
                for(Seat seat:seats){
                    if(seat.getStatus().equals("未售")){
+                       yuPiao.setSeatId(seat.getSeatid());
                        seatNo++;
                    }
                }

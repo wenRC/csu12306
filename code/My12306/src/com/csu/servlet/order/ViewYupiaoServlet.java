@@ -25,7 +25,7 @@ public class ViewYupiaoServlet extends HttpServlet {
         User user= (User) request.getSession().getAttribute("user");
         if(user!=null) {
             HttpSession session=request.getSession();
-            session.setAttribute("piaowus",null);
+            session.setAttribute("yupiaos",null);
             request.getRequestDispatcher(url).forward(request, response);
         }else{
             HttpSession session = request.getSession();

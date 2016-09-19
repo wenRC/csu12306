@@ -14,6 +14,8 @@ import java.io.IOException;
 public class ForwardServlet extends HttpServlet{
     private static final String qupiao="/WEB-INF/jsp/piaoWu/qupiao.jsp";
     private static final String searchOrder="/WEB-INF/jsp/order/searchOrder.jsp";
+    private static final String searchPiao="/WEB-INF/jsp/order/yupiao.jsp";
+    private static final String confirm="/WEB-INF/jsp/order/confirm.jsp";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,6 +29,12 @@ public class ForwardServlet extends HttpServlet{
         switch (para){
             case "qupiao":
                 url=qupiao;
+                break;
+            case "searchPiao":
+                url=searchPiao;
+                break;
+            case "confirm":
+                url=confirm;
                 break;
             default:
                 url=searchOrder;

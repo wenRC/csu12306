@@ -30,7 +30,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${sessionScope.yupiaos}" var="yupiao">
+        <c:forEach items="${sessionScope.yupiaos}" var="yupiao" varStatus="status">
             <tr>
                 <td>${yupiao.trainId}</td>
                 <td>${yupiao.from}</td>
@@ -40,7 +40,7 @@
                 <td>${yupiao.seatNo}</td>
 
                 <td>-</td>
-                <td><a href="newOrder.html"><input type="button" value="预定" class="btn btn-default"/></a></td>
+                <td><a href="/yuding?index=${status.index}"><input type="button" value="预定" class="btn btn-default"/></a></td>
             </tr>
         </c:forEach>
         </tbody>

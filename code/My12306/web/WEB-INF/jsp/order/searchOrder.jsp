@@ -55,9 +55,13 @@
                     <td >${user.username}</td>
                     <td >${pw.orderTime}</td>
                     <td >${pw.orderStatus}</td>
-                    <td ><a href="/tuipiao?index=${status.index}"> <input type="button" value="退票" class="btn btn-default"<c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/></a><a href="/forward?to=qupiao" ><input type="button" value="取票"
+                    <td >
+
+                        <a href="/tuipiao?index=${status.index}"> <input type="button" value="退票" class="btn btn-default"<c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/></a><a href="/forward?to=qupiao" ><input type="button" value="取票"
                                                                                          class="btn btn-default" <c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/></a><input
-                            type="button" value="改签" class="btn btn-default"<c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/></td>
+                            type="button" value="改签" class="btn btn-default"<c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/>
+                        <a href="/pay?index=${status.index}" <c:if test="${!pw.orderStatus.equals('未支付')}">hidden</c:if>> <input type="button" value="支付" class="btn btn-default"/></a>
+                    </td>
                 </tr>
             </c:forEach>
 
