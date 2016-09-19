@@ -24,6 +24,8 @@ public class ViewYupiaoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user= (User) request.getSession().getAttribute("user");
         if(user!=null) {
+            HttpSession session=request.getSession();
+            session.setAttribute("piaowus",null);
             request.getRequestDispatcher(url).forward(request, response);
         }else{
             HttpSession session = request.getSession();

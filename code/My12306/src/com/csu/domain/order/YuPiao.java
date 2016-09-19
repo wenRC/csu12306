@@ -2,6 +2,7 @@ package com.csu.domain.order;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -15,9 +16,27 @@ public class YuPiao {
     Time time;//详细时间
     String last;//历时
     Map<Integer,String> cheXiang2SeatType;
-    Map<String,Integer> SeatType2SeatNo;
+    int seatNo;
+    double price;
+
+    public int getSeatNo() {
+        return seatNo;
+    }
+
+    public void setSeatNo(int seatNo) {
+        this.seatNo = seatNo;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     public YuPiao() {
+        cheXiang2SeatType=new HashMap<>();
     }
 
     public int getTrainId() {
@@ -76,11 +95,4 @@ public class YuPiao {
         this.cheXiang2SeatType = cheXiang2SeatType;
     }
 
-    public Map<String, Integer> getSeatType2SeatNo() {
-        return SeatType2SeatNo;
-    }
-
-    public void setSeatType2SeatNo(Map<String, Integer> seatType2SeatNo) {
-        SeatType2SeatNo = seatType2SeatNo;
-    }
 }
