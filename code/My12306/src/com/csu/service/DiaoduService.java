@@ -61,22 +61,29 @@ public class DiaoduService {
     }
 
     /**
-     * 根据车次代码和席位售出状态进行客运统计
-     * @param trainId
+     *
      * @param status
      * @return
      */
-    public int getSeatsCountByStatus(int trainId,String status){
-        return diaoDuDao.getSeatsCountByStatus(trainId,status);
+    public List<Seat> getSeatsByStatus(String status) {
+        return diaoDuDao.getSeatsByStatus(status);
+    }
+
+    /**
+     * 根据席位售出状态进行客运统计
+     * @param status
+     * @return
+     */
+    public int getSeatsCountByStatus(String status){
+        return diaoDuDao.getSeatsCountByStatus(status);
     }
 
     /**
      * 根据车次代码按总席位进行客运统计
-     * @param trainId
      * @return
      */
-    public int getAllSeatsCount(int trainId){
-        return diaoDuDao.getAllSeatsCount(trainId);
+    public int getAllSeatsCount(){
+        return diaoDuDao.getAllSeatsCount();
     }
 //    public Seat getSeatBySeatId(int seatId){
 //        return diaoDuDao.getSeatBySeatId(seatId);

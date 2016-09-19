@@ -13,23 +13,57 @@
         <h1>席位信息</h1>
     </div>
     <div>
-        <form action="diaodu?function=query" method="post">
-            <table cellpadding="10">
-                <tr>
-                    <td>车次：</td>
-                    <td><input type="text" name="trainid"></td>
-                    <td>车厢：</td>
-                    <td><input type="text" name="chexiang"></td>
-                    <td><input type="submit" value="查询"></td>
-                </tr>
-            </table>
+        <form action="diaodu?function=query" method="post" role="form" class="form-horizontal">
+            <div class="form-group" style="width: 400px;margin: 10px auto;">
+                <label for="checi" class="col-sm-3 control-label">车次</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="checi" name="trainid" placeholder="请输入车次">
+                </div>
+            </div>
+            <div class="form-group" style="width: 400px;margin: 10px auto;">
+                <label for="chexiang" class="col-sm-3 control-label">车厢</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="chexiang" name="chexiang" placeholder="请输入车厢">
+                </div>
+            </div>
+            <div class="form-group" style="width: 400px;margin: 10px;">
+                <div class="col-sm-offset-1 col-sm-10">
+                    <button type="submit" class="btn btn-default">查询</button>
+                </div>
+            </div>
         </form>
     </div>
-    <br/>
-    <a href="diaodu?function=queryAll">显示所有计划</a>
-    <br/>
+    <br>
     <div>
-        <table border="1" cellspacing="0" cellpadding="5">
+        <form action="diaodu?function=seatCount" method="post" role="form" class="form-horizontal">
+            <div class="form-group" style="width: 400px;margin: 10px auto;">
+                <label for="keyun" class="col-sm-3 control-label">客运统计</label>
+                <div class="col-sm-9">
+                    <select id="keyun" name="seatCountMethod" class="form-control">
+                        <option value="yishou">已售席位</option>
+                        <option value="weishou">未售席位</option>
+                        <option value="zong">总席位</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group" style="width: 400px;margin: 10px auto;">
+                <label for="seatNumber" class="col-sm-3 control-label">席位数量</label>
+                <div class="col-sm-9">
+                    <input id="seatNumber" type="text" class="form-control" name="seatCount"
+                           value="${sessionScope.seatCount}" readonly>
+                </div>
+            </div>
+            <div class="form-group" style="width: 400px;margin: 10px;">
+                <div class="col-sm-offset-1 col-sm-10">
+                    <button type="submit" class="btn btn-default">统计</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br/><br/>
+    <div>
+        <table class="table table-hover" style="width: 90%;margin: auto">
+            <thead>
             <tr>
                 <th>席位代码</th>
                 <th>车次</th>
@@ -41,6 +75,8 @@
                 <th>售票状态</th>
                 <th>操作</th>
             </tr>
+            </thead>
+            <tbody>
             <c:forEach items="${sessionScope.seatList}" var="seat">
                 <tr>
                     <td>${seat.seatid}</td>
@@ -51,24 +87,11 @@
                     <td>${seat.from}</td>
                     <td>${seat.to}</td>
                     <td>${seat.status}</td>
-                    <td><a href="diaodu?function=modify">修改</a></td>
+                    <td><a href="diaodu?function=modify&seatid=${seat.seatid}">修改</a></td>
                 </tr>
             </c:forEach>
+            </tbody>
         </table>
-    </div>
-    <br/>
-    <div>
-        <form action="diaodu?function=seatCount" method="post">
-            <table cellpadding="10">
-                <tr>
-                    <td><input type="radio" name="seatNumber">已售席位</td>
-                    <td><input type="radio" name="seatNumber">未售席位</td>
-                    <td><input type="radio" name="seatNumber">总席位</td>
-                    <td><input type="submit" value="查询"></td>
-                    <td>数量：<input type="text" name="seatCount"></td>
-                </tr>
-            </table>
-        </form>
     </div>
 </div>
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp" %>

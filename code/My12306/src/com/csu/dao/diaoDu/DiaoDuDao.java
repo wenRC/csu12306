@@ -14,7 +14,8 @@ public interface DiaoDuDao {
     List<Seat> getAllSeats();   //查询出所有的席位
 
     boolean updateSeat(Seat seat);    //修改席位信息
-    int getSeatsCountByStatus(int trainId,String status);    //根据车次代码和席位售出状态进行客运统计
-    int getAllSeatsCount(int trainId);    //根据车次代码按总席位进行客运统计
+    List<Seat> getSeatsByStatus(String status);//根据席位售出状态进行查询席位
+    int getSeatsCountByStatus(String status);    //根据席位售出状态进行客运统计
+    int getAllSeatsCount();    //按总席位进行客运统计
 
 }

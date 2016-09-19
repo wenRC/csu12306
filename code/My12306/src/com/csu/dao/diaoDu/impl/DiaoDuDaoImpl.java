@@ -25,8 +25,7 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
             "`to`=?," +           //乘车区间终到站
             "status=? " +       //售票状态
             "where seatid = ?"; //席位代码
-    private static final String GETSEATSCOUNTBYSTATUS = "select count(*) from seat where trainid = ? and status = ?";
-    private static final String GETALLSEATSCOUNT = "select count(*) from seat where trainid = ?";
+    private static final String GETSEATSBYSTATUS = "select * from seat where status = ?";
     private static final String GET_SEAT_BY_SEATID="select trainid,`date`,chexiang,seatno,`from`,`to`,status from seat where seatid=?";
     /**
      * 按照席位代码进行查询
@@ -220,26 +219,33 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
     }
 
     /**
-     * 根据车次代码和席位售出状态进行客运统计
-     *
-     * @param trainId 车次代码
-     * @param status  席位售出状态
-     * @return 对应售出状态席位的数量
+     * 根据席位售出状态进行查询席位
+     * @param status
+     * @return
      */
     @Override
-    public int getSeatsCountByStatus(int trainId, String status) {
+    public List<Seat> getSeatsByStatus(String status) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        int count = 0;
+        List<Seat> seatList = new ArrayList<>();
+        Seat seat = null;
         try {
             connection = DBUtil.getConnection();
-            preparedStatement = connection.prepareStatement(GETSEATSCOUNTBYSTATUS);
-            preparedStatement.setInt(1, trainId);
-            preparedStatement.setString(2, status);
+            preparedStatement = connection.prepareStatement(GETSEATSBYSTATUS);
+            preparedStatement.setString(1, status);
             resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                count = resultSet.getInt(1);
+            while (resultSet.next()) {
+                seat = new Seat();
+                seat.setSeatid(resultSet.getInt(1));//席位代码
+                seat.setTrainid(resultSet.getInt(2));//车次代码
+                seat.setDate(resultSet.getTimestamp(3));//日期
+                seat.setChexiang(resultSet.getInt(4));//车厢号
+                seat.setSeatno(resultSet.getString(5));//座位号
+                seat.setFrom(resultSet.getString(6));//乘车区间起始站
+                seat.setTo(resultSet.getString(7));//乘车区间终到站
+                seat.setStatus(resultSet.getString(8));//售票状态
+                seatList.add(seat);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -248,37 +254,27 @@ public class DiaoDuDaoImpl implements DiaoDuDao {
             DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
         }
-        return count;
+        return seatList;
+    }
+
+    /**
+     * 根据席位售出状态进行客运统计
+     * @param status  席位售出状态
+     * @return 对应售出状态席位的数量
+     */
+    @Override
+    public int getSeatsCountByStatus(String status) {
+        return getSeatsByStatus(status).size();
     }
 
     /**
      * 根据车次代码按总席位进行客运统计
      *
-     * @param trainId 车次代码
      * @return 总席位的数量
      */
     @Override
-    public int getAllSeatsCount(int trainId) {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        int count = 0;
-        try {
-            connection = DBUtil.getConnection();
-            preparedStatement = connection.prepareStatement(GETALLSEATSCOUNT);
-            preparedStatement.setInt(1, trainId);
-            resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                count = resultSet.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            DBUtil.closeResultSet(resultSet);
-            DBUtil.closeStatement(preparedStatement);
-            DBUtil.closeConnection(connection);
-        }
-        return count;
+    public int getAllSeatsCount() {
+        return getAllSeats().size();
     }
 
 //    @Override
