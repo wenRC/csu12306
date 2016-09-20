@@ -85,8 +85,12 @@ public class BaseService {
     /*
     票价率
      */
+    public ArrayList<PriceRate> getAllPriceRate(){
+        return priceRateDao.getAllPriceRate();
+    }
     public PriceRate getPriceRateByticketType(String ticketType) {
         return priceRateDao.getPriceRateByticketType(ticketType);
+
     }
 
     public boolean updatePriceRate(PriceRate priceRate) {
@@ -119,6 +123,13 @@ public class BaseService {
     /*
     编组管理
     */
+   public ArrayList<TrainGrouped> getAllTrainGroups(){
+       return trainGroupedDao.getAllTrainGroups();
+   }
+    public TrainGrouped getTrainGroupBytrainGroupedId(int trainGroupedId){
+        return trainGroupedDao.getTrainGroupBytrainGroupedId(trainGroupedId);
+
+    }
     public TrainGrouped getTrainGroupBytrainIdAndCheXiang(int trainId, int chexiang) {
         return trainGroupedDao.getTrainGroupBytrainIdAndCheXiang(trainId, chexiang);
     }

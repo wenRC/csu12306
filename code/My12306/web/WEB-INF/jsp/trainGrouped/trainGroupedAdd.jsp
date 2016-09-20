@@ -7,6 +7,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/jsp/common/IncludeTopBack.jsp" %>
+<%
+  String message =(String)session.getAttribute("message");
+  if(message!=null && !"".equals(message)){
+%>
+<script type="text/javascript">
+  alert("<%=message%>");
+</script>
+<% session.setAttribute("message","");}%>
 <h1 align="center">列车编组添加</h1>
 </br>
 <div align="center">

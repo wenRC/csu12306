@@ -42,6 +42,8 @@ public class TrainModify extends HttpServlet{
         baseService.updateTrain(train);
         ArrayList<Train> trains = new ArrayList<>();
         trains.add(train);
+        String message ="修改成功";
+        session.setAttribute("message",message);
         session.setAttribute("trains",trains);
         req.getRequestDispatcher(trainQueryUrl).forward(req,resp);
     }

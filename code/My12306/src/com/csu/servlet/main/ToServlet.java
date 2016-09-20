@@ -5,6 +5,7 @@ import com.csu.domain.plan.Plan;
 import com.csu.domain.priceRate.PriceRate;
 import com.csu.domain.train.Train;
 import com.csu.domain.trainGrouped.TrainGrouped;
+import com.csu.service.BaseService;
 import com.csu.service.DiaoduService;
 import com.csu.service.PlanService;
 
@@ -32,6 +33,7 @@ public class ToServlet extends HttpServlet {
     private static final String toPriceRateAdminUrl = "/WEB-INF/jsp/priceRate/priceRateQuery.jsp";
     PlanService planService = new PlanService();
     DiaoduService diaoduService = new DiaoduService();
+    BaseService baseService =new BaseService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -48,21 +50,30 @@ public class ToServlet extends HttpServlet {
         } else if ("station".equals(function)) {
             //跳转到车站管理模块
         } else if ("train".equals(function)) {
-            ArrayList<Train> trains = new ArrayList<>();
-            session.setAttribute("trains",trains);
-            req.getRequestDispatcher(toTrainAdminUrl).forward(req,resp);
             //跳转到列车管理模块
+            ArrayList<Train> trains = new ArrayList<>();
+            List<Train> trains1 = new ArrayList<>();
+            session.setAttribute("trains",trains);
+            trains1 = baseService.getAllTrains();
+            session.setAttribute("trains1",trains1);
+            req.getRequestDispatcher(toTrainAdminUrl).forward(req,resp);
         } else if ("line".equals(function)) {
             //跳转到线路管理模块
         } else if ("trainGrouped".equals(function)) {
             //跳转到列车编组管理模块
             ArrayList<TrainGrouped> trainGroupeds = new ArrayList<>();
             session.setAttribute("trainGroupeds",trainGroupeds);
+            ArrayList<TrainGrouped> trainGroupeds1 = new ArrayList<>();
+            trainGroupeds1 = baseService.getAllTrainGroups();
+            session.setAttribute("trainGroupeds1",trainGroupeds1);
             req.getRequestDispatcher(toTrainGroupedAdminUrl).forward(req,resp);
         } else if ("priceRate".equals(function)) {
             //跳转到票价率管理模块
             ArrayList<PriceRate> priceRates = new ArrayList<>();
             session.setAttribute("priceRates",priceRates);
+            ArrayList<PriceRate> priceRates1 = new ArrayList<>();
+            priceRates1 = baseService.getAllPriceRate();
+            session.setAttribute("priceRates1",priceRates1);
             req.getRequestDispatcher(toPriceRateAdminUrl).forward(req,resp);
         } else if ("quDuan".equals(function)) {
             //跳转到票价旅程区段管理模块

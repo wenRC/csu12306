@@ -8,6 +8,8 @@ import java.util.ArrayList;
  * Created by sx on 2016/9/18.
  */
 public interface TrainGroupedDao {
+    ArrayList<TrainGrouped> getAllTrainGroups();
+    TrainGrouped getTrainGroupBytrainGroupedId(int trainGroupedId);
     ArrayList<TrainGrouped> getTrainGroupBytrainId(int trainId);
     TrainGrouped getTrainGroupBytrainIdAndCheXiang(int trainId, int chexiang);
     boolean insertTrainGroup(TrainGrouped trainGroup);

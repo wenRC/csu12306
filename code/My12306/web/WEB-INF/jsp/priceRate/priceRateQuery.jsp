@@ -8,15 +8,31 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/jsp/common/IncludeTopBack.jsp" %>
+<%
+  String message =(String)session.getAttribute("message");
+  if(message!=null && !"".equals(message)){
+%>
+<script type="text/javascript">
+  alert("<%=message%>");
+</script>
+<% session.setAttribute("message","");}%>
 <h1 align="center">票价率查询</h1>
 </br></br></br>
 <form action="priceRateQuery" class="form-horizontal" role="form" method="get">
   <div class="form-group">
-    <label  class="col-sm-5 control-label">票种:</label>
+    <label  for="ticketType" class="col-sm-5 control-label">票种</label>
     <div class="col-sm-2">
-      <input type="text" class="form-control" name="ticketType" placeholder="请输入票种" required>
+      <select id="ticketType" name="ticketType" class="form-control">
+        <c:forEach items="${sessionScope.priceRates1}" var="priceRate">
+          <option value="${priceRate.ticketType}" name="${priceRate.ticketType}">
+              ${priceRate.ticketType}
+          </option>
+        </c:forEach>
+      </select>
     </div>
+    <div class="col-sm-3">
       <button type="submit" class="btn btn-default">查询</button>
+      </div>
   </div>
 </form>
 </br></br>

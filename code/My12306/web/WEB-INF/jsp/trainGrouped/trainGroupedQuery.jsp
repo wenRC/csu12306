@@ -8,29 +8,49 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/jsp/common/IncludeTopBack.jsp" %>
+<%
+  String message =(String)session.getAttribute("message");
+  if(message!=null && !"".equals(message)){
+%>
+<script type="text/javascript">
+  alert("<%=message%>");
+</script>
+<% session.setAttribute("message","");}%>
 <h1 align="center">列车编组查询</h1>
+</br></br>
 <div align="center">
-  <form action="trainGroupedQuery" class="form-horizontal" role="form" method="get">
-  <div class="form-group" style="width: 400px;margin: 10px auto;">
-    <label for="trainId" class="col-sm-3 control-label">车次代码</label>
-    <div class="col-sm-9">
-      <input type="number" class="form-control" id="trainId" name="trainId" placeholder="请输入车次代码" required>
+  <form action="trainGroupedQuery" class="form-horizontal" role="form" method="get" id="form">
+    <div class="form-group" style="width: 400px;margin: 10px auto;">
+      <label for="trainId" class="col-sm-3 control-label">车次代码</label>
+      <div class="col-sm-9">
+        <select id="trainId" name="trainId" class="form-control">
+          <c:forEach items="${sessionScope.trainGroupeds1}" var="trainGroupeds">
+            <option value="${trainGroupeds.trainId}" name="${trainGroupeds.trainId}">
+                ${trainGroupeds.trainId}
+            </option>
+          </c:forEach>
+        </select>
+        </div>
+      </div>
+    <div class="form-group" style="width: 400px;margin: 10px auto;">
+      <label for="chexiang" class="col-sm-3 control-label">车次代码</label>
+      <div class="col-sm-9">
+        <select id="chexiang" name="chexiang" class="form-control">
+          <c:forEach items="${sessionScope.trainGroupeds1}" var="trainGroupeds">
+            <option value="${trainGroupeds.chexiang}" name="${trainGroupeds.chexiang}">
+                ${trainGroupeds.chexiang}
+            </option>
+          </c:forEach>
+        </select>
+      </div>
     </div>
-  </div>
-  <div class="form-group" style="width: 400px;margin: 10px auto;">
-    <label for="chexiang" class="col-sm-3 control-label">车厢号</label>
-    <div class="col-sm-9">
-      <input type="number" class="form-control" id="chexiang" name="chexiang" placeholder="请输入车厢号" required>
-    </div>
-  </div>
-  <div class="form-group" style="width: 400px;margin: 10px;">
+    </br>
     <div class="col-sm-offset-1 col-sm-10">
       <button type="submit" class="btn btn-default">查询</button>
     </div>
-  </div>
-</form>
+  </form>
 </div>
-</br> </br>
+</br></br></br></br></br>
 <c:if test="${sessionScope.trainGroupeds[0]!=null}">
   <c:forEach items="${sessionScope.trainGroupeds}" var="trainGrouped">
     <table class="table table-hover">

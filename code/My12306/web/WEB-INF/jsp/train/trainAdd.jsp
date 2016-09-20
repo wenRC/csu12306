@@ -8,6 +8,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/jsp/common/IncludeTopBack.jsp" %>
+<%
+  String message =(String)session.getAttribute("message");
+  if(message!=null && !"".equals(message)){
+%>
+<script type="text/javascript">
+  alert("<%=message%>");
+</script>
+<% session.setAttribute("message","");}%>
 <h1 align="center">列车添加</h1>
 </br>
 <div align="center">
@@ -36,14 +44,14 @@
   <div class="form-group" style="width: 400px;margin: 10px auto;">
     <label for="fromTime" class="col-sm-3 control-label">出发时间</label>
     <div class="col-sm-9">
-      <input type="datetime-local" class="form-control" id="fromTime" name="fromTime" placeholder="请输入出发时间" step="0.5" required>
+      <input type="text" class="form-control" id="fromTime" name="fromTime" placeholder="请输入出发时间" step="0.5" required>
     </div>
   </div>
 
   <div class="form-group" style="width: 400px;margin: 10px auto;">
     <label for="toTime" class="col-sm-3 control-label">到达时间</label>
     <div class="col-sm-9">
-      <input type="datetime-local" class="form-control" id="toTime" name="toTime" placeholder="请输入到达时间" step="0.5" required>
+      <input type="text" class="form-control" id="toTime" name="toTime" placeholder="请输入到达时间" step="0.5" required>
     </div>
   </div>
 
