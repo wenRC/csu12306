@@ -43,7 +43,7 @@ public class NewOrderServlet extends HttpServlet{
         diaoduService.updateSeat(seat);
         session.setAttribute("seat",seat);
         Ticket ticket=new Ticket();
-        ticket.setTicketId(seat.getSeatid()*new Random(System.currentTimeMillis()).nextInt(514288127));
+        ticket.setTicketId((seat.getSeatid()*new Random(System.currentTimeMillis()).nextInt(514288127))%(527375636));
         ticket.setSeatId(seat.getSeatid());
         ticket.setPrice(yuPiao.getPrice());
         ticket.setSaleMode("网络售票");

@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/jsp/common/IncludeTop.jsp" %>
 <div id="content">
+    <div class="alert alert-success" role="alert" style="margin-left: 50px;margin-right: 50px">
+        <strong>${sessionScope.infomsg}</strong>
+    </div>
     <form role="form" class="form-inline" action="/searchOrder" method="post">
         <div class="form-group">
 
@@ -57,9 +60,9 @@
                     <td >${pw.orderStatus}</td>
                     <td >
 
-                        <a href="/tuipiao?index=${status.index}"> <input type="button" value="退票" class="btn btn-default"<c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/></a><a href="/forward?to=qupiao" ><input type="button" value="取票"
-                                                                                         class="btn btn-default" <c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/></a><input
-                            type="button" value="改签" class="btn btn-default"<c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/>
+                        <a href="/tuipiao?index=${status.index}"> <input type="button" value="退票" class="btn btn-default"<c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/></a>
+                        <a href="/forward?to=qupiao" ><input type="button" value="取票" class="btn btn-default" <c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/></a>
+                        <a href="/gaiqian?index=${status.index}"> <input type="button" value="改签" class="btn btn-default"<c:if test="${pw.orderStatus.equals('已退票')}">disabled</c:if>/></a>
                         <a href="/pay?index=${status.index}" <c:if test="${!pw.orderStatus.equals('未支付')}">hidden</c:if>> <input type="button" value="支付" class="btn btn-default"/></a>
                     </td>
                 </tr>
@@ -68,9 +71,7 @@
 
             </tbody>
         </table>
-        <div class="alert alert-success" role="alert" style="margin: 50px">
-            <strong>${sessionScope.infomsg}</strong>
-        </div>
+
     </div>
 </div>
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp" %>
