@@ -6,24 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/management.css" type="text/css">
-    <link rel="stylesheet" href="../css/add.css" type="text/css">
-</head>
-<body>
+<%@ include file="/WEB-INF/jsp/common/IncludeTopBack.jsp" %>
 <div id="content">
-    <div id="top"><img src="../img/head.png"></div>
     <div id="body">
-        <div id="left">
-            <ul>
-                <li class="function" id="function_first"><a href="/management">全部功能</a></li>
-                <li class="function"><a href="/stationManagement">车站管理</a></li>
-                <li class="function"><a href="/lineManagement">线路管理</a></li>
-                <li class="function"><a href="/diyuandijianManagement">递远递减率管理</a></li>
-            </ul>
-        </div>
         <div id="right">
             <form method="post" action="/newStation">
                 <div id="addPart" align="center">
@@ -80,8 +65,7 @@
 </div>
 <script>
     function cancel(){
-        window.location.href="/management";
+        window.location.href="/to?function=toHouTai";
     }
 </script>
-</body>
-</html>
+<%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp" %>

@@ -1,0 +1,11 @@
+#right form #addPart{
+	background:white;
+	}
+#content #right form #addPart #add td{
+	background:white;
+	padding:25px 20px 10px 0px;
+	text-align:right;
+	}
+#content #right form #addPart #add #select{
+	text-align:left;
+}
