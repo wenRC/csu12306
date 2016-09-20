@@ -92,7 +92,7 @@
                             <li><a href="">查询车站</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="">财务统计</a></li>
+                    <li class="dropdown"><a href="error.jsp">财务统计</a></li>
                     <%--<li class="dropdown"><a href="houtaiexit">退出</a></li>--%>
             </div><!--/.nav-collapse -->
         </div>
