@@ -4,7 +4,7 @@ package com.csu.domain.trainGrouped;
  * Created by sx on 2016/9/15.
  */
 public class TrainGrouped {
-    private int trainGroupId;
+    private int trainGroupedId;
     private int trainId;
     private int chexiang;
     private String seatType;
@@ -12,7 +12,7 @@ public class TrainGrouped {
     private String chexiangType;
 
     public TrainGrouped(){}
-    public TrainGrouped(int trainGroupId, int trainId, int chexiang, String seatType, int seatNumber, String chexiangType) {
+    public TrainGrouped(int trainGroupedId, int trainId, int chexiang, String seatType, int seatNumber, String chexiangType) {
         this.trainGroupId = trainGroupId;
         this.trainId = trainId;
         this.chexiang = chexiang;
@@ -21,11 +21,11 @@ public class TrainGrouped {
         this.chexiangType = chexiangType;
     }
 
-    public int getTrainGroupId() {
+    public int getTrainGroupedId() {
         return trainGroupId;
     }
 
-    public void setTrainGroupId(int trainGroupId) {
+    public void setTrainGroupedId(int trainGroupId) {
         this.trainGroupId = trainGroupId;
     }
 

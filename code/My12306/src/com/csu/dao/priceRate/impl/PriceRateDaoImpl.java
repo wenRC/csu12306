@@ -13,21 +13,24 @@ import java.sql.ResultSet;
  * Created by sx on 2016/9/15.
  */
 public class PriceRateDaoImpl implements PriceRateDao {
-    private static String GET_PRICERATE = "select pricerate from pricerate where tickettype = ?";
+    private static String GET_PRICERATE = "select * from pricerate where tickettype = ?";
     private static String UPDATE_PRICERATE = "update pricerate set tickettype = ?,pricerate = ? where pricerateid = ?";
     Connection connection = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
     @Override
-    public double getPriceRateByticketType(String ticketType) {
-        double priceRate = 0;
+    public PriceRate getPriceRateByticketType(String ticketType) {
+        PriceRate priceRate = null;
         try {
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(GET_PRICERATE);
             preparedStatement.setString(1,ticketType);
             resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
-                priceRate = resultSet.getDouble(1);
+                priceRate = new PriceRate();
+                priceRate.setPriceRateId(resultSet.getInt(1));
+                priceRate.setTicketType(resultSet.getString(2));
+                priceRate.setPriceRate(resultSet.getDouble(3));
             }
         }
         catch (Exception e){

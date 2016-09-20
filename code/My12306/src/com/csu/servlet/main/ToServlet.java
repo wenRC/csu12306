@@ -23,7 +23,9 @@ public class ToServlet extends HttpServlet {
     private static final String toPlanAdminUrl = "WEB-INF/jsp/plan/planQuery.jsp";
     private static final String toDiaoDuAdminUrl = "WEB-INF/jsp/diaoDu/seatAnnounce.jsp";
     private static final String toHouTaiUrl = "indexB.jsp";
-
+    private static final String toTrainAdminUrl = "WEB-INF/jsp/train/trainQuery.jsp";
+    private static final String toTrainGroupedAdminUrl = "WEB-INF/jsp/trainGrouped/trainGroupedQuery.jsp";
+    private static final String toPriceRateAdminUrl = "/WEB-INF/jsp/priceRate/priceRateQuery.jsp";
     PlanService planService = new PlanService();
     DiaoduService diaoduService = new DiaoduService();
 
@@ -42,13 +44,22 @@ public class ToServlet extends HttpServlet {
         } else if ("station".equals(function)) {
             //跳转到车站管理模块
         } else if ("train".equals(function)) {
+            ArrayList<Train> trains = new ArrayList<>();
+            session.setAttribute("trains",trains);
+            req.getRequestDispatcher(toTrainAdminUrl).forward(req,resp);
             //跳转到列车管理模块
         } else if ("line".equals(function)) {
             //跳转到线路管理模块
         } else if ("trainGrouped".equals(function)) {
             //跳转到列车编组管理模块
+            ArrayList<TrainGrouped> trainGroupeds = new ArrayList<>();
+            session.setAttribute("trainGroupeds",trainGroupeds);
+            req.getRequestDispatcher(toTrainGroupedAdminUrl).forward(req,resp);
         } else if ("priceRate".equals(function)) {
             //跳转到票价率管理模块
+            ArrayList<PriceRate> priceRates = new ArrayList<>();
+            session.setAttribute("priceRates",priceRates);
+            req.getRequestDispatcher(toPriceRateAdminUrl).forward(req,resp);
         } else if ("quDuan".equals(function)) {
             //跳转到票价旅程区段管理模块
             req.getRequestDispatcher(toQuDuanAdminUrl).forward(req, resp);
