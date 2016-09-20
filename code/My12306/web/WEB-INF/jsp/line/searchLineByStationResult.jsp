@@ -33,14 +33,14 @@
                             <th>里程</th>
                         </tr>
                         <c:forEach var="line" items="${sessionScope.lines}">
-                        <tr>
-                            <td><a href="/getLine?lineId=${line.LineId}">${line.lineId}</a></td>
-                            <td>${line.trainId}</td>
-                            <td>${line.stationName}</td>
-                            <td>${line.fromTime}</td>
-                            <td>${line.lastTime}</td>
-                            <td>${line.distance}</td>
-                        </tr>
+                            <tr>
+                                <td><a href="/getLine?lineId=${line.lineId}">${line.lineId}</a></td>
+                                <td>${line.trainId}</td>
+                                <td>${line.stationName}</td>
+                                <td>${line.fromTime}</td>
+                                <td>${line.lastTime}</td>
+                                <td>${line.distance}</td>
+                            </tr>
                         </c:forEach>
                     </table>
                 </div>

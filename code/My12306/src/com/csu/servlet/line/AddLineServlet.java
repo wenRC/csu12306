@@ -16,7 +16,7 @@ import java.sql.Date;
  */
 @WebServlet(name = "AddLineServlet",urlPatterns = {"/newLine"})
 public class AddLineServlet extends HttpServlet {
-    private static final String NEWLINE= "/WEB-INF/jsp/management/management.html";
+    private static final String NEWLINE= "/indexB.jsp";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         doGet(request, response);
@@ -29,7 +29,7 @@ public class AddLineServlet extends HttpServlet {
         Line line = new Line();
         line.setTrainId(Integer.parseInt(request.getParameter("trainId")));
         line.setStationName(request.getParameter("stationName"));
-        line.setFromTime(Date.valueOf(request.getParameter("fromTime")));
+        line.setFromTime(request.getParameter("fromTime"));
         line.setLastTime(request.getParameter("lastTime"));
         line.setDistance(Integer.parseInt(request.getParameter("distance")));
         BaseService baseService = new BaseService();

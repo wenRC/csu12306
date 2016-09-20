@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 @WebServlet(name = "UpdateStationServlet",urlPatterns = "/updateStation")
 public class UpdateStationServlet extends HttpServlet {
-    private static final String UPDATESTATION = "/WEB-INF/jsp/management/management.html";
+    private static final String UPDATESTATION = "/indexB.jsp";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         doGet(request, response);
@@ -30,6 +30,9 @@ public class UpdateStationServlet extends HttpServlet {
         station.setPinYin(request.getParameter("pinYin"));
         station.setStationId(Integer.parseInt(request.getParameter("stationId")));
         station.setLocation(request.getParameter("location"));
+        station.setLevel(Integer.parseInt(request.getParameter("level")));
+        station.setJu(request.getParameter("ju"));
+        station.setPhone(request.getParameter("phone"));
         BaseService baseService = new BaseService();
         baseService.updateStation(station);
         request.getRequestDispatcher(UPDATESTATION).forward(request,response);

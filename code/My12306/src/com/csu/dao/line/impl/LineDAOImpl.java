@@ -32,7 +32,7 @@ public class LineDAOImpl implements LineDAO{
             preparedStatement.setInt(2,line.getTrainId());
             preparedStatement.setString(3,line.getStationName());
             preparedStatement.setInt(4,line.getDistance());
-            preparedStatement.setDate(5,line.getFromTime());
+            preparedStatement.setString(5,line.getFromTime());
             preparedStatement.setString(6,line.getLastTime());
             preparedStatement.executeUpdate();
             DBUtil.closeStatement(preparedStatement);
@@ -75,7 +75,7 @@ public class LineDAOImpl implements LineDAO{
                 line.setTrainId(resultSet.getInt(2));
                 line.setStationName(resultSet.getString(3));
                 line.setDistance(resultSet.getInt(4));
-                line.setFromTime(resultSet.getDate(5));
+                line.setFromTime(resultSet.getString(5));
                 line.setLastTime(resultSet.getString(6));
                 lines.add(line);
             }
@@ -102,7 +102,7 @@ public class LineDAOImpl implements LineDAO{
                 line.setTrainId(resultSet.getInt(2));
                 line.setStationName(resultSet.getString(3));
                 line.setDistance(resultSet.getInt(4));
-                line.setFromTime(resultSet.getDate(5));
+                line.setFromTime(resultSet.getString(5));
                 line.setLastTime(resultSet.getString(6));
                 lines.add(line);
             }
@@ -129,7 +129,7 @@ public class LineDAOImpl implements LineDAO{
                 line.setTrainId(resultSet.getInt(2));
                 line.setStationName(resultSet.getString(3));
                 line.setDistance(resultSet.getInt(4));
-                line.setFromTime(resultSet.getDate(5));
+                line.setFromTime(resultSet.getString(5));
                 line.setLastTime(resultSet.getString(6));
             }
             DBUtil.closeResultSet(resultSet);
@@ -150,7 +150,7 @@ public class LineDAOImpl implements LineDAO{
             preparedStatement.setInt(1, line.getTrainId());
             preparedStatement.setString(2, line.getStationName());
             preparedStatement.setInt(3, line.getDistance());
-            preparedStatement.setDate(4, line.getFromTime());
+            preparedStatement.setString(4, line.getFromTime());
             preparedStatement.setString(5, line.getLastTime());
             preparedStatement.setInt(6, line.getLineId());
             preparedStatement.executeUpdate();

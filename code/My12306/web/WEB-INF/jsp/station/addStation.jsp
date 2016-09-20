@@ -15,37 +15,37 @@
                     <table id="add">
                         <tr>
                             <td>车站名</td>
-                            <td><input name="stationName" class="input" name="stationName" /></td>
+                            <td><input name="stationName" class="input" /></td>
                         </tr>
                         <tr>
                             <td>拼音码</td>
-                            <td><input name="pinYin" class="input" name="pinYin" /></td>
+                            <td><input name="pinYin" class="input" /></td>
                         </tr>
                         <tr>
                             <td>所属铁路局</td>
-                            <td><input class="input" name="tieLuJu" /></td>
+                            <td><input class="input" name="ju" /></td>
                         </tr>
                         <tr>
                             <td>车站等级</td>
                             <td id="select">
                                 <select  class="input" name="level">
-                                    <option value="请选择">请选择</option>
-                                    <option value="特等站">特等站</option>
-                                    <option value="一等站">一等站</option>
-                                    <option value="二等站">二等站</option>
-                                    <option value="三等站">三等站</option>
-                                    <option value="四等站">四等站</option>
-                                    <option value="五等站">五等站</option>
+                                    <option value="">请选择</option>
+                                    <option value="0">特等站</option>
+                                    <option value="1">一等站</option>
+                                    <option value="2">二等站</option>
+                                    <option value="3">三等站</option>
+                                    <option value="4">四等站</option>
+                                    <option value="5">五等站</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <td>所属行政区域</td>
-                            <td><input name="location" class="input" name="xingZhengQu" /></td>
+                            <td><input name="location" class="input" /></td>
                         </tr>
                         <tr>
-                            <td>联系地址</td>
-                            <td><input class="input" name="address" /></td>
+                            <td>联系电话</td>
+                            <td><input class="input" name="phone" /></td>
                         </tr>
                         <tr>
                             <td colspan="2">

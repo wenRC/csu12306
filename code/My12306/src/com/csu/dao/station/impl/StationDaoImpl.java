@@ -16,10 +16,10 @@ import java.util.List;
  */
 public class StationDaoImpl implements StationDAO{
     private static final String GETALLSTATIONS = "select * from station";
-    private final static String ADD_STATION = "INSERT INTO STATION(STATIONID,STATIONNAME,PINYIN,LOCATION) VALUES(?,?,?,?)";
-    private final static String GET_STATION_BY_STATIONNAME = "SELECT STATIONID,STATIONNAME,PINYIN,LOCATION FROM STATION WHERE STATIONNAME = ?";
-    private final static String GET_STATION_BY_PINYIN = "SELECT STATIONID,STATIONNAME,PINYIN,LOCATION FROM STATION WHERE PINYIN = ?";
-    private final static String UPDATE_STATION = "UPDATE STATION SET STATIONNAME=?,PINYIN=?,LOCATION=? WHERE STATIONID = ?";
+    private final static String ADD_STATION = "INSERT INTO STATION(STATIONID,STATIONNAME,PINYIN,LOCATION,JU,`LEVEL`,PHONE) VALUES(?,?,?,?,?,?,?)";
+    private final static String GET_STATION_BY_STATIONNAME = "SELECT STATIONID,STATIONNAME,PINYIN,LOCATION,JU,`LEVEL`,PHONE FROM STATION WHERE STATIONNAME = ?";
+    private final static String GET_STATION_BY_PINYIN = "SELECT STATIONID,STATIONNAME,PINYIN,LOCATION,JU,`LEVEL`,PHONE FROM STATION WHERE PINYIN = ?";
+    private final static String UPDATE_STATION = "UPDATE STATION SET STATIONNAME=?,PINYIN=?,LOCATION=?,JU=?,`LEVEL`=?,PHONE=? WHERE STATIONID = ?";
     private final static String DEL_STATION = "DELETE FROM STATION WHERE STATIONID = ?";
     private final static String GET_MAX_STATIONID = "SELECT MAX(STATIONID) FROM STATION";
     @Override
@@ -61,6 +61,9 @@ public class StationDaoImpl implements StationDAO{
             preparedStatement.setString(2,station.getStationName());
             preparedStatement.setString(3,station.getPinYin());
             preparedStatement.setString(4,station.getLocation());
+            preparedStatement.setString(5,station.getJu());
+            preparedStatement.setInt(6,station.getLevel());
+            preparedStatement.setString(7,station.getPhone());
             preparedStatement.executeUpdate();
             DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
@@ -85,6 +88,9 @@ public class StationDaoImpl implements StationDAO{
                 station.setStationName(resultSet.getString(2));
                 station.setPinYin(resultSet.getString(3));
                 station.setLocation(resultSet.getString(4));
+                station.setJu(resultSet.getString(5));
+                station.setLevel(resultSet.getInt(6));
+                station.setPhone(resultSet.getString(7));
             }
             DBUtil.closeResultSet(resultSet);
             DBUtil.closeStatement(preparedStatement);
@@ -109,6 +115,9 @@ public class StationDaoImpl implements StationDAO{
                 station.setStationName(resultSet.getString(2));
                 station.setPinYin(resultSet.getString(3));
                 station.setLocation(resultSet.getString(4));
+                station.setJu(resultSet.getString(5));
+                station.setLevel(resultSet.getInt(6));
+                station.setPhone(resultSet.getString(7));
             }
             DBUtil.closeResultSet(resultSet);
             DBUtil.closeStatement(preparedStatement);
@@ -128,7 +137,10 @@ public class StationDaoImpl implements StationDAO{
             preparedStatement.setString(1,station.getStationName());
             preparedStatement.setString(2,station.getPinYin());
             preparedStatement.setString(3,station.getLocation());
-            preparedStatement.setInt(4,station.getStationId());
+            preparedStatement.setString(4,station.getJu());
+            preparedStatement.setInt(5,station.getLevel());
+            preparedStatement.setString(6,station.getPhone());
+            preparedStatement.setInt(7,station.getStationId());
             preparedStatement.executeUpdate();
             DBUtil.closeStatement(preparedStatement);
             DBUtil.closeConnection(connection);
