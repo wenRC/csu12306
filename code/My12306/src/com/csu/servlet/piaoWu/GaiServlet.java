@@ -43,7 +43,7 @@ public class GaiServlet extends HttpServlet {
         diaoduService.updateSeat(seat);
         //获得新的seatid
         int newSeatId=yuPiao.getSeatId();
-        int newTicketId=(newSeatId*new Random(System.currentTimeMillis()).nextInt(514288))%(12345678);
+        int newTicketId=(newSeatId*new Random(System.currentTimeMillis()).nextInt(9876));
         Seat seat1=diaoduService.getSeatBySeatId(newSeatId);
         seat1.setStatus("已售");
         diaoduService.updateSeat(seat1);

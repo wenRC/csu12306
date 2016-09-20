@@ -4,10 +4,10 @@
     <div class="alert alert-success" role="alert" style="margin-left: 50px;margin-right: 50px">
         <strong>${sessionScope.infomsg}</strong>
     </div>
-    <form role="form" class="form-inline" action="/searchOrder" method="post">
+    <form role="form" class="form-inline" action="/searchOrderByTime" method="post">
         <div class="form-group">
 
-            <select class="form-control" id="select">
+            <select class="form-control" id="select" name="select">
                 <option value="1">按订票日期</option>
                 <option value="2">按出行日期</option>
             </select>
