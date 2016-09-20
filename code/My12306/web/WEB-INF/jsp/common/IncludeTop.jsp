@@ -13,8 +13,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/jquery.min.js"></script>
+
   </head>
   <body>
     <div id="header">
