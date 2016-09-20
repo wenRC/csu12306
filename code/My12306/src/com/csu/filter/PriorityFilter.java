@@ -25,4 +25,14 @@ public class PriorityFilter implements Filter {
             filterChain.doFilter(servletRequest,servletResponse);//继续执行
         }
     }
+
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
+    @Override
+    public void destroy() {
+
+    }
 }
