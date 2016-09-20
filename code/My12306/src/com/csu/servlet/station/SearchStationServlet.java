@@ -1,4 +1,4 @@
-package com.csu.servlet.diYuanDiJian;
+package com.csu.servlet.station;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,9 +10,9 @@ import java.io.IOException;
 /**
  * Created by Asus_ on 2016/9/20.
  */
-@WebServlet(name = "DiYuanDiJianServlet",urlPatterns = {"/diyuandijianManagement"})
-public class DiYuanDiJianServlet extends HttpServlet {
-    private static final String DIYUANDIJIANMANAGEMENT = "/WEB-INF/jsp/diYuanDiJianLv/rateManagement.jsp";
+@WebServlet(name = "SearchStationServlet",urlPatterns = {"/searchStation"})
+public class SearchStationServlet extends HttpServlet {
+    private static final String SEARCHSTATION = "/WEB-INF/jsp/station/searchStation.jsp";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         doGet(request, response);
@@ -20,7 +20,8 @@ public class DiYuanDiJianServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher(DIYUANDIJIANMANAGEMENT).forward(request,response);
+        request.getRequestDispatcher(SEARCHSTATION).forward(request,response);
     }
 }

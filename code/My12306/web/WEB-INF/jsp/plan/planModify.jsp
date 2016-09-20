@@ -26,7 +26,7 @@
             <div class="form-group" style="width: 400px;margin: 10px auto;">
                 <label for="trainid" class="col-sm-3 control-label">车次代码</label>
                 <div class="col-sm-9">
-                    <select id="trainid" name="trainid" class="form-control" ">
+                    <select id="trainid" name="trainid" class="form-control">
                         <c:forEach items="${sessionScope.trainList}" var="train">
                             <option value="${train.trainId}" name="${train.trainId}"
                                     <c:if test="${sessionScope.plan.trainid==train.trainId}"><c:out
@@ -70,11 +70,11 @@
                 <label for="stationName" class="col-sm-3 control-label">车站</label>
                 <div class="col-sm-9">
                     <select id="stationName" name="stationName" class="form-control">
-                        <c:forEach items="${sessionScope.stationNameList}" var="stationName">
-                            <option value="${stationName}" name="${stationName}"
-                                    <c:if test="${sessionScope.plan.stationname.equals(stationName)}"><c:out
+                        <c:forEach items="${sessionScope.stationList}" var="station">
+                            <option value="${station.stationName}" name="${station.stationName}"
+                                    <c:if test="${sessionScope.plan.stationname.equals(station.stationName)}"><c:out
                                             value="selected"/></c:if>>
-                                    ${stationName}
+                                    ${station.stationName}
                             </option>
                         </c:forEach>
                     </select>

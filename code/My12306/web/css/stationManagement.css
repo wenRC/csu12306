@@ -1,0 +1,27 @@
+#right ul li{
+		width:357px;
+		height:100%;
+		background:green;
+		list-style:none;
+		float:left;
+		line-height:250px;
+		text-align:center;
+		border-right-style:solid;
+		border-color:white;
+		border-width:1px;
+		}
+	#right ul li a:link{
+		color:white;
+		text-decoration:none;
+		background:transparent;
+		}
+	#right ul li a:hover{
+		color:white;
+		text-decoration:underline;
+		background:transparent;
+		}
+	#right ul li a:visited{
+		color:white;
+		text-decoration:none;
+		background:transparent;
+		}
