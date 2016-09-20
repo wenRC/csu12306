@@ -95,9 +95,12 @@ public class PlanServlet extends HttpServlet {
             int planid = Integer.parseInt(req.getParameter("planid"));
             plan = planService.getPlanByPlanId(planid);
             List<Train> trainList = baseService.getAllTrains();
-            List<Station> stationList = baseService.getAllStations();
+            Train train = baseService.getTrainBytrainId(plan.getTrainid());
+            List<String> stationNameList = new ArrayList<>();
+            stationNameList.add(train.getFrom());
+            stationNameList.add(train.getTo());
             session.setAttribute("trainList",trainList);
-            session.setAttribute("stationList",stationList);
+            session.setAttribute("stationNameList",stationNameList);
             session.setAttribute("plan",plan);
             req.getRequestDispatcher(planModifyUrl).forward(req,resp);
         } else if ("submitModify".equals(function)) {
