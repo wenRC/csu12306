@@ -25,7 +25,7 @@
 					<td>${sessionScope.piao.last}</td>
 					
 					<td>一等座</td>
-					<td>${sessionScope.piao.price}元</td>
+					<td class="label-primary">${sessionScope.piao.price}元</td>
 					<td>${sessionScope.user.username}</td>
 					</tr>
 					</tbody>
