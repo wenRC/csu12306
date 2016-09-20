@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 @WebServlet(name = "SearchByTrainIdServlet",urlPatterns = {"/searchByTrainId"})
 public class SearchByTrainIdServlet extends HttpServlet {
-    private static final String SEARCHBYTRAINID = "/WEB-INF/jsp/line/searchLineByNum";
+    private static final String SEARCHBYTRAINID = "/WEB-INF/jsp/line/searchLineByNum.jsp";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         doGet(request, response);

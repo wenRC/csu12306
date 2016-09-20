@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 @WebServlet(name = "StationManagementServlet",urlPatterns = {"/stationManagement"})
 public class StationManagementServlet extends HttpServlet {
-    private static final String STATIONMANAGEMENT = "/WEB-INF/jsp/station/stationManagement.html";
+    private static final String STATIONMANAGEMENT = "/WEB-INF/jsp/station/stationManagement.jsp";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         doGet(request, response);

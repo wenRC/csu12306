@@ -10,9 +10,9 @@ import java.io.IOException;
 /**
  * Created by Asus_ on 2016/9/20.
  */
-@WebServlet(name = "SearchLineWayServlet")
+@WebServlet(name = "SearchLineWayServlet",urlPatterns = {"/searchLine"})
 public class SearchLineWayServlet extends HttpServlet {
-    private static final String SEARCHLINEWAY = "/WEB-INF/jsp/line/searchLine.html";
+    private static final String SEARCHLINEWAY = "/WEB-INF/jsp/line/searchLine.jsp";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         doGet(request, response);

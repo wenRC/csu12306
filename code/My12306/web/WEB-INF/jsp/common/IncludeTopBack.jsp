@@ -54,15 +54,15 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">递远递减率管理<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/to?function=">新增递远递减率</a></li>
-                            <li><a href="/to?function=">查询修改递远递减率</a></li>
+                            <li><a href="/addDYDJ">新增递远递减率</a></li>
+                            <li><a href="/searchDYDJ">查询修改递远递减率</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">线路管理<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="">新建线路</a></li>
-                            <li><a href="">查询线路</a></li>
+                            <li><a href="/addLine">新建线路</a></li>
+                            <li><a href="/searchLine">查询线路</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -88,8 +88,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">车站管理<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="">新建车站</a></li>
-                            <li><a href="">查询车站</a></li>
+                            <li><a href="/addStation">新建车站</a></li>
+                            <li><a href="/searchStation">查询车站</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="">财务统计</a></li>

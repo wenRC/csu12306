@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 @WebServlet(name = "UpdateDYDJServlet",urlPatterns = {"/updateDYDJ"})
 public class UpdateDYDJServlet extends HttpServlet {
-    private static final String MANAGEMENT = "/WEB-INF/jsp/management/management.html";
+    private static final String MANAGEMENT = "/indexB.jsp";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         doGet(request, response);
