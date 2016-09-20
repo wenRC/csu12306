@@ -30,14 +30,6 @@
                             <td><input name="priceRate"/></td>
                         </tr>
                         <tr>
-                            <td>各区段全程票价</td>
-                            <td><input /></td>
-                        </tr>
-                        <tr>
-                            <td>区段累计票价</td>
-                            <td><input /></td>
-                        </tr>
-                        <tr>
                             <td colspan="2">
                                 <table>
                                     <tr>
