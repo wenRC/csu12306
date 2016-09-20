@@ -14,9 +14,9 @@
   <div class="form-group">
     <label  class="col-sm-5 control-label">票种:</label>
     <div class="col-sm-2">
-      <input type="text" class="form-control" name="ticketType" placeholder="票种">
+      <input type="text" class="form-control" name="ticketType" placeholder="请输入票种" required>
     </div>
-      <button type="submit" class="btn btn-primary">查询</button>
+      <button type="submit" class="btn btn-default">查询</button>
   </div>
 </form>
 </br></br>

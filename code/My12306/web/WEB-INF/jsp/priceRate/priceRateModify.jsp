@@ -7,26 +7,36 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/jsp/common/IncludeTopBack.jsp" %>
-<h1 align="center">票价率修改</h1>
-</br></br></br>
-<form action="priceRateModify" class="form-horizontal" role="form" method="get">
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <th>票价率编号</th>
-      <th>票种</th>
-      <th>票价率</th>
-      <th>&nbsp&nbsp</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td><input type="text" name="priceRateId" value="${sessionScope.priceRate.priceRateId}" readonly="readonly"></td>
-      <td><input type="text" name="ticketType" value="${sessionScope.priceRate.ticketType}"></td>
-      <td><input type="text" name="priceRate" value="${sessionScope.priceRate.priceRate}"></td>
-      <td><button type="submit" class="btn btn-primary">确认修改</button></td>
-    </tr>
-    </tbody>
-  </table>
-</form>
+<div align="center">
+  <h1>票价率修改</h1>
+  </br>
+  <form action="priceRateModify" class="form-horizontal" role="form" method="get">
+    <div class="form-group" style="width: 400px;margin: 10px auto;">
+      <label for="priceRateId" class="col-sm-3 control-label">票价率编号</label>
+      <div class="col-sm-9">
+        <input type="number" class="form-control" id="priceRateId" name="priceRateId" value="${sessionScope.priceRate.priceRateId}" readonly>
+      </div>
+    </div>
+
+    <div class="form-group" style="width: 400px;margin: 10px auto;">
+      <label for="ticketType" class="col-sm-3 control-label">票种</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="ticketType" name="ticketType" value="${sessionScope.priceRate.ticketType}" required>
+      </div>
+    </div>
+
+    <div class="form-group" style="width: 400px;margin: 10px auto;">
+      <label for="priceRate" class="col-sm-3 control-label">票价率</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="priceRate" name="priceRate" value="${sessionScope.priceRate.priceRate}" required>
+      </div>
+    </div>
+
+    <div class="form-group" style="width: 400px;margin: 10px;">
+      <div class="col-sm-offset-1 col-sm-10">
+        <button type="submit" class="btn btn-default">提交</button>
+      </div>
+    </div>
+  </form>
+</div>
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp"%>

@@ -7,38 +7,79 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/jsp/common/IncludeTopBack.jsp" %>
-<h1 align="center">列车修改</h1>
-</br></br></br>
-<form action="trainModify" class="form-horizontal" role="form" method="get">
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th>车次代码</th>
-    <th>始发站</th>
-    <th>终点站</th>
-    <th>出发时间</th>
-    <th>到达时间</th>
-    <th>历时</th>
-    <th>里程</th>
-    <th>无座票数量</th>
-    <th>列车类型</th>
-    <th>&nbsp&nbsp</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td><input type="text" name="trainId" value="${sessionScope.train.trainId}" readonly="readonly"></td>
-    <td><input type="text" name="from" value="${sessionScope.train.from}"></td>
-    <td><input type="text" name="to" value="${sessionScope.train.to}"></td>
-    <td><input type="text" name="fromTime" value="${sessionScope.train.fromTime}"></td>
-    <td><input type="text" name="toTime" value="${sessionScope.train.toTime}"></td>
-    <td><input type="text" name="last" value="${sessionScope.train.last}"></td>
-    <td><input type="text" name="distance" value="${sessionScope.train.distance}"></td>
-    <td><input type="text" name="noseatnumber" value="${sessionScope.train.noseatnumber}"></td>
-    <td><input type="text" name="type" value="${sessionScope.train.type}"></td>
-    <td><button type="submit" class="btn btn-primary">确认修改</button></td>
-  </tr>
-  </tbody>
-</table>
+<div align="center">
+  <h1>列车修改</h1>
+  </br>
+  <form action="trainModify" class="form-horizontal" role="form" method="get">
+  <div class="form-group" style="width: 400px;margin: 10px auto;">
+    <label for="trainId" class="col-sm-3 control-label">车次代码</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="trainId" name="trainId" value="${sessionScope.train.trainId}" readonly>
+    </div>
+  </div>
+
+  <div class="form-group" style="width: 400px;margin: 10px auto;">
+    <label for="from" class="col-sm-3 control-label">始发站</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="from" name="from" value="${sessionScope.train.from}" required>
+    </div>
+  </div>
+
+  <div class="form-group" style="width: 400px;margin: 10px auto;">
+    <label for="to" class="col-sm-3 control-label">终点站</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="to" name="to" value="${sessionScope.train.to}" required>
+    </div>
+  </div>
+
+  <div class="form-group" style="width: 400px;margin: 10px auto;">
+    <label for="fromTime" class="col-sm-3 control-label">出发时间</label>
+    <div class="col-sm-9">
+      <input type="datetime-local" class="form-control" id="fromTime" name="fromTime" value="${sessionScope.train.fromTime}" required>
+    </div>
+  </div>
+
+  <div class="form-group" style="width: 400px;margin: 10px auto;">
+    <label for="toTime" class="col-sm-3 control-label">到达时间</label>
+    <div class="col-sm-9">
+      <input type="datetime-local" class="form-control" id="toTime" name="toTime" value="${sessionScope.train.toTime}" required>
+    </div>
+  </div>
+
+  <div class="form-group" style="width: 400px;margin: 10px auto;">
+    <label for="last" class="col-sm-3 control-label">历时</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="last" name="last" value="${sessionScope.train.last}">
+    </div>
+  </div>
+
+  <div class="form-group" style="width: 400px;margin: 10px auto;">
+    <label for="distance" class="col-sm-3 control-label">里程</label>
+    <div class="col-sm-9">
+      <input type="number" class="form-control" id="distance" name="distance" value="${sessionScope.train.distance}" required>
+    </div>
+  </div>
+
+  <div class="form-group" style="width: 400px;margin: 10px auto;">
+    <label for="noseatnumber" class="col-sm-3 control-label">无座票数量</label>
+    <div class="col-sm-9">
+      <input type="number" class="form-control" id="noseatnumber" name="noseatnumber" value="${sessionScope.train.noseatnumber}" required>
+    </div>
+  </div>
+
+  <div class="form-group" style="width: 400px;margin: 10px auto;">
+    <label for="type" class="col-sm-3 control-label">列车类型</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="type" name="type" value="${sessionScope.train.type}" required>
+    </div>
+  </div>
+    </br>
+  <div class="form-group" style="width: 400px;margin: 10px;">
+    <div class="col-sm-offset-1 col-sm-10">
+      <button type="submit" class="btn btn-default">提交</button>
+    </div>
+  </div>
 </form>
+</div>
+
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp"%>

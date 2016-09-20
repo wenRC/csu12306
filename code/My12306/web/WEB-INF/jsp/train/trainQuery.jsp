@@ -27,10 +27,10 @@
        <div class="form-group">
          <label  class="col-sm-5 control-label">车次代码</label>
          <div class="col-sm-2">
-           <input type="text" class="form-control" name="trainId" placeholder="车次代码">
+           <input type="number" class="form-control" name="trainId" placeholder="请输入车次代码" required>
          </div>
          <div class="col-sm-3">
-           <button type="submit" class="btn btn-primary">查询</button>
+           <button type="submit" class="btn btn-default">查询</button>
          </div>
        </div>
      </form>
@@ -49,7 +49,8 @@
          <th>里程</th>
          <th>无座票数量</th>
          <th>列车类型</th>
-         <th colspan="2">操作</th>
+         <th>操作</th>
+         <th>操作</th>
        </tr>
        </thead>
        <tbody>
