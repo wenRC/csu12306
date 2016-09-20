@@ -3,13 +3,11 @@ package com.csu.servlet.order;
 import com.csu.domain.diaoDu.Seat;
 import com.csu.domain.order.Order;
 import com.csu.domain.order.YuPiao;
-import com.csu.domain.piaoWu.PiaoWu;
 import com.csu.domain.piaoWu.Ticket;
 import com.csu.domain.user.User;
 import com.csu.service.DiaoduService;
 import com.csu.service.OrderService;
 import com.csu.service.PiaowuService;
-import com.sun.corba.se.internal.iiop.ORB;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,7 +41,7 @@ public class NewOrderServlet extends HttpServlet{
         diaoduService.updateSeat(seat);
         session.setAttribute("seat",seat);
         Ticket ticket=new Ticket();
-        ticket.setTicketId((seat.getSeatid()*new Random(System.currentTimeMillis()).nextInt(514288127))%(527375636));
+        ticket.setTicketId((seat.getSeatid()*new Random(System.currentTimeMillis()).nextInt(9876)));
         ticket.setSeatId(seat.getSeatid());
         ticket.setPrice(yuPiao.getPrice());
         ticket.setSaleMode("网络售票");

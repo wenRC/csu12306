@@ -11,19 +11,19 @@
     <div class="form-group">
         <label for="Email" class="col-sm-2 control-label">邮箱</label>
         <div class="col-sm-3">
-            <input type="email" class="form-control" id="email" name="email" placeholder="邮箱" >
+            <input type="email" class="form-control" id="email" name="email" placeholder="邮箱" required >
         </div>
     </div>
     <div class="form-group">
         <label for="password" class="col-sm-2 control-label">密码</label>
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="password" name="password" placeholder="密码" >
+            <input type="password" class="form-control" id="password" name="password" placeholder="密码" required>
         </div>
     </div>
     <div class="form-group">
         <label for="confirmPassword" class="col-sm-2 control-label">确认密码</label>
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="确认密码" >
+            <input type="password" class="form-control" id="confirmPassword" required name="confirmPassword" placeholder="确认密码" >
         </div>
     </div>
     <div class="form-group">
@@ -39,19 +39,19 @@
     <div class="form-group">
         <label for="username" class="col-sm-2 control-label">用户名</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="username" name="username" ">
+            <input type="text" class="form-control" id="username" name="username" required>
         </div>
     </div>
     <div class="form-group">
         <label for="id" class="col-sm-2 control-label">身份证</label>
         <div class="col-sm-3">
-            <input type="text" class="form-control" id="id" name="id" ">
+            <input type="text" class="form-control" id="id" name="id" required>
         </div>
     </div>
     <div class="form-group">
         <label for="phone" class="col-sm-2 control-label">联系方式</label>
         <div class="col-sm-3">
-            <input type="phone" class="form-control" id="phone" name="phone" >
+            <input type="phone" class="form-control" id="phone" name="phone" required>
         </div>
     </div>
 

@@ -7,7 +7,5 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/jsp/common/IncludeTop.jsp"%>
-    <div class="container">
-        这里是前台
-    </div>
+<h1 align="center">你好</h1>
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp"%>

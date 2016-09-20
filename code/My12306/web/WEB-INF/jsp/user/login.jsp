@@ -11,13 +11,13 @@
     <div class="form-group">
         <label for="Email" class="col-sm-2 control-label">邮箱</label>
         <div class="col-sm-3">
-            <input type="email" class="form-control" id="email" name="email" placeholder="邮箱">
+            <input type="email" class="form-control" id="email" name="email" placeholder="邮箱" required>
         </div>
     </div>
     <div class="form-group">
         <label for="password" class="col-sm-2 control-label">密码</label>
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="password" name="password" placeholder="密码">
+            <input type="password" class="form-control" id="password" name="password" placeholder="密码" required>
         </div>
     </div>
 

@@ -11,13 +11,13 @@
     <div class="form-group">
         <label for="password" class="col-sm-2 control-label">密码</label>
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="password" name="password" placeholder="密码" >
+            <input type="password" class="form-control" id="password" name="password" placeholder="密码" required>
         </div>
     </div>
     <div class="form-group">
         <label for="confirmPassword" class="col-sm-2 control-label">确认密码</label>
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="确认密码" >
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="确认密码" required>
         </div>
     </div>
 

@@ -183,7 +183,7 @@ public class GetPiaoWuAndYuPIaoService {
         return result;
 
     }
-    private Date timeStamp2Date(Timestamp timestamp){
+    private   Date timeStamp2Date(Timestamp timestamp){
         String temp=timestamp.toString();
         DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         java.util.Date date=null;
