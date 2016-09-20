@@ -13,7 +13,7 @@ public class TrainGrouped {
 
     public TrainGrouped(){}
     public TrainGrouped(int trainGroupedId, int trainId, int chexiang, String seatType, int seatNumber, String chexiangType) {
-        this.trainGroupId = trainGroupId;
+        this.trainGroupedId = trainGroupedId;
         this.trainId = trainId;
         this.chexiang = chexiang;
         this.seatType = seatType;
@@ -22,11 +22,11 @@ public class TrainGrouped {
     }
 
     public int getTrainGroupedId() {
-        return trainGroupId;
+        return trainGroupedId;
     }
 
     public void setTrainGroupedId(int trainGroupId) {
-        this.trainGroupId = trainGroupId;
+        this.trainGroupedId = trainGroupId;
     }
 
     public int getTrainId() {

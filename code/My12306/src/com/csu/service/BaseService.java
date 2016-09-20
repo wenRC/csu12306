@@ -85,7 +85,7 @@ public class BaseService {
     /*
     票价率
      */
-    public double getPriceRateByticketType(String ticketType) {
+    public PriceRate getPriceRateByticketType(String ticketType) {
         return priceRateDao.getPriceRateByticketType(ticketType);
     }
 

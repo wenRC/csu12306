@@ -2,6 +2,9 @@ package com.csu.servlet.main;
 
 import com.csu.domain.diaoDu.Seat;
 import com.csu.domain.plan.Plan;
+import com.csu.domain.priceRate.PriceRate;
+import com.csu.domain.train.Train;
+import com.csu.domain.trainGrouped.TrainGrouped;
 import com.csu.service.DiaoduService;
 import com.csu.service.PlanService;
 
@@ -12,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**

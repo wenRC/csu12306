@@ -34,7 +34,7 @@ public class TrainGroupedDaoImpl implements TrainGroupedDao {
             trainGroupeds = new ArrayList<TrainGrouped>();
             while(resultSet.next()){
                 trainGrouped = new TrainGrouped();
-                trainGrouped.setTrainGroupId(resultSet.getInt(1));
+                trainGrouped.setTrainGroupedId(resultSet.getInt(1));
                 trainGrouped.setTrainId(resultSet.getInt(2));
                 trainGrouped.setChexiang(resultSet.getInt(3));
                 trainGrouped.setSeatType(resultSet.getString(4));
@@ -65,7 +65,7 @@ public class TrainGroupedDaoImpl implements TrainGroupedDao {
             resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
                 trainGrouped = new TrainGrouped();
-                trainGrouped.setTrainGroupId(resultSet.getInt(1));
+                trainGrouped.setTrainGroupedId(resultSet.getInt(1));
                 trainGrouped.setTrainId(resultSet.getInt(2));
                 trainGrouped.setChexiang(resultSet.getInt(3));
                 trainGrouped.setSeatType(resultSet.getString(4));
@@ -90,7 +90,7 @@ public class TrainGroupedDaoImpl implements TrainGroupedDao {
         try{
             connection = DBUtil.getConnection();
             preparedStatement = connection.prepareStatement(INSERT_TRAINGROUP);
-            preparedStatement.setInt(1,trainGroup.getTrainGroupId());
+            preparedStatement.setInt(1,trainGroup.getTrainGroupedId());
             preparedStatement.setInt(2, trainGroup.getTrainId());
             preparedStatement.setInt(3, trainGroup.getChexiang());
             preparedStatement.setString(4, trainGroup.getSeatType());
@@ -140,7 +140,7 @@ public class TrainGroupedDaoImpl implements TrainGroupedDao {
             preparedStatement.setString(3, trainGroup.getSeatType());
             preparedStatement.setInt(4, trainGroup.getSeatNumber());
             preparedStatement.setString(5,trainGroup.getChexiangType());
-            preparedStatement.setInt(6,trainGroup.getTrainGroupId());
+            preparedStatement.setInt(6,trainGroup.getTrainGroupedId());
             result=preparedStatement.executeUpdate()==1;
         }
         catch (Exception e){

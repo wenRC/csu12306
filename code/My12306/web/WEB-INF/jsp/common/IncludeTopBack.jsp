@@ -68,21 +68,21 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">票价率管理<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="">查询票价率</a></li>
+                            <li><a href="to?function=priceRate">查询票价率</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">列车编组<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="">查询列车编组</a></li>
-                            <li><a href="">添加列车编组</a></li>
+                            <li><a href="to?function=trainGrouped">查询列车编组</a></li>
+                            <li><a href="trainGrouped?function=add">添加列车编组</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">列车管理<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="">查询列车</a></li>
-                            <li><a href="">新建列车</a></li>
+                            <li><a href="to?function=train">查询列车</a></li>
+                            <li><a href="train?function=add">新建列车</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
