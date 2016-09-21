@@ -44,14 +44,14 @@
   <div class="form-group" style="width: 400px;margin: 10px auto;">
     <label for="fromTime" class="col-sm-3 control-label">出发时间</label>
     <div class="col-sm-9">
-      <input type="text" class="form-control" id="fromTime" name="fromTime" placeholder="请输入出发时间" step="0.5" required>
+      <input type="DATETIME-LOCAL" class="form-control" id="fromTime" name="fromTime" placeholder="请输入出发时间" step="0.5" required>
     </div>
   </div>
 
   <div class="form-group" style="width: 400px;margin: 10px auto;">
     <label for="toTime" class="col-sm-3 control-label">到达时间</label>
     <div class="col-sm-9">
-      <input type="text" class="form-control" id="toTime" name="toTime" placeholder="请输入到达时间" step="0.5" required>
+      <input type="DATETIME-LOCAL" class="form-control" id="toTime" name="toTime" placeholder="请输入到达时间" step="0.5" required>
     </div>
   </div>
 

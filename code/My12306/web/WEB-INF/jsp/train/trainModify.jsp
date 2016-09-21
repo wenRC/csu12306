@@ -35,14 +35,14 @@
   <div class="form-group" style="width: 400px;margin: 10px auto;">
     <label for="fromTime" class="col-sm-3 control-label">出发时间</label>
     <div class="col-sm-9">
-      <input type="datetime-local" class="form-control" id="fromTime" name="fromTime" value="${sessionScope.train.fromTime}" required>
+      <input type="datetime" class="form-control" id="fromTime" name="fromTime" value="${sessionScope.train.fromTime}" required>
     </div>
   </div>
 
   <div class="form-group" style="width: 400px;margin: 10px auto;">
     <label for="toTime" class="col-sm-3 control-label">到达时间</label>
     <div class="col-sm-9">
-      <input type="datetime-local" class="form-control" id="toTime" name="toTime" value="${sessionScope.train.toTime}" required>
+      <input type="datetime" class="form-control" id="toTime" name="toTime" value="${sessionScope.train.toTime}" required>
     </div>
   </div>
 

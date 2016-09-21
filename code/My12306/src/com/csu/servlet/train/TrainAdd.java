@@ -23,6 +23,9 @@ public class TrainAdd extends HttpServlet{
     BaseService baseService =new BaseService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String fromT=req.getParameterMap().get("fromTime")[0].toString();
+        String toT=req.getParameterMap().get("toTime")[0].toString();
+
         req.setCharacterEncoding("utf-8");
         HttpSession session = req.getSession();
         int trainId = Integer.parseInt(req.getParameter("trainId"));
@@ -30,8 +33,8 @@ public class TrainAdd extends HttpServlet{
         if(train1==null){
             String form = req.getParameter("from");
             String to = req.getParameter("to");
-            Timestamp fromTime = Timestamp.valueOf(req.getParameter("fromTime"));
-            Timestamp toTime = Timestamp.valueOf(req.getParameter("toTime"));
+            Timestamp fromTime = Timestamp.valueOf(s2s(fromT));
+            Timestamp toTime = Timestamp.valueOf(s2s(toT));
             String last = req.getParameter("last");
             int distance = Integer.parseInt(req.getParameter("distance"));
             int noseatnumber = Integer.parseInt(req.getParameter("noseatnumber"));
@@ -56,5 +59,12 @@ public class TrainAdd extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
+    }
+    private String s2s(String str){
+        int index=str.indexOf("T");
+        int size=str.length();
+        String temp1=str.substring(0,index);
+        String temp2=str.substring(index+1,size>20?(size-4):(size));
+        return  temp1+" "+temp2;
     }
 }
