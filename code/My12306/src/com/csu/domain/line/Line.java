@@ -1,9 +1,5 @@
 package com.csu.domain.line;
 
-import sun.util.calendar.BaseCalendar;
-
-import java.sql.Date;
-
 /**
  * Created by Asus_ on 2016/9/13.
  */
@@ -12,13 +8,13 @@ public class Line {
     private int trainId;//车次
     private String stationName;//车站名
     private int distance;//里程
-    private Date fromTime;//到站时间
+    private String fromTime;//到站时间
     private String lastTime;//停留时间
 
     public Line() {
     }
 
-    public Line(int lineId, int trainId, String stationName, int distance,Date fromTime, String lastTime) {
+    public Line(int lineId, int trainId, String stationName, int distance,String fromTime, String lastTime) {
         this.lineId = lineId;
         this.trainId = trainId;
         this.stationName = stationName;
@@ -59,11 +55,11 @@ public class Line {
         this.distance = distance;
     }
 
-    public Date getFromTime() {
+    public String getFromTime() {
         return fromTime;
     }
 
-    public void setFromTime(Date fromTime) {
+    public void setFromTime(String fromTime) {
         this.fromTime = fromTime;
     }
 

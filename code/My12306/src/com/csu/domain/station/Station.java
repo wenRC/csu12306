@@ -9,9 +9,9 @@ public class Station {
     private String stationName;//车站名
     private String pinYin;//拼音码
     private String location;//所在地
-    private String ju;
+    private String ju;//铁路局
     private int level;
-    private String phone;
+    private String phone;//联系电话
 
     public Station() {
     }

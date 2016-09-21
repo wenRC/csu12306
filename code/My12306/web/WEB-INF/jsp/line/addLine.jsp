@@ -38,7 +38,7 @@
                                     <tr>
                                         <td><button type="submit">提交</button></td>
                                         <td><button type="reset">重置</button></td>
-                                        <td><button type="button">取消</button></td>
+                                        <td><button type="button" onclick="cancel()">取消</button></td>
                                 </table>
                             </td>
                         </tr>
@@ -50,6 +50,7 @@
 </div>
 <script>
     function cancel(){
-        window.location.href="/to?function=toHouTai";}
+        window.location.href="/to?function=toHouTai";
+    }
 </script>
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp" %>

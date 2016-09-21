@@ -8,33 +8,33 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/WEB-INF/jsp/common/IncludeTopBack.jsp" %>
-<%--<script type="text/javascript">--%>
-  <%--function verify(){--%>
-    <%--//获取form标签元素--%>
-    <%--var form = document.getElementById("form");--%>
-    <%--//获取form下元素下所有input标签--%>
-    <%--var input = form.getElementsByTagName("input");--%>
-    <%--if(input.value=null||input.value==""){--%>
-      <%--alert("车次代码不能为空");--%>
-      <%--return false;--%>
-    <%--}--%>
-    <%--return true;--%>
-  <%--}--%>
-<%--</script>--%>
+
+<%
+  String message =(String)session.getAttribute("message");
+  if(message!=null && !"".equals(message)){
+%>
+  <script type="text/javascript">
+    alert("<%=message%>");
+  </script>
+<% session.setAttribute("message","");}%>
      <h1 align="center">列车查询</h1>
-</br></br></br>
-     <form action="trainQuery" class="form-horizontal" role="form" method="get" id="form">
-       <div class="form-group">
-         <label  class="col-sm-5 control-label">车次代码</label>
-         <div class="col-sm-2">
-           <input type="text" class="form-control" name="trainId" placeholder="车次代码">
-         </div>
-         <div class="col-sm-3">
-           <button type="submit" class="btn btn-primary">查询</button>
-         </div>
-       </div>
-     </form>
 </br></br>
+<form action="trainQuery" class="form-horizontal" role="form" method="get" id="form">
+  <label for="trainId" class="col-sm-5 control-label">车次代码</label>
+  <div class="col-sm-2">
+    <select id="trainId" name="trainId" class="form-control">
+      <c:forEach items="${sessionScope.trains1}" var="train">
+        <option value="${train.trainId}" name="${train.trainId}">
+          ${train.trainId}
+        </option>
+    </c:forEach>
+  </select>
+  </div>
+  <div class="col-sm-3">
+    <button type="submit" class="btn btn-default">查询</button>
+  </div>
+</form>
+</br></br></br></br></br>
 <c:if test="${sessionScope.trains[0]!=null}">
   <c:forEach items="${sessionScope.trains}" var="train">
      <table class="table table-hover">
@@ -49,7 +49,8 @@
          <th>里程</th>
          <th>无座票数量</th>
          <th>列车类型</th>
-         <th colspan="2">操作</th>
+         <th>操作</th>
+         <th>操作</th>
        </tr>
        </thead>
        <tbody>

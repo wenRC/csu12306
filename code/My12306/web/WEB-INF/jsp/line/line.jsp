@@ -10,12 +10,12 @@
 <div id="content">
     <div id="body">
         <div id="right">
-            <form action="/updateLine?lineId=${sessionScope.line.LineId}" method="post">
+            <form name="dbForm" action="/updateLine?lineId=${sessionScope.line.lineId}" method="post">
                 <div id="addPart" align="center">
                     <table id="add">
                         <tr>
                             <td>线路编号</td>
-                            <td><input value="${sessionScope.line.LineId}" disabled="true" /></td>
+                            <td><input value="${sessionScope.line.lineId}" disabled="true" /></td>
                         </tr>
                         <tr>
                             <td>车次代码</td>
@@ -41,7 +41,7 @@
                                 <table>
                                     <tr>
                                         <td><button type="submit">修改</button></td>
-                                        <td><button type="reset">删除此线路</button></td>
+                                        <td><button type="submit" onclick="btn_delete()">删除此线路</button></td>
                                         <td><button type="button" onclick="cancel()">取消</button></td>
                                 </table>
                             </td>
@@ -53,6 +53,9 @@
     </div>
 </div>
 <script>
+    function btn_delete(){
+        document.dbForm.action = "/delLine?lineId=${sessionScope.line.lineId}";
+    }
     function cancel(){
         window.location.href="/to?function=toHouTai";
     }

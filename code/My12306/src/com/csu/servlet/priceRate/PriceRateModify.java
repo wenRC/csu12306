@@ -36,6 +36,8 @@ public class PriceRateModify extends HttpServlet{
         priceRate = new PriceRate(priceRateId,ticketType,pricerate);
         baseService.updatePriceRate(priceRate);
         priceRates.add(priceRate);
+        String message ="修改成功";
+        session.setAttribute("message",message);
         session.setAttribute("priceRates",priceRates);
         req.getRequestDispatcher(priceRateQueryUrl).forward(req,resp);
     }

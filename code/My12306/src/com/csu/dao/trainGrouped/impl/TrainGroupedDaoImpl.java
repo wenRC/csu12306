@@ -13,14 +13,73 @@ import java.util.ArrayList;
  * Created by sx on 2016/9/18.
  */
 public class TrainGroupedDaoImpl implements TrainGroupedDao {
+    private static String GET_ALLTRAINGROUP = "select * from traingroup";
     private static String GET_TRAINGROUP_BY_TRAINID = "select * from traingroup where trainid = ?";
     private static String GET_TRAINGROUP = "select * from traingroup where trainid = ? and chexiang = ? ";
     private static String INSERT_TRAINGROUP = "insert into traingroup VALUES (?,?,?,?,?,?)";
     private static String DELETE_TRAINGROUP = "delete from traingroup where trainid = ? and chexiang = ?";
     private static String UPDATE_TRAINGROUP = "update traingroup set trainid = ?,chexiang = ?,seattype = ?,seatnumber = ?,chexiangtype = ? where traingroupid = ?";
+    private static String GET_TRAINGROUP_BY_TRAINGROUPEDID = "select * from traingroup where traingroupid = ?";
     Connection connection = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
+
+    @Override
+    public ArrayList<TrainGrouped> getAllTrainGroups() {
+        ArrayList<TrainGrouped> trainGroupeds = new ArrayList<>();
+        TrainGrouped trainGrouped = null;
+        try {
+            connection = DBUtil.getConnection();
+            preparedStatement = connection.prepareStatement(GET_ALLTRAINGROUP);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                trainGrouped = new TrainGrouped();
+                trainGrouped.setTrainGroupedId(resultSet.getInt(1));
+                trainGrouped.setTrainId(resultSet.getInt(2));
+                trainGrouped.setChexiang(resultSet.getInt(3));
+                trainGrouped.setSeatType(resultSet.getString(4));
+                trainGrouped.setSeatNumber(resultSet.getInt(5));
+                trainGrouped.setChexiangType(resultSet.getString(6));
+                trainGroupeds.add(trainGrouped);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closeResultSet(resultSet);
+            DBUtil.closeStatement(preparedStatement);
+            DBUtil.closeConnection(connection);
+        }
+        return trainGroupeds;
+    }
+
+    @Override
+    public TrainGrouped getTrainGroupBytrainGroupedId(int trainGroupedId) {
+        TrainGrouped trainGrouped = null;
+        try{
+            connection = DBUtil.getConnection();
+            preparedStatement = connection.prepareStatement(GET_TRAINGROUP_BY_TRAINGROUPEDID);
+            preparedStatement.setInt(1,trainGroupedId);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                trainGrouped = new TrainGrouped();
+                trainGrouped.setTrainGroupedId(resultSet.getInt(1));
+                trainGrouped.setTrainId(resultSet.getInt(2));
+                trainGrouped.setChexiang(resultSet.getInt(3));
+                trainGrouped.setSeatType(resultSet.getString(4));
+                trainGrouped.setSeatNumber(resultSet.getInt(5));
+                trainGrouped.setChexiangType(resultSet.getString(6));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            DBUtil.closeStatement(preparedStatement);
+            DBUtil.closeResultSet(resultSet);
+            DBUtil.closeConnection(connection);
+        }
+        return trainGrouped;
+    }
 
     @Override
     public ArrayList<TrainGrouped> getTrainGroupBytrainId(int trainId) {
@@ -31,7 +90,7 @@ public class TrainGroupedDaoImpl implements TrainGroupedDao {
             preparedStatement = connection.prepareStatement(GET_TRAINGROUP_BY_TRAINID);
             preparedStatement.setInt(1,trainId);
             resultSet = preparedStatement.executeQuery();
-            trainGroupeds = new ArrayList<TrainGrouped>();
+            trainGroupeds = new ArrayList<>();
             while(resultSet.next()){
                 trainGrouped = new TrainGrouped();
                 trainGrouped.setTrainGroupedId(resultSet.getInt(1));

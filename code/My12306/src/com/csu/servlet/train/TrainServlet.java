@@ -1,6 +1,8 @@
 package com.csu.servlet.train;
 
+import com.csu.domain.line.Line;
 import com.csu.domain.train.Train;
+import com.csu.domain.trainGrouped.TrainGrouped;
 import com.csu.service.BaseService;
 
 import javax.servlet.ServletException;
@@ -32,25 +34,33 @@ public class TrainServlet extends HttpServlet{
         BaseService baseService = new BaseService();
         HttpSession session = req.getSession();
         Train train = null;
-        if("add".equals(function)){
+        if ("add".equals(function)) {
             //跳到新增列车页面
-            req.getRequestDispatcher(trainAddUrl).forward(req,resp);
-        }
-        else if("modify".equals(function)){
+            req.getRequestDispatcher(trainAddUrl).forward(req, resp);
+        } else if ("modify".equals(function)) {
             //跳到修改列车页面
             int trainId = Integer.parseInt(req.getParameter("trainId"));
             train = baseService.getTrainBytrainId(trainId);
-            session.setAttribute("train",train);
-            req.getRequestDispatcher(trainModifyUrl).forward(req,resp);
-        }
-        else if("delete".equals(function)){
+            session.setAttribute("train", train);
+            req.getRequestDispatcher(trainModifyUrl).forward(req, resp);
+        } else if ("delete".equals(function)) {
             //删除列车
             int trainId = Integer.parseInt(req.getParameter("trainId"));
-            baseService.deleteTrainBytrainId(trainId);
-            ArrayList<Train> trains = new ArrayList<>();
-            trains.add(train);
-            session.setAttribute("trains",trains);
-            req.getRequestDispatcher(trainQueryUrl).forward(req,resp);
+            ArrayList<TrainGrouped> trainGroupeds = baseService.getTrainGroupBytrainId(trainId);
+            ArrayList<Line> lines = baseService.searchLineByTrainId(trainId);
+            if (trainGroupeds.size() == 0 && lines.size() == 0) {
+                baseService.deleteTrainBytrainId(trainId);
+                ArrayList<Train> trains = new ArrayList<>();
+                trains.add(train);
+                String message ="删除成功";
+                session.setAttribute("message",message);
+                session.setAttribute("trains", trains);
+                req.getRequestDispatcher(trainQueryUrl).forward(req, resp);
+            } else {
+                String message ="删除失败";
+                session.setAttribute("message",message);
+                req.getRequestDispatcher(trainQueryUrl).forward(req,resp);
+            }
         }
     }
 }

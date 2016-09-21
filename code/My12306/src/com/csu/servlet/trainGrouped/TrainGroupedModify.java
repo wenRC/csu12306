@@ -39,6 +39,8 @@ public class TrainGroupedModify extends HttpServlet{
         trainGrouped = new TrainGrouped(trainGroupedId,trainId,chexiang,seatType,seatNumber,chexiangType);
         baseService.updateTrainGroup(trainGrouped);
         trainGroupeds.add(trainGrouped);
+        String message ="修改成功";
+        session.setAttribute("message",message);
         session.setAttribute("trainGroupeds",trainGroupeds);
         req.getRequestDispatcher(trainGroupedQueryUrl).forward(req,resp);
     }
