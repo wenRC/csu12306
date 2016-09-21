@@ -23,7 +23,7 @@
                     您输入的车站是:
                 </div>
                 <div id="result" align="center">
-                    <table>
+                    <table class="table table-hover">
                         <tr>
                             <th>线路编号</th>
                             <th>车次代码</th>

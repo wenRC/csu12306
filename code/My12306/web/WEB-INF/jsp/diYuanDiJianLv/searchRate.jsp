@@ -13,7 +13,7 @@
         <div id="right">
             <form action="addStation.jsp" method="get">
                 <div id="result" align="center">
-                    <table>
+                    <table class="table table-hover">
                         <tr>
                             <th>递远递减率编号</th>
                             <th>里程区段From</th>

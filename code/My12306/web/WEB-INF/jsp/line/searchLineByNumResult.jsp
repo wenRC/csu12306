@@ -20,12 +20,12 @@
 
     <div id="body">
         <div id="right">
-            <form action="addStation.jsp" method="get">
+            <form name="dbForm" action="addStation.jsp" method="get">
                 <div id="station" align="right">
                     您输入的车次是:${line.trainId}
                 </div>
                 <div id="result" align="center">
-                    <table>
+                    <table class="table table-hover">
                         <tr>
                             <th>线路编号</th>
                             <th>车次代码</th>

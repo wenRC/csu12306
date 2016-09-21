@@ -12,14 +12,14 @@
         <div id="right">
             <form action="/getStation" method="get">
                 <div id="addPart" align="center">
-                    <table id="add">
+                    <table class="table table-hover" id="add">
                         <tr>
                             <td>请输入站名或拼音码</td>
                             <td><input name="stationName"></td>
                         </tr>
                         <tr>
-                            <td><button type="submit">查询</button></td>
-                            <td><button type="button" onclick="cancel()">取消</button></td>
+                            <td><button class="btn btn-default" type="submit">查询</button></td>
+                            <td><button class="btn btn-default" type="button" onclick="cancel()">取消</button></td>
                         </tr>
                     </table>
                 </div>

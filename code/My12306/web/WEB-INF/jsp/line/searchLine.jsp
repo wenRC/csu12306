@@ -13,19 +13,19 @@
         <div id="right">
             <form action="" name="dbForm" method="get">
                 <div id="addPart" align="center">
-                    <table id="add">
+                    <table id="add" class="table table-hover">
                         <tr>
                             <td>请选择查询方式</td>
                             <td>
-                                <select id="method">
+                                <select id="method" class="form-control">
                                     <option value="byTrianNum">按车次查询</option>
                                     <option value="byStation">按车站查询</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <td><button onclick="chooseMethod()" type="submit">选择</button></td>
-                            <td><button type="button" onclick="cancel()">取消</button></td>
+                            <td><button onclick="chooseMethod()" class="btn btn-default" type="submit">选择</button></td>
+                            <td><button type="button" onclick="cancel()" class="btn btn-default">取消</button></td>
                         </tr>
                     </table>
                 </div>

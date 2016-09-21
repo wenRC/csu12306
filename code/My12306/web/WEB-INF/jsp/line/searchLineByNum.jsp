@@ -13,7 +13,7 @@
         <div id="right">
             <form action="/getByTrainId" method="get">
                 <div id="addPart" align="center">
-                    <table id="add">
+                    <table id="add" class="table table-hover">
                         <tr>
                             <td>请输入车次</td>
                             <td>
@@ -21,8 +21,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><button type="submit">查询</button></td>
-                            <td><button type="button" onclick="cancel()">取消</button></td>
+                            <td><button class="btn btn-default" type="submit">查询</button></td>
+                            <td><button class="btn btn-default" type="button" onclick="cancel()">取消</button></td>
                         </tr>
                     </table>
                 </div>

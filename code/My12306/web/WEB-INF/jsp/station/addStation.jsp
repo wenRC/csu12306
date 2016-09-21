@@ -10,9 +10,9 @@
 <div id="content">
     <div id="body">
         <div id="right">
-            <form method="post" action="/newStation">
+            <form name="dbForm" method="post" action="/newStation">
                 <div id="addPart" align="center">
-                    <table id="add">
+                    <table class="table table-hover" id="add">
                         <tr>
                             <td>车站名</td>
                             <td><input name="stationName" class="input" /></td>
@@ -51,9 +51,9 @@
                             <td colspan="2">
                                 <table>
                                     <tr>
-                                        <td><button type="submit">提交</button></td>
-                                        <td><button type="reset">重置</button></td>
-                                        <td><button type="button" onclick="cancel()">取消</button></td>
+                                        <td><button class="btn btn-default" type="submit">提交</button></td>
+                                        <td><button class="btn btn-default" type="reset">重置</button></td>
+                                        <td><button class="btn btn-default" type="button" onclick="cancel()">取消</button></td>
                                 </table>
                             </td>
                         </tr>
@@ -66,6 +66,11 @@
 <script>
     function cancel(){
         window.location.href="/to?function=toHouTai";
+    }
+    function submitForm(){
+        if(confirm("确认新增车站?")){
+            document.dbForm.submit();
+        }
     }
 </script>
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp" %>

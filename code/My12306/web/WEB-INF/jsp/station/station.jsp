@@ -13,7 +13,7 @@
         <div id="right">
             <form name="dbForm" method="post" action="/updateStation?stationId=${sessionScope.station.stationId}">
                 <div id="addPart" align="center">
-                    <table id="add">
+                    <table class="table table-hover" id="add">
                         <tr>
                             <td>车站编号</td>
                             <td><input value="${sessionScope.station.stationId}" disabled="true"/></td>
@@ -56,9 +56,9 @@
                             <td colspan="2">
                                 <table>
                                     <tr>
-                                        <td><button type="submit">修改</button></td>
-                                        <td><button type="submit" onclick="btn_delete()">删除此车站</button></td>
-                                        <td><button type="button" onclick="cancel()">取消</button></td>
+                                        <td><button class="btn btn-default" type="button" onclick="formSubmit()">修改</button></td>
+                                        <td><button class="btn btn-default" type="button" onclick="btn_delete()">删除此车站</button></td>
+                                        <td><button class="btn btn-default" type="button" onclick="cancel()">取消</button></td>
                                 </table>
                             </td>
                         </tr>
@@ -69,8 +69,17 @@
     </div>
 </div>
 <script>
+    function formSubmit(){
+        if(confirm("确认修改信息无误?")){
+            document.dbForm.submit();
+        }
+    }
     function btn_delete(){
-        document.dbForm.action = "/delStation?stationId=${sessionScope.station.stationId}";
+        if(confirm("确认删除此车站信息?")){
+            document.dbForm.action = "/delStation?stationId=${sessionScope.station.stationId}";
+            document.dbForm.submit();
+        }
+
     }
     function cancel(){
         window.location.href="/to?function=toHouTai";

@@ -12,9 +12,9 @@
 <div id="content">
     <div id="body">
         <div id="right">
-            <form action="/updateDYDJ?dYDJId=${sessionScope.dYDJ.dYDJId}" method="post">
+            <form name="dbForm" action="/updateDYDJ?dYDJId=${sessionScope.dYDJ.dYDJId}" method="post">
                 <div id="addPart" align="center">
-                    <table id="add">
+                    <table id="add" class="table table-hover">
                         <tr>
                             <td>递远递减率编号</td>
                             <td><input value="${sessionScope.dYDJ.dYDJId}" disabled="true" /></td>
@@ -39,8 +39,8 @@
                             <td colspan="2">
                                 <table>
                                     <tr>
-                                        <td><button type="submit">修改</button></td>
-                                        <td><button type="button" onclick="cancel()">取消</button></td>
+                                        <td><button class="btn btn-default" type="button" onclick="formSubmit()">修改</button></td>
+                                        <td><button class="btn btn-default" type="button" onclick="cancel()">取消</button></td>
                                 </table>
                             </td>
                         </tr>
@@ -54,6 +54,11 @@
 <script>
     function cancel(){
         window.location.href="/to?function=toHouTai";
+    }
+    function formSubmit(){
+        if(confirm("确认修改？")){
+            document.dbForm.submit();
+        }
     }
 </script>
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp" %>

@@ -12,7 +12,7 @@
         <div id="right">
             <form name="dbForm" action="/updateLine?lineId=${sessionScope.line.lineId}" method="post">
                 <div id="addPart" align="center">
-                    <table id="add">
+                    <table id="add" class="table table-hover">
                         <tr>
                             <td>线路编号</td>
                             <td><input value="${sessionScope.line.lineId}" disabled="true" /></td>
@@ -40,9 +40,9 @@
                             <td colspan="2">
                                 <table>
                                     <tr>
-                                        <td><button type="submit">修改</button></td>
-                                        <td><button type="submit" onclick="btn_delete()">删除此线路</button></td>
-                                        <td><button type="button" onclick="cancel()">取消</button></td>
+                                        <td><button class="btn btn-default" type="button" onclick="formSubmit()">修改</button></td>
+                                        <td><button class="btn btn-default" type="button" onclick="btn_delete()">删除此线路</button></td>
+                                        <td><button class="btn btn-default" type="button" onclick="cancel()">取消</button></td>
                                 </table>
                             </td>
                         </tr>
@@ -54,10 +54,18 @@
 </div>
 <script>
     function btn_delete(){
-        document.dbForm.action = "/delLine?lineId=${sessionScope.line.lineId}";
+        if(confirm("确认删除此线路?")){
+            document.dbForm.action = "/delLine?lineId=${sessionScope.line.lineId}";
+            document.dbForm.submit();
+        }
     }
     function cancel(){
         window.location.href="/to?function=toHouTai";
+    }
+    function formSubmit(){
+        if(confirm("确认修改信息无误?")){
+            document.dbForm.submit();
+        }
     }
 </script>
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp" %>

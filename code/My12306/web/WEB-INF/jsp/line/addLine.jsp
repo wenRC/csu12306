@@ -10,9 +10,9 @@
 <div id="content">
     <div id="body">
         <div id="right">
-            <form action="/newLine" method="post">
+            <form action="/newLine" method="post" name="dbForm">
                 <div id="addPart" align="center">
-                    <table id="add">
+                    <table class="table table-hover" id="add">
                         <tr>
                             <td>车次代码</td>
                             <td><input name="trainId" class="input" /></td>
@@ -36,9 +36,9 @@
                             <td colspan="2">
                                 <table>
                                     <tr>
-                                        <td><button type="submit">提交</button></td>
-                                        <td><button type="reset">重置</button></td>
-                                        <td><button type="button" onclick="cancel()">取消</button></td>
+                                        <td><button class="btn btn-default" type="button" onclick="formSubmit()">提交</button></td>
+                                        <td><button class="btn btn-default" type="reset">重置</button></td>
+                                        <td><button class="btn btn-default" type="button" onclick="cancel()">取消</button></td>
                                 </table>
                             </td>
                         </tr>
@@ -51,6 +51,11 @@
 <script>
     function cancel(){
         window.location.href="/to?function=toHouTai";
+    }
+    function formSubmit(){
+        if(confirm("确认新增线路？")){
+            document.dbForm.submit();
+        }
     }
 </script>
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp" %>

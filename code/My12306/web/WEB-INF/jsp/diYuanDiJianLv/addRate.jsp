@@ -10,9 +10,9 @@
 <div id="content">
     <div id="body">
         <div id="right">
-            <form action="/newDYDJ" method="post">
+            <form id="dbForm" name="dbForm" action="/newDYDJ" method="post">
                 <div id="addPart" align="center">
-                    <table id="add">
+                    <table id="add" class="table table-hover">
                         <tr>
                             <td>里程区段From</td>
                             <td><input name="from"/></td>
@@ -33,9 +33,9 @@
                             <td colspan="2">
                                 <table>
                                     <tr>
-                                        <td><button type="submit">提交</button></td>
-                                        <td><button type="reset">重置</button></td>
-                                        <td><button type="button" onclick="cancel()">取消</button></td>
+                                        <td><button type="button" class="btn btn-default" onclick="formSubmit()" >提交</button></td>
+                                        <td><button type="reset" class="btn btn-default" >重置</button></td>
+                                        <td><button type="button" class="btn btn-default" onclick="cancel()">取消</button></td>
                                 </table>
                             </td>
                         </tr>
@@ -48,6 +48,11 @@
 <script>
     function cancel(){
         window.location.href="/to?function=toHouTai";
+    }
+    function formSubmit(){
+        if(confirm("是否确认新增信息无误？")){
+            document.getElementById("dbForm").submit();
+        }
     }
 </script>
 <%@ include file="/WEB-INF/jsp/common/IncludeBottom.jsp" %>
