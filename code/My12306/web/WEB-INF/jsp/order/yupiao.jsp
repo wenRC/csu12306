@@ -7,7 +7,7 @@
                 <input type="text" class="form-control" id="fromplace" name="fromplace" placeholder="出发地"/></div>
             <div class="form-group"><input type="text" class="form-control" id="toplace" name="toplace"
                                            placeholder="目的地"/></div>
-            <div class="form-group"><input type="date" class="form-control" id="date" placeholder="出发日"/></div>
+            <div class="form-group"><input type="date" class="form-control" id="date" name="date" placeholder="出发日"/></div>
             <input type="submit" class="btn btn-primary" value="查询"/>
         </form>
     </div>

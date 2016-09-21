@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by 温 睿诚 on 2016/9/19/0019.
@@ -28,7 +29,16 @@ public class SearchPiao extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         String from=req.getParameter("fromplace");
         String to=req.getParameter("toplace");
+        String date=req.getParameterMap().get("date")[0];
         ArrayList<YuPiao> yuPiaos=new GetPiaoWuAndYuPIaoService().getYuPiaoByStationName(from,to);
+        if(!(date==null||date.equals(""))){
+        Iterator<YuPiao> iterator=yuPiaos.iterator();
+        while (iterator.hasNext()){
+            String temp=iterator.next().getDate().toString();
+            if(!temp.equals(date)){
+                iterator.remove();
+            }
+        }}
         HttpSession session=req.getSession();
         session.setAttribute("yupiaos",yuPiaos);
         req.getRequestDispatcher(url).forward(req,resp);
